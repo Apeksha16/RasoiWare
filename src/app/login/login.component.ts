@@ -12,11 +12,12 @@ export class LoginComponent {
   constructor(private router: Router) { }
 
   login() {
-
     if (this.username === 'admin' && this.password === '123') {
       this.router.navigate(['/dashboard']);
     } else {
       alert('Invalid username or password');
     }
+    localStorage.setItem('adminName', this.username);
   }
+
 }

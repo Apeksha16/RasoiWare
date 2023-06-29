@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -14,7 +13,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from './shared/shared.module';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { environment } from 'src/enivronments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +29,12 @@ import { SharedModule } from './shared/shared.module';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    FlexLayoutModule,
     FormsModule,
     RouterModule,
     MatIconModule,
-    SharedModule
+    SharedModule,
+    MatToolbarModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
