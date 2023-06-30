@@ -1,13 +1,13 @@
 export const environment = {
     production: false,
     firebase: {
-        apiKey: "AIzaSyAToN_tAQgGsRBq1V9KnO7BN5tem-gdrBY",
-        authDomain: "rasoiware-cc88e.firebaseapp.com",
-        projectId: "rasoiware-cc88e",
-        storageBucket: "rasoiware-cc88e.appspot.com",
-        messagingSenderId: "759310469045",
-        appId: "1:759310469045:web:b1e8abfc10f7f7c817fbfc",
-        measurementId: "G-CK86CGG5JX"
+      apiKey: "AIzaSyDZp5pZ5JGXLs-7wY4ruLR8kVvmVoTWRTs",
+      authDomain: "testing-d22ee.firebaseapp.com",
+      projectId: "testing-d22ee",
+      storageBucket: "testing-d22ee.appspot.com",
+      messagingSenderId: "163405558910",
+      appId: "1:163405558910:web:b2c57042eaa9a744a1542f",
+      measurementId: "G-DKRJT61Y3V"
     }
 
 };

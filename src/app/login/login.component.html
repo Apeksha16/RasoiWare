@@ -1,26 +1,26 @@
 <div fxHeight="100vh" fxWidth="100vw" fxLayout="row" style="overflow: hidden;">
-    <div fxHeight="100%" fxWidth="35%">
-        <img src="assets/login.png" alt="Logo" class="login-image" fxHeight="100%" fxWidth="100%">
-    </div>
+  <div fxHeight="100%" fxWidth="35%">
+    <img src="assets/login.png" alt="Logo" class="login-image" fxHeight="100%" fxWidth="100%">
+  </div>
 
-    <div fxHeight="100%" fxWidth="65%" class="grey-background" fxAlign="center center">
-        <mat-card fxWidth="50%" fxLayout="column" fxAlign="center center">
-            <mat-card-header>
-                <mat-card-title style="font-size: 26px;" layout="m-14">Login</mat-card-title>
-            </mat-card-header>
-            <mat-card-content fxLayout="column" layout="m-t-10" fxWidth="70%">
-                <mat-form-field appearance="outline">
-                    <mat-label>Enter Username</mat-label>
-                    <input matInput placeholder="Username" [(ngModel)]="username">
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Enter Password</mat-label>
-                    <input matInput type="password" placeholder="Password" [(ngModel)]="password">
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button color="primary" (click)="login()" layout="m-14">Login</button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
+  <div fxHeight="100%" fxWidth="65%" class="grey-background" fxAlign="center center">
+    <mat-card fxWidth="50%" fxLayout="column" fxAlign="center center">
+      <mat-card-header>
+        <mat-card-title style="font-size: 26px;" layout="m-14">Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column" layout="m-t-10" fxWidth="70%">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Username</mat-label>
+          <input matInput placeholder="Username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Password</mat-label>
+          <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onAdd()" layout="m-14">Login</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
