@@ -1,48 +1,41 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+// import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Injectable({
   providedIn: 'root'
 })
 export class GatewayService {
 
+  // private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private fireauth: AngularFireAuth, private router: Router) { }
 
-  login(email: string, password: string) {
-    this.fireauth.signInWithEmailAndPassword(email, password).then((res:any) => {
-      if (res.user.auth.currentUser)
-      {
-        console.log(res.user.auth.currentUser.accessToken);
-        localStorage.setItem('accessToken', res.user.auth.currentUser.accessToken);
-        this.router.navigate(['dashboard']);
-        }
+  // login(email: string, password: string) {
+  //   return this.fireauth.signInWithEmailAndPassword(email, password);
+  // }
 
-      console.log(res);
-
-    }, err => {
-      alert(err.message);
-      // this.router.navigate(['/login']);
-    })
-  }
-
-  register(email: string, password: string) {
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
-      alert('Registration Successful');
-      this.router.navigate(['/login']);
-    }, err => {
-      alert(err.message);
-      this.router.navigate(['/register']);
-    })
-  }
-  logout() {
-    this.fireauth.signOut().then(() => {
-      localStorage.removeItem('token');
-      this.router.navigate(['/login']);
-    }, err => {
-      alert(err.message);
-    }
-    )
-  }
+  // register(email: string, password: string) {
+  //   this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
+  //     alert('Registration Successful');
+  //     this.router.navigate(['/login']);
+  //   }, err => {
+  //     alert(err.message);
+  //     this.router.navigate(['/register']);
+  //   })
+  // }
+  // logout() {
+  //   this.fireauth.signOut().then(() => {
+  //     this.setLogIn = true;
+  //     localStorage.removeItem('token');
+  //     this.router.navigate(['/login']);
+  //   }, err => {
+  //     alert(err.message);
+  //   }
+  //   )
+  // }
 
 
 }

@@ -4,35 +4,42 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/Utils/shared.module';
 import { GatewayService } from 'src/app/Utils/gateway.service';
+import { AuthService } from 'src/app/Utils/auth.service';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  imports:[MatCardModule, MatFormFieldModule, FormsModule,CommonModule, ReactiveFormsModule, SharedModule,MatButtonModule, MatInputModule],
+  imports:[MatCardModule, MatFormFieldModule, FormsModule,CommonModule, ReactiveFormsModule, SharedModule,MatButtonModule, MatInputModule, MatSnackBarModule],
   styleUrls: ['./login.component.css'],
 
   standalone:true
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  username: string = 'apeksha16verma@gmail.com';
+  password: string = 'apeksha';
 
-  constructor(private router: Router, private gateway:GatewayService) { }
+  constructor(private router: Router, private auth:AuthService, private _snack:MatSnackBar) { }
 
   login() {
-    // if (this.username === 'admin' && this.password === '123') {
-    //   this.router.navigate(['/dashboard']);
-    // } else {
-    //   alert('Invalid username or password');
-    // }
-    this.gateway.login(this.username, this.password);
-
-
+    this.auth.login(this.username, this.password).then((res:any)=> {
+      if (res.user.auth.currentUser)
+      {
+        localStorage.setItem('accessToken', res.user.auth.currentUser.accessToken);
+        this.auth.setIsLoginState = true;
+        this.router.navigate(['/dashboard']);
+        }
+    }, err => {
+      this._snack.open(err.message,'',{
+        duration:1000
+      })
+    })
   }
 }

@@ -96,9 +96,13 @@ export class FlexDirective implements OnInit {
       this.renderer.setStyle(this.elementRef.nativeElement, 'flex-wrap', 'nowrap');
     }
   }
-  applyWidthOrHeight(align: string, value: string | undefined)
+  applyWidthOrHeight(type: string, value: string | undefined)
   {
-    this.renderer.setStyle(this.elementRef.nativeElement, align, value);
+    if (value?.includes(' - ')) {
+    this.renderer.setStyle(this.elementRef.nativeElement, type, 'calc(' + value + ')');
+    }
+    else
+    this.renderer.setStyle(this.elementRef.nativeElement, type, value);
   }
 }
 

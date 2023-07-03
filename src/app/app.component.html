@@ -1,1 +1,28 @@
-<router-outlet></router-outlet>
+<ng-container *ngIf="checkIsLogin; else loginTemplate">
+  <mat-toolbar color="primary" fxGap="1">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Rasoiware</span>
+    <button mat-icon-button>
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-drawer-container fxHeight="100% - 64px" fxWidth="100%" autosize>
+    <mat-drawer #drawer mode="side">
+      <p>Auto-resizing sidenav</p>
+    </mat-drawer>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-drawer-container>
+
+</ng-container>
+
+<ng-template #loginTemplate>
+  <router-outlet></router-outlet>
+</ng-template>
