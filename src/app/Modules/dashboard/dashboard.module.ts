@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import { SharedModule } from 'src/app/Utils/shared.module';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     DashboardComponent
@@ -13,6 +14,7 @@ import { SharedModule } from 'src/app/Utils/shared.module';
     CommonModule,
     SharedModule,
     MatCardModule,
+    MatIconModule,
     MatMenuModule,
     DashboardRoutingModule
   ]

@@ -2,14 +2,9 @@
 
 html,
 body {
-  height: 100%;
-}
-
-body {
+  height: 100vh;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-
-
 }
 
 h1,
@@ -30,4 +25,12 @@ div {
 
 .mat-typography {
   font-family: 'Poppins', sans-serif;
+}
+
+.round {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }

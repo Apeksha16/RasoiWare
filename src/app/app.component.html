@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Rasoiware</span>
+    <span>Dummy Project</span>
     <button mat-icon-button>
       <mat-icon>favorite</mat-icon>
     </button>
@@ -15,10 +15,9 @@
     <mat-drawer #drawer mode="side" [opened]="true">
       <app-sidenav></app-sidenav>
     </mat-drawer>
-    <div>
+    <mat-drawer-content [ngStyle]="{'background-color':'#e9ecef'}">
       <router-outlet></router-outlet>
-    </div>
-
+    </mat-drawer-content>
   </mat-drawer-container>
 
 </ng-container>
