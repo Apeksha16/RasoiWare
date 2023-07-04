@@ -10,9 +10,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SharedModule } from './Utils/shared.module';
+import { SidenavComponent } from './Components/sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

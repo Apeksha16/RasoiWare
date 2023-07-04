@@ -12,8 +12,8 @@
     </button>
   </mat-toolbar>
   <mat-drawer-container fxHeight="100% - 64px" fxWidth="100%" autosize>
-    <mat-drawer #drawer mode="side">
-      <p>Auto-resizing sidenav</p>
+    <mat-drawer #drawer mode="side" [opened]="true">
+      <app-sidenav></app-sidenav>
     </mat-drawer>
     <div>
       <router-outlet></router-outlet>

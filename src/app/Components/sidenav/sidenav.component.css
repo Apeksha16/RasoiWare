@@ -1,0 +1,12 @@
+.material-icon {
+  width: 24px;
+  height: 24px;
+  color: #000;
+  transition: color 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.material-icon:hover {
+  color: #2f00ff;
+}
