@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SharedModule } from './Utils/shared.module';
 import { SidenavComponent } from './Components/sidenav/sidenav.component';
+import { FirebaseAppModule } from '@angular/fire/app';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { SidenavComponent } from './Components/sidenav/sidenav.component';
     MatSidenavModule,
     BrowserAnimationsModule,
     SharedModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FirebaseAppModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,8 +23,8 @@ import { AuthService } from 'src/app/Utils/auth.service';
   standalone:true
 })
 export class LoginComponent {
-  username: string = 'apeksha16verma@gmail.com';
-  password: string = 'apeksha';
+  username: string = 'pranavkatiyar@gmail.com';
+  password: string = 'pranav';
 
   constructor(private router: Router, private auth:AuthService, private _snack:MatSnackBar) { }
 

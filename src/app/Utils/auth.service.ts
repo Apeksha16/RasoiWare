@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { getFirestore,doc, getDoc } from "firebase/firestore";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +11,9 @@ export class AuthService {
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLogObserver$: Observable<boolean> = this.isLoggedIn.asObservable();
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) {
-
+  constructor(public afAuth: AngularFireAuth,
+    private router: Router,
+    ) {
     const userSession = localStorage.getItem('accessToken') || '';
     if (userSession.length) {
       this.setIsLoginState = true;
