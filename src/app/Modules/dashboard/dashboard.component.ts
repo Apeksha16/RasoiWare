@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Utils/auth.service';
 import { getFirestore,doc, getDoc, setDoc, updateDoc, collection } from "firebase/firestore";
+import { DashboardService } from './dashboard.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit {
   dashboardCards: any[] = [];
 
   constructor(
-    private auth :AuthService
+    private auth: AuthService,
+    private dashService:DashboardService
   ) {
   }
 
@@ -55,14 +57,21 @@ export class DashboardComponent implements OnInit {
 
 
   async readData() {
-    const docRef = doc(getFirestore(), "dashboard",'JfGpvxbax0Mgxr6Dq4ja');
-    const collection = await getDoc(docRef);
-    console.log(collection.data());
-    const response:any = collection.data();
-    this.dashboardCards[0].value = response.activeProducts;
-    this.dashboardCards[1].value = response.usersCount;
-    this.dashboardCards[2].value = response.thresHoldProducts;
-    this.dashboardCards[3].value = response.todayOrderCount;
+    // const docRef = doc(getFirestore(), "dashboard",'JfGpvxbax0Mgxr6Dq4ja');
+    // const collection = await getDoc(docRef);
+    // console.log(collection.data());
+    // const response:any = collection.data();
+    // this.dashboardCards[0].value = response.activeProducts;
+    // this.dashboardCards[1].value = response.usersCount;
+    // this.dashboardCards[2].value = response.thresHoldProducts;
+    // this.dashboardCards[3].value = response.todayOrderCount;
+
+    this.dashService.getCardsData().then((res) => {
+      console.log(res);
+    }).catch((e) => {
+      console.log(e)
+    })
+
   }
  async onClick() {
 
