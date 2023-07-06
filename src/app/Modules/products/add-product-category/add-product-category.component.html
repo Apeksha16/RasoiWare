@@ -1,0 +1,29 @@
+<h2 layout="m-10">Add Product Category</h2>
+<div fxHeight="100% - 20px" fxWidth="100% - 20px" layout="m-10" fxLayout="row">
+
+    <div class="left-container" fxWidth="50%" layout="m-16" fxHeight="90%">
+
+        <mat-form-field appearance="outline" fxWidth="100%" layout="m-10">
+            <mat-label>Category Name</mat-label>
+            <input matInput placeholder="Enter Product Category">
+            <mat-hint>Do not exceed 20 characters when entering the product category.</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Sub Category Name</mat-label>
+            <mat-chip-grid #chipGrid>
+                <mat-chip-row *ngFor="let subcategory of subcategories" (removed)="remove(subcategory)"
+                    [editable]="true" (edited)="edit(subcategory, $event)"
+                    [aria-description]="'press enter to edit ' + subcategory.name">
+                    {{subcategory.name}}
+                    <button matChipRemove [attr.aria-label]="'remove ' + subcategory.name">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip-row>
+                <input placeholder="New Sub Category..." [matChipInputFor]="chipGrid"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)" />
+            </mat-chip-grid>
+        </mat-form-field>
+
+    </div>
