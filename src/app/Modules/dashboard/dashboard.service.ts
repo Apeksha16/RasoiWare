@@ -11,14 +11,27 @@ export class DashboardService {
   constructor(){}
 
   async getCardsData() {
-    // const docRef = doc(getFirestore(), "dashboard",'JfGpvxbax0Mgxr6Dq4ja');
-    // const collection = await getDoc(docRef);
-    // return collection.data();
+    const docRef = doc(getFirestore(), "dashboard",'cards');
+    const collection = await getDoc(docRef);
+    return collection.data();
+  }
 
-    const dashboardCollectionRef = collection(this.fireStore, 'dashboard');
+  async getAllDataFromCollection() {
+       const dashboardCollectionRef = collection(this.fireStore, 'dashboard');
     const querySnapshot: QuerySnapshot<any> = await getDocs(dashboardCollectionRef);
-    const documentIds: string[] = querySnapshot.docs.map((doc) => doc.id);
+    const documentIds: string[] = querySnapshot.docs.map((doc) => doc.data());
     return documentIds;
   }
+
+
+
+
+
+  // getDocumentIdsFromCollection() {
+  //   const dashboardCollectionRef = collection(this.fireStore, 'dashboard');
+  //   const querySnapshot: QuerySnapshot<any> = await getDocs(dashboardCollectionRef);
+  //   const documentIds: string[] = querySnapshot.docs.map((doc) => doc.id);
+  //   return documentIds;
+  // }
 
 }

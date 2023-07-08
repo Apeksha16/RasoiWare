@@ -47,8 +47,8 @@ export class DashboardComponent implements OnInit {
     //     clearInterval(interval);
     //   }
     // }, 1)
-
-    // this.readData();
+    this.getAll();
+    this.readData();
   }
 
 
@@ -61,18 +61,28 @@ export class DashboardComponent implements OnInit {
     // const collection = await getDoc(docRef);
     // console.log(collection.data());
     // const response:any = collection.data();
-    // this.dashboardCards[0].value = response.activeProducts;
-    // this.dashboardCards[1].value = response.usersCount;
-    // this.dashboardCards[2].value = response.thresHoldProducts;
-    // this.dashboardCards[3].value = response.todayOrderCount;
 
-    this.dashService.getCardsData().then((res) => {
-      console.log(res);
+
+    this.dashService.getCardsData().then((response:any) => {
+      this.dashboardCards[0].value = response.activeProducts;
+      this.dashboardCards[1].value = response.usersCount;
+      this.dashboardCards[2].value = response.thresHoldProducts;
+      this.dashboardCards[3].value = response.todayOrderCount;
     }).catch((e) => {
       console.log(e)
     })
 
   }
+
+  async getAll() {
+    this.dashService.getAllDataFromCollection().then((res: any) => {
+      console.log(res);
+    }).catch((e: any) => {
+      console.log(e)
+    })
+  }
+
+
  async onClick() {
 
     const collect = collection(getFirestore(), 'dashboard');
