@@ -46,8 +46,12 @@ export class DashboardComponent implements OnInit {
     //   }
     // }, 1)
 
-    this.readData();
+    // this.readData();
   }
+
+
+
+
 
 
   async readData() {

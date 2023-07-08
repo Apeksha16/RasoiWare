@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class SidenavComponent {
 
-  iconList: string[] = ['home', 'apps', 'terminal', 'dataset', 'output', 'select_all', 'recommend','delete'];
+  iconList: string[] = ['home','conveyor_belt', 'apps', 'terminal', 'dataset', 'output', 'select_all', 'recommend','delete'];
 
 }
