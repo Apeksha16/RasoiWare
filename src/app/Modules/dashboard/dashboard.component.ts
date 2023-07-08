@@ -47,8 +47,8 @@ export class DashboardComponent implements OnInit {
     //     clearInterval(interval);
     //   }
     // }, 1)
-    this.getAll();
-    this.readData();
+
+    // this.readData();
   }
 
 
