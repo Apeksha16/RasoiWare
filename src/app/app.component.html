@@ -1,5 +1,8 @@
+<div *ngIf="loading |async">
+  <app-loader></app-loader>
+</div>
 <ng-container *ngIf="checkIsLogin; else loginTemplate">
-  <mat-toolbar color="primary" fxGap="1">
+  <mat-toolbar [ngStyle]="{'background-color':'#4285F4','color':'#fff'}" fxGap="1">
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -12,16 +15,15 @@
     </button>
   </mat-toolbar>
   <mat-drawer-container fxHeight="100% - 64px" fxWidth="100%" autosize>
-    <mat-drawer #drawer mode="side" [opened]="true">
+    <mat-drawer #drawer mode="side" [opened]="true" [ngStyle]="{'background-color':'#f3f3f3'}">
       <app-sidenav></app-sidenav>
     </mat-drawer>
-    <mat-drawer-content [ngStyle]="{'background-color':'#e9ecef'}">
+    <mat-drawer-content [ngStyle]="{'background-color':'#fff'}">
       <router-outlet></router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>
 
 </ng-container>
-
 <ng-template #loginTemplate>
   <router-outlet></router-outlet>
 </ng-template>

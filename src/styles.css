@@ -34,3 +34,25 @@ div {
     'GRAD' 0,
     'opsz' 48
 }
+
+*::-webkit-scrollbar {
+  width: 0px !important;
+  background-color: white !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  width: 0px !important;
+  background-color: whitesmoke !important;
+  border-radius: 0px !important;
+}
+
+*::-webkit-scrollbar:horizontal {
+  width: 0px !important;
+  background-color: white !important;
+}
+
+*::-webkit-scrollbar-thumb:horizontal {
+  width: 0px !important;
+  background-color: whitesmoke !important;
+  border-radius: 0px;
+}

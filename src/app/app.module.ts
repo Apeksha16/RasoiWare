@@ -12,6 +12,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { SharedModule } from './Utils/shared.module';
 import { SidenavComponent } from './Components/sidenav/sidenav.component';
 import { FirebaseAppModule } from '@angular/fire/app';
+import { LoaderComponent } from './Components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FirebaseAppModule } from '@angular/fire/app';
     SidenavComponent,
   ],
   imports: [
+    LoaderComponent,
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,

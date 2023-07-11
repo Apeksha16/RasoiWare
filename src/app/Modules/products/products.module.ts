@@ -11,31 +11,34 @@ import { NgFor } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { AddProductCategoryComponent } from './add-product-category/add-product-category.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-
+import {MatDividerModule} from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     ProductsComponent,
     AddProductComponent,
-    AddProductCategoryComponent
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
+    ProductsRoutingModule,
     SharedModule,
     MatInputModule,
     MatFormFieldModule,
-    NgFor,
     MatSelectModule,
-    FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatDividerModule,
     MatChipsModule,
-
+    MatCheckboxModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class ProductsModule { }

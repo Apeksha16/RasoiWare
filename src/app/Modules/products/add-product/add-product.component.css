@@ -1,7 +1,32 @@
-.white-background .mat-input-element {
-    background-color: #fff;
+.border {
+  border: 2px solid red;
 }
 
-.white-background .mat-input-element {
-    background-color: #fff !important;
+.divider {
+  height: 90%;
+  width: 4px;
+  background-color: rgba(89, 0, 255);
+  margin: 16px 0;
+  position: relative;
+}
+
+.imagePicker {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border: 2px dashed grey;
+  cursor: pointer;
+}
+
+.file-upld-txt {
+  font-weight: 900;
+  color: grey;
+}
+
+.left-container {
+  overflow-y: auto;
+}
+
+.right-container {
+  overflow-y: auto;
 }

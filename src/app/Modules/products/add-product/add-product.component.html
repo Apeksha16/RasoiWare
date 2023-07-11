@@ -1,142 +1,89 @@
-<h2 layout="m-10">Add Product</h2>
-<div fxHeight="100% - 20px" fxWidth="100% - 20px" layout="m-10" fxLayout="row">
+<div fxHeight="100% - 20px" fxWidth="100% - 20px" layout="m-10" class="">
+  <div fxAlign="space-between center">
+    <h2>Add Product</h2>
+  </div>
+  <form [formGroup]="productForm" fxHeight="100% - 35px" fxLayout="row" fxAlign="space-between center">
+    <div layout="p-l-10 p-b-10 p-t-10 p-r-20" fxHeight="100% - 20px" fxWidth="60%" class="left-container"
+      fxLayout="column">
+      <mat-form-field appearance="outline" fxWidth="50%">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter Product Name" (input)="onInputChange($event)"
+          (paste)="onPaste($event)">
+      </mat-form-field>
+      <div fxWidth="100%" fxAlign="start center" fxGap="2">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Category</mat-label>
+          <mat-select formControlName="category" (selectionChange)="onSelectCategory($event)">
+            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Sub-Category</mat-label>
+          <mat-select formControlName="subCategory" (selectionChange)=" onSelectSubCategory($event)">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{subCategory}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxWidth="100%" fxAlign="space-between center" fxGap="2">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter MRP</mat-label>
+          <input matInput formControlName="mrp" placeholder="Enter MRP">
+        </mat-form-field>
+        <div layout="m-b-22" fxWidth="35%" fxAlign="center center">
+          <mat-checkbox color="primary" formControlName="isDiscount" (change)="changeInDiscount($event)">Add
+            Discount</mat-checkbox>
+        </div>
+        <mat-form-field fxWidth="25%" appearance="outline">
+          <mat-label>Discount (%)</mat-label>
+          <input matInput placeholder="Discount" formControlName="discount">
+        </mat-form-field>
+        <mat-form-field fxWidth="20%" appearance="outline">
+          <mat-label>Final Amount</mat-label>
+          <input matInput readonly="true" value="200" placeholder="Discount">
+        </mat-form-field>
+      </div>
+      <div fxWidth="100%" fxAlign="start center" fxGap="2">
 
-    <div class="left-container" fxWidth="50%" layout="m-16" fxHeight="90%">
-
-        <mat-form-field appearance="outline" fxWidth="100%">
-            <mat-label>Product Name</mat-label>
-            <input matInput placeholder="Enter Product Name">
-            <mat-hint>Do not exceed 20 characters when entering the product name.</mat-hint>
+        <mat-form-field appearance="outline">
+          <mat-label>Brand</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+          </mat-select>
         </mat-form-field>
 
-        <div fxLayout="row" fxGap="2">
-            <div fxWidth="50%" fxLayout="column">
-                <h4 layout="m-10">Category</h4>
-                <mat-form-field>
-                    <mat-label>Select Category</mat-label>
-                    <mat-select>
-                        <mat-option>None</mat-option>
-                        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
+        <mat-form-field fxWidth="20%" appearance="outline">
+          <mat-label>Stock</mat-label>
+          <input matInput placeholder="Stock" formControlName="stock">
+        </mat-form-field>
+      </div>
 
-            <div fxWidth="50%" fxLayout="column">
-                <h4 layout="m-10">Sub-Category</h4>
-                <mat-form-field>
-                    <mat-label>Select Sub-Category</mat-label>
-                    <mat-select>
-                        <mat-option>None</mat-option>
-                        <mat-option *ngFor="let subCategory of subCategories"
-                            [value]="subCategory">{{subCategory}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div fxLayout="row" fxGap="2">
-            <div fxWidth="50%" fxLayout="column">
-                <mat-form-field>
-                    <mat-label>Enter MRP</mat-label>
-                    <input matInput placeholder="Enter MRP">
-                </mat-form-field>
-            </div>
-
-            <div fxWidth="50%" fxLayout="column">
-                <mat-form-field>
-                    <mat-label>Enter Discount Percent</mat-label>
-                    <input matInput placeholder="Enter Discount Percent">
-                </mat-form-field>
-            </div>
-
-
-            <div fxWidth="50%" fxLayout="column">
-                <mat-form-field>
-                    <mat-label>Stock Number</mat-label>
-                    <input matInput placeholder="Enter the numer of stock">
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div fxLayout="row" fxGap="2">
-            <div fxWidth="50%" fxLayout="column">
-                <h4 layout="m-10">Gender</h4>
-                <mat-form-field>
-                    <mat-label>Select Gender</mat-label>
-                    <mat-select>
-                        <mat-option>None</mat-option>
-                        <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-            <div fxWidth="50%" fxLayout="column">
-                <h4 layout="m-10">Brand</h4>
-                <mat-form-field>
-                    <mat-label>Select Brand</mat-label>
-                    <mat-select>
-                        <mat-option>None</mat-option>
-                        <mat-option *ngFor="let brand of brands" [value]="brand">{{brand}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-            <div fxWidth="50%" fxLayout="column">
-                <h4 layout="m-10">Size</h4>
-                <mat-form-field>
-                    <mat-label>Select Size</mat-label>
-                    <mat-select>
-                        <mat-option>None</mat-option>
-                        <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-        </div>
-
-        <div fxWidth="100%" fxLayout="column">
-            <mat-form-field>
-                <mat-label>Keywords</mat-label>
-                <input matInput placeholder="Enter keywords">
-            </mat-form-field>
-
-        </div>
-
-        <div fxWidth="100%" fxLayout="column">
-            <h4 layout="m-10">Description</h4>
-            <mat-form-field>
-                <mat-label>Enter Description</mat-label>
-                <textarea matInput placeholder="Product Description" rows="4"></textarea>
-                <mat-hint>Do not exceed 500 characters when entering the product description.</mat-hint>
-
-            </mat-form-field>
-        </div>
+      <mat-form-field fxWidth="100%" appearance="outline">
+        <mat-label>Enter Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Product Description" rows="4"></textarea>
+      </mat-form-field>
     </div>
-
-    <div class="right-container" fxWidth="50%" layout="m-16" fxHeight="90%">
-
-        <div fxAlign="end center" fxWidth="100%">
-            <button mat-raised-button color="primary">Add Category</button>
+    <div class="divider"></div>
+    <div layout="p-l-20 p-b-10 p-t-10 p-r-10" fxHeight="100% - 20px" fxWidth="40%" class="right-container"
+      fxLayout="column" fxAlign="space-between start">
+      <div fxLayout="column" fxWidth="100%">
+        <div layout="m-b-22" (click)="productImg.click()" class="imagePicker" fxLayout="column" fxAlign="center center">
+          <span class="file-upld-txt">Upload</span>
+          <span class="file-upld-txt">Product Image</span>
+          <input type="file" accept="image/*" (change)="onFileChange($event)" multiple name="product" id="product"
+            #productImg hidden>
         </div>
-
-        <h4>Product Images</h4>
-        <div fxLayout="column">
-            <div fxWidth="50%" fxLayout="column" layout="m-16" fxHeight="250px" fxWidth="650px">
-                <img src="assets/imageUpload.png" alt="Upload Image">
-            </div>
-
-            <div>
-                <h4 layout="m-10">Specifications</h4>
-                <mat-form-field fxWidth="100%">
-                    <mat-label>Enter Specifications</mat-label>
-                    <textarea matInput placeholder="Product Specification" rows="4"></textarea>
-                    <mat-hint>Do not exceed 500 characters when entering the product speficiations.</mat-hint>
-
-                </mat-form-field>
-            </div>
-            <div layout="m-6" fxAlign="end center" fxWidth="100%">
-                <button mat-raised-button color="primary">Save Product</button>
-            </div>
-        </div>
-
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Specifications</mat-label>
+          <textarea matInput formControlName="specifications" placeholder="Product Specification" rows="4"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxWidth="100%" fxGap="4" fxAlign="end center">
+        <button color="primary" mat-stroked-button routerLink="/products">Back</button>
+        <button color="primary" mat-raised-button type="submit" (click)="onSubmit()">Save Product</button>
+      </div>
     </div>
+  </form>
+
+</div>

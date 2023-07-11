@@ -48,7 +48,9 @@ export class DashboardComponent implements OnInit {
     //   }
     // }, 1)
 
-    // this.readData();
+    setTimeout(() => {
+      this.readData();
+    }, 1);
   }
 
 
@@ -57,12 +59,6 @@ export class DashboardComponent implements OnInit {
 
 
   async readData() {
-    // const docRef = doc(getFirestore(), "dashboard",'JfGpvxbax0Mgxr6Dq4ja');
-    // const collection = await getDoc(docRef);
-    // console.log(collection.data());
-    // const response:any = collection.data();
-
-
     this.dashService.getCardsData().then((response:any) => {
       this.dashboardCards[0].value = response.activeProducts;
       this.dashboardCards[1].value = response.usersCount;

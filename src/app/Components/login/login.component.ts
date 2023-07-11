@@ -11,6 +11,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/Utils/shared.module';
 import { AuthService } from 'src/app/Utils/auth.service';
+import { GatewayService } from 'src/app/Utils/gateway.service';
 
 
 @Component({
@@ -25,14 +26,21 @@ export class LoginComponent {
   username: string = 'pranavkatiyar@gmail.com';
   password: string = 'pranav';
 
-  constructor(private router: Router, private auth: AuthService, private _snack: MatSnackBar) { }
+  constructor(
+    private router: Router,
+    private auth: AuthService,
+    private _snack: MatSnackBar,
+    private gatewayService:GatewayService
+  ) { }
 
   login() {
+    this.gatewayService.setLoading(true);
     this.auth.login(this.username, this.password).then((res: any) => {
+    this.gatewayService.setLoading(false);
       if (res.user.auth.currentUser) {
         localStorage.setItem('accessToken', res.user.auth.currentUser.accessToken);
         this.auth.setIsLoginState = true;
-        this.router.navigate(['/products']);
+        this.router.navigate(['/dashboard']);
       }
     }, err => {
       this._snack.open(err.message, '', {
