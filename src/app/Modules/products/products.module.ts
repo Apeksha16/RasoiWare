@@ -17,6 +17,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatBadgeModule } from '@angular/material/badge';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatChipsModule,
     MatCheckboxModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatBadgeModule,
+    MatTooltipModule
   ]
 })
 export class ProductsModule { }

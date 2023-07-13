@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from '../products.service';
+import { GatewayService } from 'src/app/Utils/gateway.service';
 
 @Component({
   selector: 'app-add-product',
@@ -35,11 +36,16 @@ export class AddProductComponent {
   ];
 
   public productForm: FormGroup;
+  public productImages: any[] = [];
+  private productImgLink: string[] = [];
+  public prdouctId: string = '';
+  public isAllImagesUploaded: boolean = false;
 
   constructor(
     private productService: ProductsService,
     private fb: FormBuilder,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private loading:GatewayService
   ) {
     this.fetchAllCategory();
 
@@ -47,26 +53,14 @@ export class AddProductComponent {
       name: ['', Validators.required],
       category: ['', Validators.required],
       subCategory: ['', Validators.required],
-      mrp: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
+      mrp: ['', Validators.required],
       isDiscount: [false, Validators.required],
       discount: [{ value: '', disabled: true }, Validators.compose([Validators.pattern('^[1-9][0-9]{0,2}$'), Validators.min(1), Validators.max(1000)])],
-      stock: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')])],
+      stock: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       description: ['', Validators.required],
-      images: [null, [Validators.required, this.validateImageFiles]],
+      images: [[],Validators.required],
       specifications: ['', Validators.required]
     });
-
-    // this.productForm.get('isDiscount')?.valueChanges.subscribe(checked => {
-    //   const numericFieldControl:FormControl = this.productForm.get('isDiscount') as FormControl;
-    //   if (checked) {
-    //     numericFieldControl.enable();
-    //     numericFieldControl.setValidators([Validators.required]);
-    //   } else {
-    //     numericFieldControl.disable();
-    //     numericFieldControl.clearValidators();
-    //   }
-    //   numericFieldControl.updateValueAndValidity();
-    // });
 
   }
   changeInDiscount(_event: any) {
@@ -88,10 +82,11 @@ export class AddProductComponent {
     console.log(this.productForm);
   }
 
-  onInputChange(event: any): void {
-    const input = event.target.value;
-    const cleanedInput = this.removeSpecialCharacters(input);
-    event.target.value = cleanedInput;
+  onInputChange(event: any) {
+    const inputElement = event.target;
+    const initialValue = inputElement.value;
+    const numericValue = initialValue.replace(/[^0-9]/g, '');
+    inputElement.value = numericValue;
   }
 
   onPaste(event: ClipboardEvent): void {
@@ -104,33 +99,67 @@ export class AddProductComponent {
     event.preventDefault();
   }
 
-  removeSpecialCharacters(input: any): string {
-    return input.replace(/[^a-zA-Z0-9_\s%]/g, '');
+  removeSpecialCharacters(event: any) {
+    const inputElement = event.target;
+    const initialValue = inputElement.value;
+    const numericValue = initialValue.replace(/[^a-zA-Z0-9_\s%]/g, '');
+    inputElement.value = numericValue;
   }
 
   onFileChange(event: any): void {
-    const files = event.target.files;
-    this.productForm.patchValue({ imageFiles: files });
+    const files:any[] = Array.from(event.files).slice(0,10);
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    const maxSizeInBytes = 300 * 1024; // 300KB
+    this.productImages = [];
+    for (let i = 0; i < files.length; i++)
+    {
+      if (allowedTypes.includes(files[i].type) && files[i].size < maxSizeInBytes)
+      {
+        this.productImages.push(files[i]);
+        }
+    }
+  }
+  onRemoveFile() {
+    this.productImages.splice(0, 1);
+    console.log(this.productImages[0]);
+  }
+  async onUploadImage() {
+    const response = this.generatePrdId();
+    if (response.status)
+    {
+      if (!this.prdouctId.length) {
+        this.prdouctId = response.message;
+      }
+      this.productImages.forEach(async(x: File) => {
+        this.loading.setLoading(true);
+        this.productImgLink.push(await this.productService.uploadImages(this.prdouctId, x));
+        this.loading.setLoading(false);
+        if (this.productImages.length === this.productImgLink.length) {
+          this.isAllImagesUploaded = true;
+          this.productForm.patchValue({images:this.productImgLink});
+        }
+      })
+    }
   }
 
-  validateImageFiles(control: FormControl): { [key: string]: any } | null {
-    const files:any[] = control.value;
-    if (files && files.length > 5) {
-      return { maxFiles: true };
+  generatePrdId() {
+    if (this.productForm.get('name')?.status != 'VALID') {
+      return {
+        status: false,
+        message:'Please enter valid Product Name.'
+      }
     }
-    if (control.value != null && control.value != undefined)
-    {
-      for (const file of files) {
-        if (!file.type.startsWith('image/')) {
-          return { fileType: true };
-        }
-        if (file.size > 1048576) {
-          return { fileSize: true };
-        }
-      }
-      }
-    return null;
+    else {
+        const timeStamp = Date.now().toString().padStart(12,'0').slice(0,12);
+        const prdName = this.productForm.get('name')?.value.padEnd(8,'X').toUpperCase();
+      return {
+        status:true,
+        message: prdName+timeStamp
+    };
+    }
   }
+
+
 
   fetchAllCategory() {
     this.productService.fetchAllCategories().then(res => {
@@ -166,6 +195,9 @@ export class AddProductComponent {
           console.log(x.data[event.value]);
       }
     })
+  }
+
+  store() {
   }
 
 }

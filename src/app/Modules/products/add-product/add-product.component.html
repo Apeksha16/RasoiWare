@@ -7,8 +7,8 @@
       fxLayout="column">
       <mat-form-field appearance="outline" fxWidth="50%">
         <mat-label>Product Name</mat-label>
-        <input matInput formControlName="name" placeholder="Enter Product Name" (input)="onInputChange($event)"
-          (paste)="onPaste($event)">
+        <input matInput formControlName="name" placeholder="Enter Product Name"
+          (input)="removeSpecialCharacters($event)" (paste)="onPaste($event)">
       </mat-form-field>
       <div fxWidth="100%" fxAlign="start center" fxGap="2">
         <mat-form-field appearance="outline">
@@ -28,7 +28,7 @@
       <div fxWidth="100%" fxAlign="space-between center" fxGap="2">
         <mat-form-field appearance="outline">
           <mat-label>Enter MRP</mat-label>
-          <input matInput formControlName="mrp" placeholder="Enter MRP">
+          <input matInput formControlName="mrp" (input)="onInputChange($event)" placeholder="Enter MRP">
         </mat-form-field>
         <div layout="m-b-22" fxWidth="35%" fxAlign="center center">
           <mat-checkbox color="primary" formControlName="isDiscount" (change)="changeInDiscount($event)">Add
@@ -40,7 +40,7 @@
         </mat-form-field>
         <mat-form-field fxWidth="20%" appearance="outline">
           <mat-label>Final Amount</mat-label>
-          <input matInput readonly="true" value="200" placeholder="Discount">
+          <input matInput readonly="true" value="200">
         </mat-form-field>
       </div>
       <div fxWidth="100%" fxAlign="start center" fxGap="2">
@@ -55,7 +55,7 @@
 
         <mat-form-field fxWidth="20%" appearance="outline">
           <mat-label>Stock</mat-label>
-          <input matInput placeholder="Stock" formControlName="stock">
+          <input matInput placeholder="Stock" (input)="onInputChange($event)" formControlName="stock">
         </mat-form-field>
       </div>
 
@@ -68,12 +68,29 @@
     <div layout="p-l-20 p-b-10 p-t-10 p-r-10" fxHeight="100% - 20px" fxWidth="40%" class="right-container"
       fxLayout="column" fxAlign="space-between start">
       <div fxLayout="column" fxWidth="100%">
-        <div layout="m-b-22" (click)="productImg.click()" class="imagePicker" fxLayout="column" fxAlign="center center">
-          <span class="file-upld-txt">Upload</span>
-          <span class="file-upld-txt">Product Image</span>
-          <input type="file" accept="image/*" (change)="onFileChange($event)" multiple name="product" id="product"
-            #productImg hidden>
+        <div layout="m-b-22" fxLayout="row" fxAlign="space-between center">
+          <div (click)="productImg.value = ''; productImg.click();" class="imagePicker" fxLayout="column"
+            fxAlign="center center">
+            <span class="file-upld-txt">Upload</span>
+            <span class="file-upld-txt">Product Image</span>
+            <input type="file" accept="image/*" (change)="onFileChange(productImg)" multiple name="product" id="product"
+              #productImg hidden>
+          </div>
+          <div fxLayout="column" fxAlign="start" *ngIf="productImages.length">
+            <div class="imageBox" layout="m-b-10" matBadge="{{productImages.length - 1}}" matBadgeSize="medium"
+              fxAlign="space-between center">
+              <span class="imageBoxText" layout="m-l-6">{{productImages[0].name}}</span>
+              <button mat-icon-button layout="m-r-6" [disabled]="isAllImagesUploaded"
+                (click)="onRemoveFile()"><mat-icon>cancel</mat-icon></button>
+            </div>
+            <div fxWidth="100%">
+              <button mat-stroked-button color="primary"
+                [matTooltip]="generatePrdId().status ? '':generatePrdId().message" (click)="onUploadImage()"
+                [disabled]="isAllImagesUploaded">Upload Images</button>
+            </div>
+          </div>
         </div>
+
         <mat-form-field appearance="outline">
           <mat-label>Enter Specifications</mat-label>
           <textarea matInput formControlName="specifications" placeholder="Product Specification" rows="4"></textarea>
