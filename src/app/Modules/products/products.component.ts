@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from './products.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
@@ -28,13 +29,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ProductsComponent {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  productColumns: string[] = ['name', 'id', 'stock', 'category','brand'];
   dataSource = ELEMENT_DATA;
+
+  productTableData: any;
 
   constructor(
     private router: Router,
     private productService:ProductsService
-  ) { }
+  ) {
+    this.fetchProducts();
+   }
+
+
+  fetchProducts() {
+    this.productService.fetchAllProducts().then(res => {
+      this.productTableData = new MatTableDataSource(res);
+      console.log(this.productTableData);
+    })
+  }
 
   addProduct() {
     this.router.navigate(['/products/add-product']);

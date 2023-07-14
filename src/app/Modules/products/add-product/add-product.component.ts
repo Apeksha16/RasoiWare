@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from '../products.service';
 import { GatewayService } from 'src/app/Utils/gateway.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -36,18 +37,21 @@ export class AddProductComponent {
   ];
 
   public productForm: FormGroup;
+  public prdouctId: string = '';
+  public brandList: string[] = [];
   public productImages: any[] = [];
   private productImgLink: string[] = [];
-  public prdouctId: string = '';
   public isAllImagesUploaded: boolean = false;
 
   constructor(
     private productService: ProductsService,
     private fb: FormBuilder,
+    private router:Router,
     private elementRef: ElementRef,
     private loading:GatewayService
   ) {
     this.fetchAllCategory();
+    this.fetchAllBrands();
 
     this.productForm = fb.group({
       name: ['', Validators.required],
@@ -56,6 +60,7 @@ export class AddProductComponent {
       mrp: ['', Validators.required],
       isDiscount: [false, Validators.required],
       discount: [{ value: '', disabled: true }, Validators.compose([Validators.pattern('^[1-9][0-9]{0,2}$'), Validators.min(1), Validators.max(1000)])],
+      brand: ['', Validators.required],
       stock: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       description: ['', Validators.required],
       images: [[],Validators.required],
@@ -80,6 +85,14 @@ export class AddProductComponent {
 
   onSubmit() {
     console.log(this.productForm);
+    if (this.productForm.valid) {
+      this.productService.addProduct(this.prdouctId, this.productForm).then(res => {
+        // console.log(res);
+        this.router.navigate(['/products']);
+      }).catch((e) => {
+        console.log(e);
+      })
+    }
   }
 
   onInputChange(event: any) {
@@ -121,7 +134,6 @@ export class AddProductComponent {
   }
   onRemoveFile() {
     this.productImages.splice(0, 1);
-    console.log(this.productImages[0]);
   }
   async onUploadImage() {
     const response = this.generatePrdId();
@@ -142,6 +154,18 @@ export class AddProductComponent {
     }
   }
 
+ getFinalAmt = () => {
+    const isDist = this.productForm.get('isDiscount')?.value;
+    if (isDist) {
+      const dist = this.productForm.get('discount')?.value;
+      let finalVal = (this.productForm.get('mrp')?.value - (this.productForm.get('mrp')?.value * dist) / 100);
+      return finalVal;
+    }
+    else {
+      return this.productForm.get('mrp')?.value || 0;
+    }
+  }
+
   generatePrdId() {
     if (this.productForm.get('name')?.status != 'VALID') {
       return {
@@ -151,7 +175,7 @@ export class AddProductComponent {
     }
     else {
         const timeStamp = Date.now().toString().padStart(12,'0').slice(0,12);
-        const prdName = this.productForm.get('name')?.value.padEnd(8,'X').toUpperCase();
+        const prdName = this.productForm.get('name')?.value.replace(/\s/g, '').padEnd(8,'X').slice(0,8).toUpperCase();
       return {
         status:true,
         message: prdName+timeStamp
@@ -159,7 +183,14 @@ export class AddProductComponent {
     }
   }
 
-
+  fetchAllBrands() {
+    this.productService.fetchBrands().then(res => {
+      console.log(res);
+      this.brandList = res.name;
+    }).catch((e) => {
+      console.log(e);
+    })
+  }
 
   fetchAllCategory() {
     this.productService.fetchAllCategories().then(res => {
@@ -195,9 +226,6 @@ export class AddProductComponent {
           console.log(x.data[event.value]);
       }
     })
-  }
-
-  store() {
   }
 
 }

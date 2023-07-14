@@ -11,3 +11,11 @@
 .mat-column-name {
   height: 60px;
 }
+
+.txt-ovr {
+  text-overflow: ellipsis;
+  display: inline;
+  white-space: nowrap;
+  width: 250px;
+  overflow: hidden;
+}

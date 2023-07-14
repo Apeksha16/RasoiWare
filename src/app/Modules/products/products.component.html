@@ -1,40 +1,37 @@
-<div class="" layout="m-10" fxHeight="100% - 20px" fxLayout="column" fxAlign="space-between center">
+<div class="" layout="m-10" fxHeight="100% - 20px" fxLayout="column" fxAlign="start center">
   <div fxWidth="100%" fxAlign="end center">
     <button color="primary" mat-stroked-button (click)="addProduct()">Add Product</button>
   </div>
 
-  <div layout="m-b-20" fxWidth="96%">
+  <div layout="m-t-20" fxWidth="96%">
     <div>
-      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-        </ng-container>
-
-        <!-- Name Column -->
+      <mat-table [dataSource]="productTableData" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> Product Category </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> <strong>Product Name</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element" matTooltip="{{element.data.name.length > 30 ? element.data.name:''}}">
+            <span class="txt-ovr">{{element.data.name}}</span> </mat-cell>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Product Stock </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> <strong>Product Id</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
         </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+        <ng-container matColumnDef="stock">
+          <mat-header-cell *matHeaderCellDef> <strong>Stock</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.data.stock}} </mat-cell>
         </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <ng-container matColumnDef="category">
+          <mat-header-cell *matHeaderCellDef> <strong>Category</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.data.category}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="brand">
+          <mat-header-cell *matHeaderCellDef> <strong>Brand</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.data.brand}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="productColumns;sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: productColumns;"></mat-row>
       </mat-table>
       <mat-divider></mat-divider>
-      <mat-paginator class="mat-elevation-z8" [length]="200">
+      <mat-paginator class="mat-elevation-z8" [length]="50">
       </mat-paginator>
     </div>
   </div>

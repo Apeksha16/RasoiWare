@@ -40,16 +40,16 @@
         </mat-form-field>
         <mat-form-field fxWidth="20%" appearance="outline">
           <mat-label>Final Amount</mat-label>
-          <input matInput readonly="true" value="200">
+          <input matInput readonly="true" [value]="getFinalAmt()">
         </mat-form-field>
       </div>
       <div fxWidth="100%" fxAlign="start center" fxGap="2">
 
         <mat-form-field appearance="outline">
           <mat-label>Brand</mat-label>
-          <mat-select>
+          <mat-select formControlName="brand">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+            <mat-option *ngFor="let brand of brandList" [value]="brand">{{brand}}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -77,7 +77,7 @@
               #productImg hidden>
           </div>
           <div fxLayout="column" fxAlign="start" *ngIf="productImages.length">
-            <div class="imageBox" layout="m-b-10" matBadge="{{productImages.length - 1}}" matBadgeSize="medium"
+            <div class="imageBox" layout="m-b-10" matBadge="+{{productImages.length - 1}}" matBadgeSize="medium"
               fxAlign="space-between center">
               <span class="imageBoxText" layout="m-l-6">{{productImages[0].name}}</span>
               <button mat-icon-button layout="m-r-6" [disabled]="isAllImagesUploaded"
