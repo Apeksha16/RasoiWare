@@ -19,11 +19,13 @@ import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatBadgeModule } from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
     ProductsComponent,
     AddProductComponent,
+    EditProductComponent,
   ],
   imports: [
     CommonModule,

@@ -77,7 +77,7 @@ export class ProductsService {
   async addProduct(id:string,productForm:FormGroup) {
     const productsCollectionRef = collection(this.fireStore, 'products');
     // Get the form values
-    const productData = productForm.value
+    const productData = productForm.value;
     try {
       // Save the product data to Firestore
       const productDocRef = doc(productsCollectionRef, id);
@@ -88,18 +88,56 @@ export class ProductsService {
     }
   }
 
-  async fetchAllProducts() {
+  async fetchProductDetails(productId: string) {
+    const productDocRef = doc(this.fireStore, 'products', productId);
     this.gateway.setLoading(true);
-    const dashboardCollectionRef = collection(this.fireStore, 'products');
-    const querySnapshot: QuerySnapshot<any> = await getDocs(dashboardCollectionRef);
-    const documents: any[] = querySnapshot.docs.map((doc) => {
-      return {
-        id: doc.id,
-        data: doc.data()
+    try {
+      const productSnapshot = await getDoc(productDocRef);
+    this.gateway.setLoading(false);
+      if (productSnapshot.exists()) {
+        const productData = productSnapshot.data();
+        return {
+          id: productSnapshot.id,
+          data: productData
+        };
+      } else {
+    this.gateway.setLoading(false);
+    console.log('Product not found.');
+        return [];
       }
-    });
+    } catch (error) {
+    this.gateway.setLoading(false);
+    console.error('Error fetching product:', error);
+      return [];
+    }
+  }
+
+  async fetchAllProducts(): Promise<any[]> {
+    this.gateway.setLoading(true);
+    const productsCollectionRef = collection(this.fireStore, 'products');
+    const selectedFields = ['name','stock', 'category', 'brand'];
+    try {
+      const querySnapshot: QuerySnapshot<any> = await getDocs(productsCollectionRef);
+        const documents: any[] = querySnapshot.docs.map((doc) => {
+        const data = selectedFields.reduce((acc:any, field:any) => {
+          acc[field] = doc.get(field);
+          return acc;
+        }, {});
+
+        return {
+          id: doc.id,
+          data: data
+        };
+      });
+
     this.gateway.setLoading(false);
     return documents;
+    } catch (error) {
+    this.gateway.setLoading(false);
+    console.error('Error fetching products:', error);
+      return [];
+    }
   }
+
 
 }

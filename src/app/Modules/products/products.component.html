@@ -5,9 +5,9 @@
 
   <div layout="m-t-20" fxWidth="96%">
     <div>
-      <mat-table [dataSource]="productTableData" class="mat-elevation-z8">
+      <mat-table [dataSource]="productTableData" class="mat-elevation-z4">
         <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef> <strong>Product Name</strong> </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> <strong> Name</strong> </mat-header-cell>
           <mat-cell *matCellDef="let element" matTooltip="{{element.data.name.length > 30 ? element.data.name:''}}">
             <span class="txt-ovr">{{element.data.name}}</span> </mat-cell>
         </ng-container>
@@ -27,11 +27,19 @@
           <mat-header-cell *matHeaderCellDef> <strong>Brand</strong> </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.data.brand}} </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> <strong>Action</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button layout="m-r-6" (click)="editProduct(element.id)"><mat-icon
+                color="warn">edit</mat-icon></button>
+            <button mat-icon-button><mat-icon color="warn">delete</mat-icon></button>
+          </mat-cell>
+        </ng-container>
         <mat-header-row *matHeaderRowDef="productColumns;sticky: true"></mat-header-row>
         <mat-row *matRowDef="let row; columns: productColumns;"></mat-row>
       </mat-table>
       <mat-divider></mat-divider>
-      <mat-paginator class="mat-elevation-z8" [length]="50">
+      <mat-paginator class="mat-elevation-z4" [length]="50">
       </mat-paginator>
     </div>
   </div>
