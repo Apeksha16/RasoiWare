@@ -1,19 +1,129 @@
-.divider {
-    border: 1px solid grey;
-    height: 97%;
-}
-
 .header {
-    height: 60px;
-    width: 100%;
-    background-color: #f0f0f0;
+  display: flex;
+  height: 10%;
+}
+.header i {
+  margin-right: 16px;
+  font-size: 24px;
 }
 
-.header1 {
-    height: 60px;
-    width: 100%;
-    background-color: #daa521;
+.content {
+  height: 100%;
+  background-color: #f2f2f2;
 }
+
+#mail {
+  flex: 2;
+  border-right: 1px #a0a0a0 solid;
+  padding-right: 16px;
+}
+
+#social {
+  padding-left: 16px;
+  flex: 6.5;
+}
+
+#login {
+  padding-left: 16px;
+  border-left: 1px #a0a0a0 solid;
+  flex: 1.5;
+}
+.header i:hover{
+  transform: scale(1.2);
+  transition: ease-in-out 0.2s;
+  color: #daa521;
+}
+
+@media (min-width: 490px) and (max-width: 1023px) {
+  .header {
+    flex-direction: row;
+    height: 10%;
+    font-size: 14px;
+  }
+
+  .header i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  #mail {
+    flex: 2.5;
+    padding-right: 10px;
+  }
+
+  #social {
+    flex: 5.5;
+  }
+
+  #login {
+    flex: 2;
+  }
+
+}
+@media (min-width: 490px) and (max-width: 630px){
+
+  #social .mobile h4{
+    display: none;
+  }
+  #mail {
+    flex:3;
+  }
+
+  #social {
+    flex: 5;
+  }
+
+  #login {
+    flex: 2;
+  }
+
+}
+
+@media (max-width: 489px) {
+  .header {
+    flex-direction: column;
+    font-size: 12px;
+    height: 15%;
+  }
+  #social, #login, #mail{
+    flex: 1;
+    border-left: none;
+    border-right: none;
+  }
+  .content{
+    justify-content: center;
+  }
+
+  .header .content:not(:last-child) {
+    border-bottom: 1px #a0a0a0 solid;
+  }
+  #social{
+    padding: 0px 10px 0px 10px;
+    justify-content: space-between;
+  }
+
+  .header i {
+    margin-right: 6px;
+    font-size: 16px;
+  }
+  #social-icon i {
+    margin-right: 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .search-container {
     height: 120px;

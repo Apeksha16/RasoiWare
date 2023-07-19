@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100vh;
@@ -56,4 +62,57 @@ div {
   width: 0px !important;
   background-color: whitesmoke !important;
   border-radius: 0px;
+}
+
+.cursor{
+cursor: pointer;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.start{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.end{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+
+.center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.space-between{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.space-even{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.space-around{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
