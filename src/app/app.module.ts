@@ -5,22 +5,28 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { SharedModule } from './Utils/shared.module';
-import { SidenavComponent } from './Components/sidenav/sidenav.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FirebaseAppModule } from '@angular/fire/app';
-import { LoaderComponent } from './Components/loader/loader.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CardComponent } from './card/card.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavComponent,
+    CarouselComponent,
+    CardComponent,
+    FooterComponent,
+    HomeComponent,
   ],
   imports: [
-    LoaderComponent,
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
@@ -30,7 +36,9 @@ import { LoaderComponent } from './Components/loader/loader.component';
     BrowserAnimationsModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FirebaseAppModule
+    FirebaseAppModule,
+    FontAwesomeModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,102 @@
+<div class="header" fxLayout="row">
+
+    <div fxLayout="row" fxLayoutAlign="end center" fxWidth="18%" layout="m-10">
+        <fa-icon [icon]="faEnvelope" size="xl" layout="m-16"></fa-icon>
+        <h4>apex@gmail.com</h4>
+    </div>
+
+    <span class="divider"></span>
+
+    <div fxLayoutAlign="start center" fxWidth="50%">
+        <fa-icon [icon]="faPhone" size="xl" layout="m-16"></fa-icon>
+        <h4>+91 7668804527</h4>
+    </div>
+
+
+    <div fxLayoutAlign="space-between center">
+
+        <a href="#"><i class="fab fa-facebook-f" style="font-size: 24px; color: black;" layout="m-16"></i></a>
+        <a href="#"><i class="fab fa-twitter" style="font-size: 24px; color: black;" layout="m-16"></i></a>
+        <a href="#"><i class="fab fa-instagram" style="font-size: 24px; color: black;" layout="m-16"></i></a>
+
+    </div>
+
+    <span class="divider"></span>
+
+
+    <div fxLayoutAlign="start center">
+        <a routerLink="/login">
+            <i class="fas fa-user" style="font-size: 24px; color: black;" layout="m-16"></i>
+        </a>
+        <h4>Login</h4>
+    </div>
+</div>
+
+
+<div class="search-container" fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <img src="assets/logo.jpg" alt="My Image" class="logo">
+        <h3 class="rasoiware-logo">Rasoiware</h3>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="dropdown-container" fxLayoutAlign="center center">
+            <select class="custom-dropdown" fxWidth="160px">
+                <option value="">All Categories</option>
+                <option value="appliances">Appliances</option>
+                <option value="cooking">Cooking</option>
+                <option value="tableware">Tableware</option>
+                <option value="storage">Storage</option>
+            </select>
+        </div>
+
+        <div class="search-container" fxLayoutAlign="center center">
+            <input type="text" class="search-input" placeholder="What you need?" fxWidth="280px" layout="p-5">
+        </div>
+
+        <div class="search-background" fxLayoutAlign="center center">
+            <fa-icon [icon]="faSearch" size="xl" layout="m-16" [styles]="{ stroke: '#fff', color: '#fff' }"></fa-icon>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center">
+
+
+        <!-- <a href="#">
+        <i class="fas fa-bell" style="font-size: 24px; color: white;" layout="m-16"></i>
+      </a>
+      <a href="#">
+        <i class="fas fa-heart" style="font-size: 24px; color: white;" layout="m-16"></i>
+      </a> -->
+        <a href="#">
+            <i class="fas fa-shopping-cart" style="font-size: 24px; color: white;" layout="m-16"></i>
+        </a>
+
+    </div>
+</div>
+
+
+<div class="toolbar" fxLayoutAlign="space-around center">
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/appliances">Appliances</a></li>
+        <li><a routerLink="/cooking">Cooking</a></li>
+        <li><a routerLink="/tableware">Tableware</a></li>
+        <li><a routerLink="/storage">Storage</a></li>
+        <li><a routerLink="/home-furnishing">Home Furnishing</a></li>
+        <li><a routerLink="/decor">Decor</a></li>
+        <li><a routerLink="/cutlery-tools">Cutlery & Tools</a></li>
+        <li><a routerLink="/outdoor">Outdoor</a></li>
+        <li><a routerLink="/cooktops">Cooktops</a></li>
+    </ul>
+</div>
+
+
+<app-carousel
+    [images]="['assets/carousel1.jpg','assets/carousel2.jpg', 'assets/carousel3.jpg','assets/carousel4.jpg']"></app-carousel>
+
+
+<img src="assets/homeBanner.png" alt="My Image" class="home-banner">
+<app-card></app-card>
+
+<app-footer></app-footer>

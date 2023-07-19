@@ -1,0 +1,58 @@
+.carousel {
+    position: relative;
+    height: 400px;
+    /* Adjust the height as needed */
+    overflow: hidden;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-container.active {
+    opacity: 1;
+}
+
+.previous {
+    transform: translateX(-100%);
+}
+
+.current {
+    transform: translateX(0);
+}
+
+.next {
+    transform: translateX(100%);
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    /* Use space-between to separate the icons */
+    width: 100%;
+    padding: 0 10px;
+    z-index: 1;
+    color: white;
+    font-size: 24px;
+}
+
+.controls i {
+    cursor: pointer;
+    margin: 0 16px;
+    /* Add a margin of 10px between the icons */
+}
+
+.controls i:hover {
+    opacity: 0.7;
+}

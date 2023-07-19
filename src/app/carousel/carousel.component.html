@@ -1,0 +1,13 @@
+<div class="carousel" layout="m-10">
+    <div class="image-container previous" [style.background-image]="'url(' + images[previousIndex] + ')'"
+        [class.active]="previousIndex === currentIndex"></div>
+    <div class="image-container current" [style.background-image]="'url(' + images[currentIndex] + ')'"
+        [class.active]="currentIndex === currentIndex"></div>
+    <div class="image-container next" [style.background-image]="'url(' + images[nextIndex] + ')'"
+        [class.active]="nextIndex === currentIndex"></div>
+
+    <div class="controls">
+        <i class="fas fa-chevron-left" (click)="showPreviousImage()"></i>
+        <i class="fas fa-chevron-right" (click)="showNextImage()"></i>
+    </div>
+</div>

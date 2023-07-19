@@ -1,0 +1,84 @@
+.divider {
+    border: 1px solid grey;
+    height: 97%;
+}
+
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.header1 {
+    height: 60px;
+    width: 100%;
+    background-color: #daa521;
+}
+
+.search-container {
+    height: 120px;
+    width: 100%;
+    background-color: black;
+}
+
+.logo {
+    height: 80px;
+}
+
+.rasoiware-logo {
+    color: #cb871c;
+
+}
+
+.search-background {
+    background-color: #cb871c;
+    height: 43.2px;
+}
+
+
+.custom-dropdown {
+    height: 43.2px;
+    background-color: black;
+    color: #cb871c;
+    font-weight: bold;
+}
+
+.search-input {
+    height: 30px;
+}
+
+.search-icon {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.toolbar {
+    background-color: #daa521;
+}
+
+.toolbar ul {
+    list-style-type: none;
+}
+
+.toolbar ul li {
+    display: inline;
+    margin-right: 50px;
+}
+
+.toolbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.toolbar ul li a:hover {
+    color: #000;
+}
+
+.home-banner {
+    height: 200px;
+    width: 98%;
+    margin: 10px;
+}

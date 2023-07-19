@@ -1,18 +1,19 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AuthService } from './Utils/auth.service';
-import { GatewayService } from './Utils/gateway.service';
 import { Observable, from } from 'rxjs';
 import { Router } from '@angular/router';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { GatewayService } from '../Utils/gateway.service';
+import { AuthService } from '../Utils/auth.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit {
+
   faEnvelope = faEnvelope;
   faPhone = faPhone;
   faSearch = faSearch;
@@ -47,3 +48,8 @@ export class AppComponent implements AfterViewInit {
     this.router.navigate(['/login']);
   }
 }
+
+
+
+
+
