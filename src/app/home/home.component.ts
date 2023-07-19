@@ -10,10 +10,9 @@ import { AuthService } from '../Utils/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements AfterViewInit {
-
+export class HomeComponent {
   faEnvelope = faEnvelope;
   faPhone = faPhone;
   faSearch = faSearch;
@@ -27,29 +26,6 @@ export class HomeComponent implements AfterViewInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private gatewayService: GatewayService,
-  ) {
-  }
-
-  ngAfterViewInit() {
-    this.auth.isLogObserver$.subscribe((res) => {
-      setTimeout(() => {
-        this.checkIsLogin = res;
-      }, 0)
-    });
-
-  }
-  logout() {
-    this.auth.setIsLoginState = false;
-    localStorage.removeItem('accessToken');
-    this.router.navigate(['/login']);
-  }
-  redirectToLogin() {
-    this.router.navigate(['/login']);
-  }
+    private gatewayService: GatewayService
+  ) {}
 }
-
-
-
-
-

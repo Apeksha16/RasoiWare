@@ -10,7 +10,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit {
   faEnvelope = faEnvelope;
@@ -26,24 +26,22 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private gatewayService: GatewayService,
-  ) {
-  }
+    private gatewayService: GatewayService
+  ) {}
 
   ngAfterViewInit() {
-    this.auth.isLogObserver$.subscribe((res) => {
-      setTimeout(() => {
-        this.checkIsLogin = res;
-      }, 0)
-    });
-
+    // this.auth.isLogObserver$.subscribe((res) => {
+    //   setTimeout(() => {
+    //     this.checkIsLogin = res;
+    //   }, 0)
+    // });
   }
-  logout() {
-    this.auth.setIsLoginState = false;
-    localStorage.removeItem('accessToken');
-    this.router.navigate(['/login']);
-  }
-  redirectToLogin() {
-    this.router.navigate(['/login']);
-  }
+  // logout() {
+  //   this.auth.setIsLoginState = false;
+  //   localStorage.removeItem('accessToken');
+  //   this.router.navigate(['/login']);
+  // }
+  // redirectToLogin() {
+  //   this.router.navigate(['/login']);
+  // }
 }

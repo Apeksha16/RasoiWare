@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent implements OnInit {
   @Input() images: string[] = [];
@@ -20,12 +20,14 @@ export class CarouselComponent implements OnInit {
   showNextImage() {
     this.currentIndex = this.nextIndex;
     this.nextIndex = (this.nextIndex + 1) % this.images.length;
-    this.previousIndex = (this.currentIndex + this.images.length - 1) % this.images.length;
+    this.previousIndex =
+      (this.currentIndex + this.images.length - 1) % this.images.length;
   }
 
   showPreviousImage() {
     this.currentIndex = this.previousIndex;
-    this.previousIndex = (this.previousIndex + this.images.length - 1) % this.images.length;
+    this.previousIndex =
+      (this.previousIndex + this.images.length - 1) % this.images.length;
     this.nextIndex = (this.currentIndex + 1) % this.images.length;
   }
 }
