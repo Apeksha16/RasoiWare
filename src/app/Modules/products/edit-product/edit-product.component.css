@@ -11,27 +11,63 @@
 }
 
 .imagePicker {
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
-  border: 2px dashed grey;
+  width: 60%;
+  /* height: 140px; */
+  border-radius: 6px;
+  border: 1px dashed grey;
   cursor: pointer;
 }
 
 .imageBox {
-  width: 280px;
-  height: 60px;
-  background-color: #4286f430;
+  width: 130px;
+  min-height: 100px;
+  max-height: 100px;
+  background-color: #00000030;
   border: 2px solid #4286f4;
   border-radius: 8px;
+  padding: 4px;
+  position: relative;
+
+}
+
+.imageBox button{
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  z-index: 1;
 }
 
 .imageBox .imageBoxText {
-  width: 220px;
+  width: 200px;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 12px;
+}
+
+.img-container{
+  height: 280px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap:8px;
+  justify-content: flex-start;
+  overflow-x: scroll;
+}
+.img-container-empty{
+  height: 280px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-cnt{
+  width: 100%;
+  height:100%;
+  border-radius: 4px;
+  z-index: -99;
 }
 
 .file-upld-txt {
@@ -43,6 +79,6 @@
   overflow-y: auto;
 }
 
-.right-container {
+/* .right-container {
   overflow-y: auto;
-}
+} */

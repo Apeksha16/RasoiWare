@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GatewayService } from 'src/app/Utils/gateway.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -15,18 +16,18 @@ export class EditProductComponent implements OnDestroy, OnInit {
   public categoryData: any;
   public subCategories: string[] = [];
   public productForm: FormGroup;
-  public prdouctId: string = '';
   public brandList: string[] = [];
   public productImages: any[] = [];
   private productId: string = '';
   private subscription: Subscription;
-  private productImgLink: string[] = [];
+  public productImgLink: string[] = [];
   public isAllImagesUploaded: boolean = false;
 
   constructor(
     private router: ActivatedRoute,
     private fb: FormBuilder,
-    private prodService: ProductsService
+    private prodService: ProductsService,
+    private loading: GatewayService
   ) {
     this.productForm = fb.group({
       name: ['', Validators.required],
@@ -45,7 +46,6 @@ export class EditProductComponent implements OnDestroy, OnInit {
       brand: ['', Validators.required],
       stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       description: ['', Validators.required],
-      images: [[], Validators.required],
       specifications: ['', Validators.required],
     });
     this.subscription = router.url.subscribe((x) => {
@@ -57,6 +57,18 @@ export class EditProductComponent implements OnDestroy, OnInit {
   ngOnInit() {
     this.fetchAllBrands();
     this.fetchAllCategory();
+    this.fetchAllProductImages();
+  }
+
+  fetchAllProductImages() {
+    this.prodService
+      .getAllImagesForId(this.productId)
+      .then((res) => {
+        this.productImgLink = res;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   fetchAllBrands() {
@@ -121,9 +133,9 @@ export class EditProductComponent implements OnDestroy, OnInit {
           brand: productInfo.brand,
           description: productInfo.description,
           stock: productInfo.stock,
-          images: productInfo.images,
           specifications: productInfo.specifications,
         });
+        // this.productImgLink = productInfo.images;
         this.productForm.controls['discount'].enable();
       })
       .catch((e) => {
@@ -152,6 +164,52 @@ export class EditProductComponent implements OnDestroy, OnInit {
       return this.productForm.get('mrp')?.value || 0;
     }
   };
+
+  onAddImages(event: any): void {
+    const files: any[] = Array.from(event.files).slice(0, 10);
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    const maxSizeInBytes = 300 * 1024; // 300KB
+    this.productImages = [];
+    for (let i = 0; i < files.length; i++) {
+      if (
+        allowedTypes.includes(files[i].type) &&
+        files[i].size < maxSizeInBytes
+      ) {
+        this.productImages.push(files[i]);
+      }
+    }
+  }
+
+  async onUploadImage() {
+    if (this.productImages.length) {
+      let response = await this.prodService.uploadImages(
+        this.productId,
+        this.productImages
+      );
+      response.forEach((x) => {
+        this.productImgLink.push(x);
+      });
+      this.productImages = [];
+    }
+  }
+
+  onRemoveProductImage(link: string) {
+    this.prodService
+      .removeImage(link)
+      .then((res: any) => {
+        this.productImgLink.splice(
+          this.productImgLink.findIndex((x) => x === link),
+          1
+        );
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  onUpdateProduct() {
+    console.log(this.productForm);
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

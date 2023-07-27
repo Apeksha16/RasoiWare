@@ -147,9 +147,9 @@ export class AddProductComponent {
       }
       this.productImages.forEach(async (x: File) => {
         this.loading.setLoading(true);
-        this.productImgLink.push(
-          await this.productService.uploadImages(this.prdouctId, x)
-        );
+        // this.productImgLink.push(
+        //   await this.productService.uploadImages(this.prdouctId, x)
+        // );
         this.loading.setLoading(false);
         if (this.productImages.length === this.productImgLink.length) {
           this.isAllImagesUploaded = true;
