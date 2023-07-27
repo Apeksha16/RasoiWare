@@ -1,0 +1,48 @@
+.border {
+  border: 2px solid red;
+}
+
+.divider {
+  height: 90%;
+  width: 4px;
+  background-color: rgba(89, 0, 255);
+  margin: 16px 0;
+  position: relative;
+}
+
+.imagePicker {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border: 2px dashed grey;
+  cursor: pointer;
+}
+
+.imageBox {
+  width: 280px;
+  height: 60px;
+  background-color: #4286f430;
+  border: 2px solid #4286f4;
+  border-radius: 8px;
+}
+
+.imageBox .imageBoxText {
+  width: 220px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-upld-txt {
+  font-weight: 900;
+  color: grey;
+}
+
+.left-container {
+  overflow-y: auto;
+}
+
+.right-container {
+  overflow-y: auto;
+}

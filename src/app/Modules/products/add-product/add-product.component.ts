@@ -1,5 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ProductsService } from '../products.service';
 import { GatewayService } from 'src/app/Utils/gateway.service';
 import { Router } from '@angular/router';
@@ -7,35 +12,19 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent {
-
   public mrp: number = 0;
+  genders: string[] = ['Male', 'Female'];
+  brands: string[] = ['WonderChef', 'Borosil', 'Nike', 'Puma', 'Adidas'];
+
+  sizes: string[] = ['28', '30', '32', '34', '38'];
+
   categories: string[] = [];
   prdCategory: string = '';
   categoryData: any;
   subCategories: string[] = [];
-  genders: string[] = [
-    'Male',
-    'Female',
-  ];
-  brands: string[] = [
-    'WonderChef',
-    'Borosil',
-    'Nike',
-    'Puma',
-    'Adidas',
-  ];
-
-  sizes: string[] = [
-    '28',
-    '30',
-    '32',
-    '34',
-    '38',
-  ];
-
   public productForm: FormGroup;
   public prdouctId: string = '';
   public brandList: string[] = [];
@@ -46,9 +35,9 @@ export class AddProductComponent {
   constructor(
     private productService: ProductsService,
     private fb: FormBuilder,
-    private router:Router,
+    private router: Router,
     private elementRef: ElementRef,
-    private loading:GatewayService
+    private loading: GatewayService
   ) {
     this.fetchAllCategory();
     this.fetchAllBrands();
@@ -59,24 +48,35 @@ export class AddProductComponent {
       subCategory: ['', Validators.required],
       mrp: ['', Validators.required],
       isDiscount: [false, Validators.required],
-      discount: [{ value: '', disabled: true }, Validators.compose([Validators.pattern('^[1-9][0-9]{0,2}$'), Validators.min(1), Validators.max(1000)])],
+      discount: [
+        { value: '', disabled: true },
+        Validators.compose([
+          Validators.pattern('^[1-9][0-9]{0,2}$'),
+          Validators.min(1),
+          Validators.max(1000),
+        ]),
+      ],
       brand: ['', Validators.required],
-      stock: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       description: ['', Validators.required],
-      images: [[],Validators.required],
-      specifications: ['', Validators.required]
+      images: [[], Validators.required],
+      specifications: ['', Validators.required],
     });
-
   }
   changeInDiscount(_event: any) {
     const discountControl = this.productForm.get('discount') as FormControl;
     discountControl.reset();
-    if(this.productForm.get('isDiscount')?.value)
-    {
+    if (this.productForm.get('isDiscount')?.value) {
       discountControl.enable();
-      discountControl.setValidators(Validators.compose([Validators.required,Validators.pattern('^[1-9][0-9]{0,2}$'), Validators.min(1), Validators.max(1000)]));
-    }
-    else {
+      discountControl.setValidators(
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[1-9][0-9]{0,2}$'),
+          Validators.min(1),
+          Validators.max(1000),
+        ])
+      );
+    } else {
       discountControl.disable();
       discountControl.clearValidators();
     }
@@ -86,12 +86,15 @@ export class AddProductComponent {
   onSubmit() {
     console.log(this.productForm);
     if (this.productForm.valid) {
-      this.productService.addProduct(this.prdouctId, this.productForm).then(res => {
-        // console.log(res);
-        this.router.navigate(['/products']);
-      }).catch((e) => {
-        console.log(e);
-      })
+      this.productService
+        .addProduct(this.prdouctId, this.productForm)
+        .then((res) => {
+          // console.log(res);
+          this.router.navigate(['/products']);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
   }
 
@@ -120,16 +123,17 @@ export class AddProductComponent {
   }
 
   onFileChange(event: any): void {
-    const files:any[] = Array.from(event.files).slice(0,10);
+    const files: any[] = Array.from(event.files).slice(0, 10);
     const allowedTypes = ['image/jpeg', 'image/png'];
     const maxSizeInBytes = 300 * 1024; // 300KB
     this.productImages = [];
-    for (let i = 0; i < files.length; i++)
-    {
-      if (allowedTypes.includes(files[i].type) && files[i].size < maxSizeInBytes)
-      {
+    for (let i = 0; i < files.length; i++) {
+      if (
+        allowedTypes.includes(files[i].type) &&
+        files[i].size < maxSizeInBytes
+      ) {
         this.productImages.push(files[i]);
-        }
+      }
     }
   }
   onRemoveFile() {
@@ -137,96 +141,104 @@ export class AddProductComponent {
   }
   async onUploadImage() {
     const response = this.generatePrdId();
-    if (response.status)
-    {
+    if (response.status) {
       if (!this.prdouctId.length) {
         this.prdouctId = response.message;
       }
-      this.productImages.forEach(async(x: File) => {
+      this.productImages.forEach(async (x: File) => {
         this.loading.setLoading(true);
-        this.productImgLink.push(await this.productService.uploadImages(this.prdouctId, x));
+        this.productImgLink.push(
+          await this.productService.uploadImages(this.prdouctId, x)
+        );
         this.loading.setLoading(false);
         if (this.productImages.length === this.productImgLink.length) {
           this.isAllImagesUploaded = true;
-          this.productForm.patchValue({images:this.productImgLink});
+          this.productForm.patchValue({ images: this.productImgLink });
         }
-      })
+      });
     }
   }
 
- getFinalAmt = () => {
+  getFinalAmt = () => {
     const isDist = this.productForm.get('isDiscount')?.value;
     if (isDist) {
       const dist = this.productForm.get('discount')?.value;
-      let finalVal = (this.productForm.get('mrp')?.value - (this.productForm.get('mrp')?.value * dist) / 100);
+      let finalVal =
+        this.productForm.get('mrp')?.value -
+        (this.productForm.get('mrp')?.value * dist) / 100;
       return finalVal;
-    }
-    else {
+    } else {
       return this.productForm.get('mrp')?.value || 0;
     }
-  }
+  };
 
   generatePrdId() {
     if (this.productForm.get('name')?.status != 'VALID') {
       return {
         status: false,
-        message:'Please enter valid Product Name.'
-      }
-    }
-    else {
-        const timeStamp = Date.now().toString().padStart(12,'0').slice(0,12);
-        const prdName = this.productForm.get('name')?.value.replace(/\s/g, '').padEnd(8,'X').slice(0,8).toUpperCase();
+        message: 'Please enter valid Product Name.',
+      };
+    } else {
+      const timeStamp = Date.now().toString().padStart(12, '0').slice(0, 12);
+      const prdName = this.productForm
+        .get('name')
+        ?.value.replace(/\s/g, '')
+        .padEnd(8, 'X')
+        .slice(0, 8)
+        .toUpperCase();
       return {
-        status:true,
-        message: prdName+timeStamp
-    };
+        status: true,
+        message: prdName + timeStamp,
+      };
     }
   }
 
   fetchAllBrands() {
-    this.productService.fetchBrands().then(res => {
-      console.log(res);
-      this.brandList = res.name;
-    }).catch((e) => {
-      console.log(e);
-    })
+    this.productService
+      .fetchBrands()
+      .then((res) => {
+        console.log(res);
+        this.brandList = res.name;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   fetchAllCategory() {
-    this.productService.fetchAllCategories().then(res => {
-      console.log(res);
-      const categories: string[] = [];
-      if(res.length)
-      {
-        res.forEach((res, i) => {
-          categories.push(res.id);
-        })
-        this.categories = categories;
-      }
-      this.categoryData = res;
-    }).catch((e) => {
-      console.log(e)
-    })
+    this.productService
+      .fetchAllCategories()
+      .then((res) => {
+        console.log(res);
+        const categories: string[] = [];
+        if (res.length) {
+          res.forEach((res, i) => {
+            categories.push(res.id);
+          });
+          this.categories = categories;
+        }
+        this.categoryData = res;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
-  onSelectCategory(event:any) {
+  onSelectCategory(event: any) {
     this.prdCategory = event.value;
-    this.categoryData.map((x:any) => {
+    this.categoryData.map((x: any) => {
       if (x.id === this.prdCategory) {
         this.subCategories = Object.keys(x.data);
       }
-    })
+    });
     console.log(this.subCategories);
   }
 
-  onSelectSubCategory(event:any) {
+  onSelectSubCategory(event: any) {
     this.categoryData.map((x: any) => {
-      if (x.id === this.prdCategory)
-      {
-          console.log(x.data[event.value]);
+      if (x.id === this.prdCategory) {
+        console.log(x.data[event.value]);
       }
-    })
+    });
   }
-
 }
-

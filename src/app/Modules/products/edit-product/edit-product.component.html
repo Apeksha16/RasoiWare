@@ -1,1 +1,99 @@
-<p>edit-product works!</p>
+<div fxHeight="100% - 20px" fxWidth="100% - 20px" layout="m-10" class="">
+  <div fxAlign="space-between center">
+    <h2>Edit Product</h2>
+  </div>
+  <form [formGroup]="productForm" fxHeight="100% - 35px" fxLayout="row" fxAlign="space-between center">
+    <div layout="p-l-10 p-b-10 p-t-10 p-r-20" fxHeight="100% - 20px" fxWidth="60%" class="left-container"
+      fxLayout="column">
+      <mat-form-field appearance="outline" fxWidth="50%">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter Product Name">
+      </mat-form-field>
+      <div fxWidth="100%" fxAlign="start center" fxGap="2">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Category</mat-label>
+          <mat-select formControlName="category" (selectionChange)="onSelectCategory($event)">
+            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Sub-Category</mat-label>
+          <mat-select formControlName="subCategory">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{subCategory}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxWidth="100%" fxAlign="space-between center" fxGap="2">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter MRP</mat-label>
+          <input matInput formControlName="mrp" placeholder="Enter MRP">
+        </mat-form-field>
+        <div layout="m-b-22" fxWidth="35%" fxAlign="center center">
+          <mat-checkbox color="primary" formControlName="isDiscount" (change)="onDiscountChange()">Add
+            Discount</mat-checkbox>
+        </div>
+        <mat-form-field fxWidth="25%" appearance="outline">
+          <mat-label>Discount (%)</mat-label>
+          <input matInput placeholder="Discount" formControlName="discount">
+        </mat-form-field>
+        <mat-form-field fxWidth="20%" appearance="outline">
+          <mat-label>Final Amount</mat-label>
+          <input matInput readonly="true" [value]="getFinalAmt()">
+        </mat-form-field>
+      </div>
+      <div fxWidth="100%" fxAlign="start center" fxGap="2">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Brand</mat-label>
+          <mat-select formControlName="brand">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let brand of brandList" [value]="brand">{{brand}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxWidth="20%" appearance="outline">
+          <mat-label>Stock</mat-label>
+          <input matInput placeholder="Stock" formControlName="stock">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field fxWidth="100%" appearance="outline">
+        <mat-label>Enter Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Product Description" rows="4"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="divider"></div>
+    <div layout="p-l-20 p-b-10 p-t-10 p-r-10" fxHeight="100% - 20px" fxWidth="40%" class="right-container"
+      fxLayout="column" fxAlign="space-between start">
+      <div fxLayout="column" fxWidth="100%">
+        <div layout="m-b-22" fxLayout="row" fxAlign="space-between center">
+          <div class="imagePicker" fxLayout="column" fxAlign="center center">
+            <span class="file-upld-txt">Upload</span>
+            <span class="file-upld-txt">Product Image</span>
+            <input type="file" accept="image/*" multiple name="product" id="product" #productImg hidden>
+          </div>
+          <div fxLayout="column" fxAlign="start">
+            <div class="imageBox" layout="m-b-10" matBadgeSize="medium" fxAlign="space-between center">
+              <span class="imageBoxText" layout="m-l-6"></span>
+              <button mat-icon-button layout="m-r-6"><mat-icon>cancel</mat-icon></button>
+            </div>
+            <div fxWidth="100%">
+              <button mat-stroked-button color="primary">Upload Images</button>
+            </div>
+          </div>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Specifications</mat-label>
+          <textarea matInput formControlName="specifications" placeholder="Product Specification" rows="4"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxWidth="100%" fxGap="4" fxAlign="end center">
+        <button color="primary" mat-stroked-button routerLink="/products">Back</button>
+        <button color="primary" mat-raised-button type="submit">Save Product</button>
+      </div>
+    </div>
+  </form>
+
+</div>
