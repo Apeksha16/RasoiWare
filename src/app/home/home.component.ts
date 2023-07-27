@@ -27,5 +27,6 @@ export class HomeComponent {
     private auth: AuthService,
     private router: Router,
     private gatewayService: GatewayService
-  ) {}
+  ) { }
+
 }

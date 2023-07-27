@@ -17,6 +17,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CardComponent } from './card/card.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
