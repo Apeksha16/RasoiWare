@@ -1,0 +1,28 @@
+/* Responsive adjustments for small screens */
+@media (max-width: 767px) {
+    .row.align-items-center {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .col-md-6.text-md-left,
+    .col-md-6.text-md-right {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.icon-text {
+    margin-left: 10px;
+}
+
+.vertical-line {
+    border-left: 1px solid #ccc;
+    height: 20px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icon {
+    margin-right: 5px;
+}
