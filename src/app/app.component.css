@@ -1,4 +1,4 @@
-/* Responsive adjustments for small screens */
+/* Responsive adjustments for small screens
 @media (max-width: 767px) {
     .row.align-items-center {
         flex-direction: column;
@@ -32,10 +32,9 @@
 
 
 .divider{
-  /* border: 1px solid #000; */
   height:40px;
   width:1px;
   background: black;
   padding-right: 0;
   padding-left: 0;
-}
+} */
