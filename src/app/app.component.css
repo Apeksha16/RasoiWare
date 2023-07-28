@@ -18,11 +18,24 @@
 
 .vertical-line {
     border-left: 1px solid #ccc;
-    height: 20px;
+    height: 40px;
     margin: 0 10px;
     display: inline-block;
 }
 
-.social-icon {
-    margin-right: 5px;
+.icon a{
+  margin-right: 20px;
+}
+.mail i{
+  margin-right: 20px;
+}
+
+
+.divider{
+  /* border: 1px solid #000; */
+  height:40px;
+  width:1px;
+  background: black;
+  padding-right: 0;
+  padding-left: 0;
 }
