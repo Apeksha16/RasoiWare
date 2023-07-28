@@ -94,7 +94,8 @@
       </div>
       <div fxWidth="100%" fxGap="4" fxAlign="end center">
         <button color="primary" mat-stroked-button routerLink="/products">Back</button>
-        <button color="primary" mat-raised-button type="submit" (click)="onUpdateProduct()">Update Product</button>
+        <button color="primary" mat-raised-button type="submit" [disabled]="!productForm.dirty"
+          (click)="onUpdateProduct()">Update Product</button>
       </div>
     </div>
   </form>

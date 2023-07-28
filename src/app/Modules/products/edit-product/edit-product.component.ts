@@ -208,7 +208,7 @@ export class EditProductComponent implements OnDestroy, OnInit {
   }
 
   onUpdateProduct() {
-    console.log(this.productForm);
+    console.log(this.productForm.dirty, this.productForm.pristine);
   }
 
   ngOnDestroy() {
