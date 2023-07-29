@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.ml-2{
+  margin-left: 2px;
+}
+.ml-6{
+  margin-left: 6px;
+}

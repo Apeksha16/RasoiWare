@@ -1,40 +1,35 @@
-/* Responsive adjustments for small screens
-@media (max-width: 767px) {
-    .row.align-items-center {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .col-md-6.text-md-left,
-    .col-md-6.text-md-right {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+.navbar{
+  padding: 0;
+  height: 50px;
+}
+.divider {
+  border-right: 1px solid #ccc;
+  height: 50px;
 }
 
-.icon-text {
-    margin-left: 10px;
-}
-
-.vertical-line {
-    border-left: 1px solid #ccc;
-    height: 40px;
-    margin: 0 10px;
-    display: inline-block;
-}
-
-.icon a{
-  margin-right: 20px;
-}
-.mail i{
-  margin-right: 20px;
-}
-
-
+@media (max-width: 768px) {
 .divider{
-  height:40px;
-  width:1px;
-  background: black;
-  padding-right: 0;
-  padding-left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+  margin-bottom: 0.5rem;
+}
+.container-fluid{
+  padding: 0;
+}
+.navbar{
+  height:110px
+}
+}
+
+
+/* #carouselExample{
+  max-width: 600px;
+  max-height: 300px;
+  margin: 0 auto;
+}
+
+.custom-carousel .carousel-item img {
+  max-width: 100%;
+  max-height: 100%;
 } */
