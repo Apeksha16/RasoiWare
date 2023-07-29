@@ -4,3 +4,44 @@
 .ml-6{
   margin-left: 6px;
 }
+.mr-6{
+  margin-right: 6px;
+}
+
+.gap2{
+  gap: 2rem;
+}
+
+.gap4{
+  gap: 4rem;
+}
+
+.gap5{
+  gap: 5rem;
+}
+
+.gap6{
+  gap: 6rem;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.around{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-gap{
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.black{
+  background-color: #0a100d;
+}

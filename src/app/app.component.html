@@ -1,22 +1,58 @@
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid d-flex justify-content-around flex-column flex-md-row">
-    <div class="d-flex align-items-center justify-content-center justify-content-md-end mb-2 mb-md-0">
+<nav id="main-nav" class="navbar bg-body-tertiary container-fluid d-sm-flex flex-column">
+  <div class="info d-flex align-items-center">
+    <div class="d-flex align-items-center">
       <i class="fas fa-envelope"></i>
       <span class="ml-6">apex@gmail.com</span>
     </div>
     <div class="divider"></div>
-    <div class="d-flex align-items-center justify-content-center mb-2 mb-md-0">
+    <div class="d-flex align-items-center">
       <i class="fas fa-phone-volume"></i>
       <span class="ml-6">+91 8459435959</span>
     </div>
+  </div>
+  <div class="info d-flex align-items-center">
+    <div class="flex-gap align-items-center">
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
     <div class="divider"></div>
-    <div id="login" class="d-flex align-items-center justify-content-center justify-content-md-start">
-      <i routerLink="/login" class="fas fa-user-circle"></i>
+    <div class="d-flex align-items-center">
+      <i class="fas fa-user-circle"></i>
       <span class="ml-6">Login</span>
     </div>
   </div>
 </nav>
+<nav id="logo-nav" class="navbar black container-fluid around">
 
+  <div class="">
+    RasoiWare Logo
+  </div>
+  <div class="input-group nav-search">
+    <button class="btn btn-outline-secondary ctgry-drpdwn" type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      <span>{{selectedValue}}</span>
+      <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" (click)="onDropdownChange('Action before')">Action before</a></li>
+      <li><a class="dropdown-item" (click)="onDropdownChange('Action before 23')">Another action before</a></li>
+      <li><a class="dropdown-item" (click)="onDropdownChange('Action Else ekjfnekfnekjnfkewm 2344')">Something else
+          here</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+    <input type="text" class="form-control" placeholder="Search Here">
+    <span class="search-icon center"><i class="fa-solid fa-magnifying-glass"></i></span>
+  </div>
+  <div class="icons flex-gap align-items-center">
+    <i class="fa-brands fa-facebook-f"></i>
+    <i class="fa-brands fa-twitter"></i>
+    <i class="fa-brands fa-instagram"></i>
+  </div>
+</nav>
 
 <!-- <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
