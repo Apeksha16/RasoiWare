@@ -1,0 +1,183 @@
+.navbar{
+  padding: 0;
+  height: 60px;
+}
+.navbar i {
+  transition: color 0.1s ease-in, transform 0.1s ease-in;
+}
+
+.navbar i:hover {
+  color: #c98c20;
+  transform: scale(1.1);
+}
+
+.divider {
+  border-right: 1px solid #ccc;
+  height: 60px;
+  margin: 0 1rem;
+}
+.info{
+  margin: 0 1rem;
+}
+
+#logo-nav{
+  height: 100px;
+  padding: 0px 1rem;
+}
+
+.nav-search {
+height: 50px;
+width: 50%;
+}
+
+.logo{
+  width: 15%;
+}
+.logo-txt{
+  color:#c98c20
+}
+
+.logo img{
+  width: 60px;
+  height: 60px;
+}
+
+
+.nav-search input{
+  min-width: 115px;
+}
+
+.nav-search input:focus{
+  box-shadow: 0 0 0 0.2rem #c98c2075
+}
+
+.search-icon{
+  color:#fff;
+  font-size: 20px;
+  background-color: #c98c20;
+  border-radius: 0 6px 6px 0;
+  width: 12%;
+}
+
+.nav-search .dropdown-toggle{
+  height: 100%;
+  color: #c98c20;
+  border-radius: 6px 0px 0px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: #c98c20;
+}
+.nav-search .dropdown-toggle:hover{
+  background-color: #c98c20;
+  color: #fff;
+}
+
+.nav-search .dropdown-toggle span{
+  display: inline-block;
+  max-width: 120px;
+  min-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 0.1rem;
+}
+.nav-search .dropdown-toggle i{
+  margin-left: 0.2rem;
+}
+
+.nav-search .dropdown-toggle::after {
+  display: none;
+}
+
+.nav-search .dropdown-menu{
+  color:#c98c20;
+}
+.nav-search .dropdown-item{
+  color:#c98c20;
+}
+.nav-search .dropdown-item:hover{
+  background-color: #c98b2040;
+}
+.nav-search .dropdown-item:active{
+  background-color: #0a100d;
+}
+
+.cart{
+  color: #fff;
+  font-size: 24px;
+  width: 15%;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 992px)  {
+
+#logo-nav{
+  /* height: 100px; */
+  /* flex-direction: column; */
+  /* justify-content: space-evenly; */
+
+}
+
+.search-container{
+  width: 100%;
+  justify-content: space-evenly;
+}
+}
+
+@media (max-width: 768px) {
+
+  .drpdwn-txt{
+    display: none !important;
+  }
+  .search-icon{
+    width: 16%;
+  }
+  .dropdown{
+    width: 14%;
+  }
+  .dropdown-toggle{
+    width: 100%;
+  }
+
+  }
+
+@media (max-width: 576px) {
+
+.navbar{
+  height: 80px;
+}
+
+.navbar .info{
+  width: 100%;
+  margin: 0%;
+  height: 40px;
+  justify-content: space-around;
+}
+
+.navbar .info:first-child{
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-search{
+  width: 60%;
+}
+
+.navbar .info .divider{
+  display: none;
+}
+.logo-txt{
+  display: none;
+}
+}
+
+

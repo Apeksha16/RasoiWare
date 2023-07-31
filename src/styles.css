@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+.ml-2{
+  margin-left: 2px;
+}
+.ml-6{
+  margin-left: 6px;
+}
+.mr-6{
+  margin-right: 6px;
+}
+.mt-6{
+  margin-top: 6px;
+}
+.mb-6{
+  margin-bottom: 6px;
+}
+
+.gap2{
+  gap: 2rem;
+}
+
+.gap4{
+  gap: 4rem;
+}
+
+.gap5{
+  gap: 5rem;
+}
+
+.gap6{
+  gap: 6rem;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.around{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.evenly{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-gap{
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.black{
+  background-color: #0a100d;
+}

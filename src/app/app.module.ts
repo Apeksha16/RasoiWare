@@ -3,16 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {
+  NgbCarouselModule,
+  NgbDropdownConfig,
+  NgbDropdownModule,
+  NgbModule,
+  NgbNavModule,
+} from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    CommonModule,
+    AppRoutingModule,
+    NgbModule,
+    NgbCarouselModule,
+    NgbDropdownModule,
+    NgbNavModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NgbDropdownConfig],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
