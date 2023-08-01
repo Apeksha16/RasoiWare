@@ -30,6 +30,10 @@
   gap: 6rem;
 }
 
+.flex{
+  display: flex;
+}
+
 .center{
   display: flex;
   align-items: center;

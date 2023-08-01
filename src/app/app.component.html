@@ -1,23 +1,23 @@
 <nav id="main-nav" class="navbar bg-body-tertiary container-fluid d-sm-flex flex-column">
-  <div class="info d-flex align-items-center">
-    <div class="d-flex align-items-center">
+  <div class="info flex align-items-center">
+    <div class="flex align-items-center">
       <i class="fas fa-envelope"></i>
       <span class="ml-6">apex@gmail.com</span>
     </div>
     <div class="divider"></div>
-    <div class="d-flex align-items-center">
+    <div class="flex align-items-center">
       <i class="fas fa-phone-volume"></i>
       <span class="ml-6">+91 8459435959</span>
     </div>
   </div>
-  <div class="info d-flex align-items-center">
+  <div class="info flex align-items-center">
     <div class="flex-gap align-items-center">
       <i class="fa-brands fa-facebook-f"></i>
       <i class="fa-brands fa-twitter"></i>
       <i class="fa-brands fa-instagram"></i>
     </div>
     <div class="divider"></div>
-    <div class="d-flex align-items-center">
+    <div class="flex align-items-center">
       <i class="fas fa-user-circle"></i>
       <span class="ml-6">Login</span>
     </div>
@@ -45,19 +45,57 @@
   </div>
   <div class="cart align-items-center center">
     <i class="fa-solid fa-cart-shopping"></i>
+    <div ngbDropdown class="side-menu between" placement="bottom-start">
+      <div class="between" ngbDropdownToggle>
+        <span class="menu-txt">Menu</span>
+        <i class="fa-solid fa-bars"></i>
+        <div ngbDropdownMenu>
+          <button ngbDropdownItem>Action</button>
+          <button ngbDropdownItem>Another action</button>
+          <button ngbDropdownItem>Something else here</button>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>
-<nav ngbNav #nav="ngbNav" class="nav-tabs justify-content-center">
 
+<nav ngbNav #nav="ngbNav" class="nav-tabs justify-content-center ctgry-lst center">
   <li ngbDropdown class="nav-item" role="presentation" *ngFor="let i of arr;">
-    <button type="button" class="nav-link" ngbDropdownToggle>Dropdowni</button>
+    <button type="button" class="nav-link" ngbDropdownToggle>Dropdown</button>
     <div ngbDropdownMenu>
       <button ngbDropdownItem>Action</button>
       <button ngbDropdownItem>Another action</button>
       <button ngbDropdownItem>Something else here</button>
-      <div class="dropdown-divider"></div>
-      <button ngbDropdownItem>Separated link</button>
     </div>
   </li>
-
 </nav>
+
+<ngb-carousel class="rasoi-carousel" *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[0]" alt="Random first slide" />
+    </div>
+    <div class="carousel-caption">
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[1]" alt="Random second slide" />
+    </div>
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[2]" alt="Random third slide" />
+    </div>
+    <div class="carousel-caption">
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
