@@ -13,6 +13,19 @@
 .mb-6{
   margin-bottom: 6px;
 }
+.p-10{
+  padding: 10px;
+}
+.p-2r{
+  padding: 2rem;
+}
+.p-1r{
+  padding: 1rem;
+}
+
+.w-100{
+  width: 100%;
+}
 
 .gap2{
   gap: 2rem;
@@ -32,6 +45,16 @@
 
 .flex{
   display: flex;
+}
+
+.col{
+  flex-direction: column;
+}
+
+.start{
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 .center{
@@ -57,6 +80,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+
 
 .flex-gap{
   display: inline-flex;

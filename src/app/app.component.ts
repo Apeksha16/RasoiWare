@@ -46,6 +46,19 @@ export class AppComponent {
     },
   ];
 
+  featuredCategory: any = [
+    {
+      img: 'assets/ftrd.png',
+      name: 'Category Name',
+      subHeading: [
+        'Sub-Category Name 1',
+        'Sub-Category Name 2',
+        'Sub-Category Name 3',
+        'Sub-Category Name 4',
+      ],
+    },
+  ];
+
   // fireStore: any = getFirestore();
 
   constructor(config: NgbDropdownConfig) {}
@@ -56,7 +69,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.getCardsData();
+    // this.getCardsData();
   }
 
   async getCardsData() {
