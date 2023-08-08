@@ -10,12 +10,16 @@ import {
   NgbDropdownModule,
   NgbModule,
   NgbNavModule,
+  NgbRatingModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { FirebaseAppModule } from '@angular/fire/app';
+import { HomeComponent } from './Components/home/home.component';
+import { HomeOldComponent } from './Components/home-old/home-old.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, HomeOldComponent, NavbarComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -23,6 +27,7 @@ import { FirebaseAppModule } from '@angular/fire/app';
     NgbModule,
     NgbCarouselModule,
     NgbDropdownModule,
+    NgbRatingModule,
     NgbNavModule,
     AngularFireModule.initializeApp(environment.firebase),
     FirebaseAppModule,

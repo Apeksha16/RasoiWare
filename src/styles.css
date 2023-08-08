@@ -1,4 +1,9 @@
-.ml-2{
+html {
+  font-size: 62.5%;
+}
+
+
+/* .ml-2{
   margin-left: 2px;
 }
 .ml-6{
@@ -21,11 +26,19 @@
 }
 .p-1r{
   padding: 1rem;
-}
+} */
 
 .w-100{
   width: 100%;
 }
+.w-85{
+  width: 85%;
+}
+
+.gap2p{
+  gap: 2%;
+}
+
 
 .gap2{
   gap: 2rem;
@@ -81,6 +94,14 @@
   justify-content: space-between;
 }
 
+.flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  /* gap:1rem */
+}
+.nowrap{
+  flex-wrap: nowrap;
+}
 
 
 .flex-gap{
@@ -95,4 +116,23 @@
 
 .black{
   background-color: #0a100d;
+}
+
+
+.container{
+  max-width: 1280px;
+}
+
+img{
+  width:100%;
+}
+
+.cut-txt{
+  color:tomato;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.row{
+  margin: 0 !important;
 }

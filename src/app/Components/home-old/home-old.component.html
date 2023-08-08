@@ -1,0 +1,161 @@
+<nav id="main-nav" class="navbar bg-body-tertiary container-fluid d-sm-flex flex-column">
+  <div class="info flex align-items-center">
+    <div class="flex align-items-center pointer hover-color">
+      <i class="fas fa-envelope"></i>
+      <span class="ml-6">apex@gmail.com</span>
+    </div>
+    <div class="divider"></div>
+    <div class="flex align-items-center pointer hover-color">
+      <i class="fas fa-phone-volume"></i>
+      <span class="ml-6">+91 8459435959</span>
+    </div>
+  </div>
+  <div class="info flex align-items-center">
+    <div class="flex-gap align-items-center pointer">
+      <i class=" fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    <div class="divider"></div>
+    <div class="flex align-items-center pointer hover-color">
+      <i class="fas fa-user-circle"></i>
+      <span class="ml-6">Login</span>
+    </div>
+  </div>
+</nav>
+<nav id="logo-nav" class="navbar black container-fluid around">
+  <div class="logo center">
+    <img src="assets/rasoiware.png" alt="" srcset="">
+    <!-- <span class="logo-txt">RasoiWare</span> -->
+  </div>
+  <div class="input-group nav-search">
+    <div role="group" ngbDropdown>
+      <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>
+        <span class="drpdwn-txt">{{selectedValue}}</span>
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <button ngbDropdownItem>One</button>
+        <button ngbDropdownItem>Two</button>
+        <button ngbDropdownItem>Four!</button>
+      </div>
+    </div>
+    <input type="text" class="form-control" placeholder="Search your kitchen here">
+    <span class="search-icon center"><i class="fa-solid fa-magnifying-glass"></i></span>
+  </div>
+  <div class="cart align-items-center center">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <div ngbDropdown class="side-menu between" placement="bottom-start">
+      <div class="between" ngbDropdownToggle>
+        <span class="menu-txt">Menu</span>
+        <i class="fa-solid fa-bars"></i>
+        <div class="side-menu-lst" ngbDropdownMenu>
+          <button ngbDropdownItem>Action</button>
+          <button ngbDropdownItem>Another action</button>
+          <button ngbDropdownItem>Something else here</button>
+          <button ngbDropdownItem>Action</button>
+          <button ngbDropdownItem>Another action</button>
+          <button ngbDropdownItem>Something else here</button>
+          <button ngbDropdownItem>Action</button>
+          <button ngbDropdownItem>Another action</button>
+          <button ngbDropdownItem>Something else here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav ngbNav #nav="ngbNav" class="nav-tabs justify-content-center ctgry-lst center">
+  <li ngbDropdown class="nav-item ctgry-heading center" role="presentation" *ngFor="let i of arr;">
+    <!-- <button type="button" class="nav-link" >Dropdown</button> -->
+    <span class="pointer" ngbDropdownToggle>Dropdown{{i}}</span>
+    <div ngbDropdownMenu>
+      <button ngbDropdownItem>Action</button>
+      <button ngbDropdownItem>Another action</button>
+      <button ngbDropdownItem>Something else here</button>
+      <button ngbDropdownItem>Action</button>
+      <button ngbDropdownItem>Another action</button>
+      <button ngbDropdownItem>Something else here</button>
+    </div>
+  </li>
+</nav>
+
+<ngb-carousel class="rasoi-carousel" *ngIf="carouselInfo.length" [showNavigationIndicators]="false">
+  <ng-template ngbSlide *ngFor="let x of carouselInfo; let i = index;">
+    <div class="picsum-img-wrapper">
+      <img [src]=" x.image" alt="Random {{i}} slide" />
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<div class="ftrd container-fluid center col p-1r">
+  <h1>Our Featured Categories</h1>
+  <div class="ftrd-cntnr row between w-100">
+    <div class="ftrd-card col-lg-3 col-sm-6 col-xs-12" *ngFor="let i of [1,2,3,4];let x=index;">
+      <span class="ftrd-head">{{featuredCategory[0].name}}</span>
+      <div class="ftrd-img">
+        <img src="{{featuredCategory[0].img}}" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="bst-slr container-fluid row">
+  <div class="col-lg-4 col-md-6 d-flex flex-column gap-4">
+    <ng-container *ngFor="let x of [1,2,3,4,5,6,7]">
+      <div class="" *ngIf="x<4">
+        <div class="prd-3 d-flex start h-100">
+          <img class="rounded" src="assets/prd.jpeg" alt="Best Seller Products">
+          <div class="d-flex flex-column h-100 w-100">
+            <span class="prd-name">Product Name {{x}}</span>
+            <div class="d-flex justify-content-end">
+              <ngb-rating [(rate)]="prdRate" [max]="5" [readonly]="true"></ngb-rating>
+            </div>
+            <span class="prd-price d-flex align-items-end h-50">
+              <span class="cut-txt me-3 mb-1">₹ 7638.99</span>
+              <span>₹ 2367.23</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="col-lg-4 col-md-6 order-lg-3 d-flex flex-column gap-4">
+    <ng-container *ngFor="let x of [1,2,3,4,5,6,7]">
+      <div class="" *ngIf="x>4">
+        <div class="prd-3 d-flex start h-100">
+          <img class="rounded" src="assets/prd.jpeg" alt="Best Seller Products">
+          <div class="d-flex flex-column h-100 w-100">
+            <span class="prd-name">Product Name {{x}}</span>
+            <div class="d-flex justify-content-end">
+              <ngb-rating [(rate)]="prdRate" [max]="5" [readonly]="true"></ngb-rating>
+            </div>
+            <span class="prd-price d-flex align-items-end h-50">
+              <span class="cut-txt me-3 mb-1">₹ 7638.99</span>
+              <span>₹ 2367.23</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="col-lg-4 order-lg-2">
+    <ng-container *ngFor="let x of [1,2,3,4,5,6,7]">
+      <div class="h-100" *ngIf="x == 4">
+        <div class="prd-1 d-flex flex-column align-items-center h-100">
+          <img class="w-85" src="assets/prd.jpeg" alt="Best Seller Products">
+          <div class="d-flex flex-column h-100 w-100">
+            <span class="prd-name">Product Name {{x}}</span>
+            <div class="d-flex justify-content-end">
+              <ngb-rating [(rate)]="prdRate" [max]="5" [readonly]="true"></ngb-rating>
+            </div>
+            <span class="prd-price d-flex align-items-end">
+              <span class="cut-txt me-3 mb-1">₹ 7638.99</span>
+              <span>₹ 2367.23</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

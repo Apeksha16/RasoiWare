@@ -1,0 +1,25 @@
+<section class="container-fluid cty-nav">
+  <div class="container pe-2 ps-2">
+    <div class="category row nowrap">
+      <ng-container *ngFor="let x of category;">
+        <div class="col center ctgy-wrap">
+          <div class="icn"></div>
+          <span class="txt">{{x.toLocaleUpperCase()}}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</section>
+<section class="custom-carousel">
+  <ngb-carousel class="" [showNavigationIndicators]="false">
+    <ng-template ngbSlide *ngFor="let x of [1,2,3,4]; let i = index;">
+      <div class="picsum-img-wrapper">
+        <img src="assets/{{x}}.jpg" alt="Random {{i}} slide" />
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</section>
+<section class="popular-prd">
+
+</section>
