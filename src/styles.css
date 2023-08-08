@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('./assets/fonts/Nunito-Medium.ttf');
+}
+
 html {
   font-size: 62.5%;
+}
+body{
+  font-family:'Nunito';
 }
 
 
