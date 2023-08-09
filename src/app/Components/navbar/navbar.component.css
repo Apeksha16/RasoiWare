@@ -1,33 +1,33 @@
-.hmbrgr{
+.hmbrgr {
   display: none;
 }
 
-.logo img{
+.logo img {
   width: 60px;
   height: 60px;
 }
 
-.nav-search .form-control{
+.nav-search .form-control {
   font-size: 14px;
   height: 40px;
   border-radius: 30px;
 }
 
-.nav-search .btn{
+.nav-search .btn {
   border-radius: 0px 30px 30px 0px;
   font-size: 14px;
 }
 
-.log-cart i{
+.log-cart i {
   font-size: 20px;
 }
 
 @media (max-width: 1199.98px) {
-  .home-container{
+  .home-container {
     font-size: 16px;
   }
 
-  .nav-search .btn i{
+  .nav-search .btn i {
     display: none;
   }
 
@@ -35,54 +35,71 @@
 
 @media (max-width: 991.98px) {
 
-  .nav-links{
+  .nav-links {
     font-size: 14px;
   }
-  .logo .txt{
+
+  .logo .txt {
     display: none;
   }
-  .cart .txt, .login .txt{
+
+  .cart .txt,
+  .login .txt {
     display: none;
   }
-  .log-cart i{
+
+  .log-cart i {
     font-size: 22px;
   }
 }
 
 @media (max-width: 767.98px) {
-  .nav-search .btn i{
+  .nav-search .btn i {
     display: block;
     padding: 0 1rem 0 1rem;
   }
-  .nav-search .btn span{
+
+  .nav-search .btn span {
     display: none;
   }
 }
 
 @media (max-width: 575.98px) {
 
-  .main-nav{
+  .main-nav {
     margin-top: 0.5rem;
   }
-  .nav-search .form-control{
+
+  .nav-search .form-control {
     font-size: 14px;
     height: 35px;
     border-radius: 30px;
   }
 
-  .logo img{
+  .logo img {
     width: 50px;
     height: auto;
   }
 
-  .nav-links{
+  .nav-links {
     display: none;
   }
-  .hmbrgr{
+
+  .hmbrgr {
     display: flex;
   }
-  .nav-search .btn i{
+
+  .nav-search .btn i {
     padding: 0 0.3rem 0 0.3rem;
   }
 
- }
+}
+
+.modal-dialog {
+  width: 900px;
+  height: 900px;
+}
+
+.modal-content {
+  max-width: 80%;
+}
