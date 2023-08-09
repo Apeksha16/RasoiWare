@@ -27,45 +27,12 @@
         <span class="icn"><i class="fa-solid fa-cart-shopping me-3"></i></span>
         <span class="txt">Cart</span>
       </div>
-      <div class="login d-flex" (click)="openModal()">
+      <div class="login d-flex" (click)="openModal(login)">
         <span class="icn"><i class="fa-solid fa-circle-user me-3"></i></span>
         <span class="txt">Login</span>
       </div>
 
-      <!-- ng-bootstrap modal -->
-      <ng-template #myModal let-modal>
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Login Modal</h4>
-              <button type="button" class="close" (click)="modal.dismiss()">
-                <span>&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <img src="assets/prd.jpeg" alt="Login Image" class="img-fluid">
-                </div>
-                <div class="col-md-6">
-                  <form>
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login with Gmail</button>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ng-template>
+
 
 
     </div>
@@ -73,3 +40,15 @@
 </section>
 
 <!-- </div> -->
+
+<!-- ng-bootstrap modal -->
+<ng-template #login let-modal>
+  <div class="modal-header">
+    <h4 class="">Login</h4>
+  </div>
+  <div class="modal-body">
+    <!-- <p>One fine body&hellip;</p> -->
+    This is a login component.
+  </div>
+
+</ng-template>

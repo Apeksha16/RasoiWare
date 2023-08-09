@@ -95,11 +95,6 @@
 
 }
 
-.modal-dialog {
-  width: 900px;
-  height: 900px;
-}
-
-.modal-content {
-  max-width: 80%;
+.login-modal .modal-lg{
+  max-width:900px;
 }
