@@ -1,8 +1,8 @@
-<!-- <section class="container-fluid cty-nav">
+<section class="container-fluid cty-nav">
   <div class="container pe-2 ps-2">
     <div class="category row nowrap">
       <ng-container *ngFor="let x of category;">
-        <div class="col center ctgy-wrap">
+        <div class="column center ctgy-wrap">
           <div class="icn"></div>
           <span class="txt">{{x.toLocaleUpperCase()}}</span>
         </div>
@@ -19,7 +19,56 @@
       </div>
     </ng-template>
   </ngb-carousel>
-</section> -->
+</section>
+
+<section class="popular-prd mt-5">
+  <div class="container">
+    <div class="head row">
+      <div class="col-6 start">
+        <h1>Popular Products</h1>
+      </div>
+      <div class="col-6 end">
+        <button type="button" class="view-btn btn btn-primary">View All</button>
+      </div>
+    </div>
+    <div class="cnt">
+      <div class="row">
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 column center"
+          *ngFor="let i of ['A','B','C','D','E','F']">
+          <div class="prd column p-4">
+            <div class="center">
+              <img class="img-hght" src="assets/prd.jpeg">
+            </div>
+            <div class="prd-txt column">
+              <div class="column center">
+                <div class="category-block pointer mb-2">
+                  <span>Category Name</span>
+                </div>
+                <span class="name mx-2">Product Name is here. it can be long</span>
+              </div>
+              <span class="price bold-x">₹ 2500</span>
+            </div>
+            <div class="row">
+              <div class="col-7 col-sm-6 counter start">
+                <span class="cnt-btn center">-</span>
+                <span class="cnt-txt mx-2">2</span>
+                <span class="cnt-btn center">+</span>
+              </div>
+              <div class="col-5 col-sm-6 end">
+                <button class="cart-btn btn btn-primary">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span> Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="popular-prd">
   <div class="container">
     <div class="main row">
@@ -49,4 +98,8 @@
       </div>
     </div>
   </div>
+</section>
+
+<section class="">
+
 </section>
