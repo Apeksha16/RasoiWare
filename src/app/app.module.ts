@@ -17,9 +17,10 @@ import { FirebaseAppModule } from '@angular/fire/app';
 import { HomeComponent } from './Components/home/home.component';
 import { HomeOldComponent } from './Components/home-old/home-old.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HomeOldComponent, NavbarComponent],
+  declarations: [AppComponent, HomeComponent, HomeOldComponent, NavbarComponent, FooterComponent],
   imports: [
     BrowserModule,
     CommonModule,

@@ -1,0 +1,14 @@
+.ftr-head {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.sm-txt {
+  font-size: 12px;
+}
+
+.news-ltr .form-control{
+  max-width: 350px;
+  margin-right: 2rem;
+}
