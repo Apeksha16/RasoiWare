@@ -3,13 +3,29 @@
   src: url('./assets/fonts/Nunito-Medium.ttf');
 }
 
+@font-face {
+  font-family: 'Nunito-Bold';
+  src: url('./assets/fonts/Nunito-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito-X-Bold';
+  src: url('./assets/fonts/Nunito-ExtraBold.ttf');
+}
+
 html {
   font-size: 62.5%;
 }
 body{
   font-family:'Nunito';
 }
+h1, h2, h3, h4, h5 ,h6{
+  font-family: 'Nunito-Bold';
+}
 
+.btn {
+  font-size:100%;
+}
 
 /* .ml-2{
   margin-left: 2px;
@@ -68,7 +84,8 @@ body{
   display: flex;
 }
 
-.col{
+.column{
+  display: flex;
   flex-direction: column;
 }
 
@@ -82,6 +99,11 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.end{
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 .around{
@@ -129,6 +151,13 @@ body{
 
 .container{
   max-width: 1280px;
+}
+
+.bold{
+  font-family: 'Nunito-Bold';
+}
+.bold-x{
+  font-family: 'Nunito-X-Bold';
 }
 
 img{
