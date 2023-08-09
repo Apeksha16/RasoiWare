@@ -3,8 +3,11 @@
     <div class="category row nowrap">
       <ng-container *ngFor="let x of category;">
         <div class="column center ctgy-wrap">
-          <div class="icn"></div>
-          <span class="txt">{{x.toLocaleUpperCase()}}</span>
+          <div class="icn center">
+            <img src="assets/icons/{{x.img}}.svg" alt="" srcset="">
+          </div>
+
+          <span class="txt">{{x.name.toLocaleUpperCase()}}</span>
         </div>
       </ng-container>
     </div>
@@ -21,7 +24,7 @@
   </ngb-carousel>
 </section>
 
-<section class="popular-prd mt-5">
+<section class="popular-prd mt-5 mb-5">
   <div class="container">
     <div class="head row">
       <div class="col-6 start">
@@ -69,7 +72,7 @@
 </section>
 
 
-<section class="popular-prd">
+<section class="ftr-banner">
   <div class="container">
     <div class="main row">
       <div class="a col-4 text-center position-relative">
@@ -100,6 +103,6 @@
   </div>
 </section>
 
-<section class="">
+<section class="mt-5 bgcheck">
 
 </section>

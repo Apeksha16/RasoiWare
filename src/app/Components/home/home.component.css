@@ -5,6 +5,11 @@
   border: 4px solid #c98c20;
 }
 
+.icn img {
+  width: 40px; /* Set an appropriate width */
+  height: 40px; /* Set an appropriate height */
+}
+
 .ctgy-wrap {
   min-width: 130px;
   width: 10%;
@@ -124,6 +129,10 @@
   border-radius: 8px;
 }
 
+.ftr-banner{
+  background-color: #6c757d;
+}
+
 @media (max-width: 1199.98px) {}
 
 @media (max-width: 991.98px) {
@@ -169,4 +178,13 @@
 
 .svgStyle {
   width: 16%;
+}
+
+.bgcheck{
+  background-color: #c98c20;
+}
+
+.bgcheck svg{
+  height: 40px;
+  width: 40px;
 }
