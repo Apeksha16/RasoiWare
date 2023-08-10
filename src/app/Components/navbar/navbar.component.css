@@ -6,20 +6,65 @@
   width: 60px;
   height: 60px;
 }
+.logo .txt{
+  color: #ffaf43;
+}
+.logo :hover{
+  cursor: pointer;
+  color: #011627;
+}
 
 .nav-search .form-control{
   font-size: 14px;
-  height: 40px;
+  height: 36px;
   border-radius: 30px;
+  border-color: #ffaf43;
+}
+
+.form-control:focus{
+  box-shadow: 0 0 0 0.25rem rgba(221, 169, 72, 0.25)
 }
 
 .nav-search .btn{
   border-radius: 0px 30px 30px 0px;
   font-size: 14px;
+  background-color: #ffaf43;
+  border-color: #ffaf43;
+  color: #fff;
 }
 
 .log-cart i{
   font-size: 20px;
+  color: #ffaf43;
+}
+.log-cart .txt{
+  color: #ffaf43;
+}
+
+.login:hover, .cart:hover{
+  cursor: pointer;
+}
+.icn i,
+.txt {
+  transition: color 0.3s;
+}
+
+.login:hover .icn i,
+.login:hover .txt, .cart:hover .icn i, .cart:hover .txt {
+  color: #011627;
+}
+
+.nav-links .link{
+  color: #ffaf43;
+}
+
+.link:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.main-nav{
+  /* background-color: #fafafa; */
 }
 
 @media (max-width: 1199.98px) {

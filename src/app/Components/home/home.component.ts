@@ -47,6 +47,29 @@ export class HomeComponent {
     },
   ];
 
+  bestCategories: any[] = [
+    {
+      name: 'Appliances',
+      img: 'appliances',
+    },
+    {
+      name: 'Cooking',
+      img: 'cooking',
+    },
+    {
+      name: 'Tableware',
+      img: 'tableware',
+    },
+    {
+      name: 'Storage',
+      img: 'storage',
+    },
+    {
+      name: 'Home Furnishing',
+      img: 'homefurnishing',
+    },
+  ];
+
   constructor(private sanitizer: DomSanitizer) {}
 
   getSafeUrl(iconName: string): any {
