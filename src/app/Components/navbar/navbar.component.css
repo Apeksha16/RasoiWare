@@ -106,9 +106,6 @@
 
 @media (max-width: 575.98px) {
 
-  .main-nav{
-    margin-top: 0.5rem;
-  }
   .nav-search .form-control{
     font-size: 14px;
     height: 35px;
