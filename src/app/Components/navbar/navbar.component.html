@@ -1,7 +1,7 @@
 <section class="main-nav center">
   <div class="container row">
     <div class="hmbrgr center col-1">
-      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-bars white"></i>
     </div>
     <div class="logo col-sm-1 col-md-1 col-lg-2 col-2 center">
       <img src="assets/rasoiware.png" alt="RasoiWare">
@@ -26,10 +26,27 @@
         <span class="icn"><i class="fa-solid fa-cart-shopping me-3"></i></span>
         <span class="txt">Cart</span>
       </div>
-      <div class="login d-flex">
+      <div class="login d-flex" (click)="openModal(login)">
         <span class="icn"><i class="fa-solid fa-circle-user me-3"></i></span>
         <span class="txt">Login</span>
       </div>
+
+
+
+
     </div>
   </div>
 </section>
+
+
+
+<!-- ng-bootstrap modal -->
+<ng-template #login let-modal>
+  <div class="modal-header">
+    <button class="btn btn-primary w-100 fs-16" type="button" (click)="onLoginPopup()">Login</button>
+  </div>
+  <div class="modal-body end">
+    <span class="link white">New member? &nbsp; Register</span>
+  </div>
+
+</ng-template>

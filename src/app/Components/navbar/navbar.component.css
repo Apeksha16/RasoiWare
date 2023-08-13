@@ -1,8 +1,8 @@
-.hmbrgr{
+.hmbrgr {
   display: none;
 }
 
-.logo img{
+.logo img {
   width: 60px;
   height: 60px;
 }
@@ -14,7 +14,7 @@
   color: #2ec4b6;
 }
 
-.nav-search .form-control{
+.nav-search .form-control {
   font-size: 14px;
   height: 36px;
   border-radius: 30px;
@@ -22,10 +22,11 @@
 }
 
 .form-control:focus{
-  box-shadow: 0 0 0 0.25rem rgba(221, 169, 72, 0.25)
+  /* box-shadow: 0 0 0 0.25rem rgba(221, 169, 72, 0.25) */
+  box-shadow: 0 0 0 0.25rem #2ec4b550
 }
 
-.nav-search .btn{
+.nav-search .btn {
   border-radius: 0px 30px 30px 0px;
   font-size: 14px;
   background-color: #2ec4b6;
@@ -33,7 +34,7 @@
   color: #fff;
 }
 
-.log-cart i{
+.log-cart i {
   font-size: 20px;
   color: #fff;
 }
@@ -41,7 +42,7 @@
   color: #fff;
 }
 
-.login:hover, .cart:hover{
+.log-cart .login:hover, .log-cart .cart:hover{
   cursor: pointer;
 }
 .icn i,
@@ -67,12 +68,18 @@
   background-color: #011627;
 }
 
+.login.modal {
+  --bs-modal-width:70%;
+  /* --bs-modal-height:70%; */
+  top:6%;
+}
+
 @media (max-width: 1199.98px) {
-  .home-container{
+  .home-container {
     font-size: 16px;
   }
 
-  .nav-search .btn i{
+  .nav-search .btn i {
     display: none;
   }
 
@@ -80,26 +87,31 @@
 
 @media (max-width: 991.98px) {
 
-  .nav-links{
+  .nav-links {
     font-size: 14px;
   }
-  .logo .txt{
+
+  .logo .txt {
     display: none;
   }
-  .cart .txt, .login .txt{
+
+  .cart .txt,
+  .login .txt {
     display: none;
   }
-  .log-cart i{
+
+  .log-cart i {
     font-size: 22px;
   }
 }
 
 @media (max-width: 767.98px) {
-  .nav-search .btn i{
+  .nav-search .btn i {
     display: block;
     padding: 0 1rem 0 1rem;
   }
-  .nav-search .btn span{
+
+  .nav-search .btn span {
     display: none;
   }
 }
@@ -112,19 +124,49 @@
     border-radius: 30px;
   }
 
-  .logo img{
+  .logo img {
     width: 50px;
     height: auto;
   }
 
-  .nav-links{
+  .nav-links {
     display: none;
   }
-  .hmbrgr{
+
+  .hmbrgr {
     display: flex;
   }
-  .nav-search .btn i{
-    padding: 0 0.3rem 0 0.3rem;
+  .hmbrgr i:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s ease-in-out;
+    color: #2ec4b6;
   }
 
- }
+  .nav-search .btn i {
+    padding: 0 0.3rem 0 0.3rem;
+  }
+  .log-cart .icn i{
+    font-size: 18px;
+  }
+
+  .fs-16{
+    font-size: 12px;
+  }
+
+}
+
+.login-modal .modal-lg{
+  max-width:200px;
+  margin-right: 1.5%;
+  margin-top: 50px;
+  margin-left: auto;
+}
+
+.login-modal .modal-content{
+  background-color: #011627;
+}
+
+.custom.show{
+  opacity: 0;
+}
