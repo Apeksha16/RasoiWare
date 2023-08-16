@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import {
+  NgbAccordionModule,
   NgbCarouselModule,
   NgbDropdownConfig,
   NgbDropdownModule,
@@ -19,9 +20,22 @@ import { HomeOldComponent } from './Components/home-old/home-old.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LoginComponent } from './Components/login/login.component';
+import { CategoryComponent } from './Components/category/category.component';
+import { ProductsComponent } from './Components/products/products.component';
+import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HomeOldComponent, NavbarComponent, FooterComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HomeOldComponent,
+    NavbarComponent,
+    FooterComponent,
+    LoginComponent,
+    CategoryComponent,
+    ProductsComponent,
+    ContactUsComponent,
+  ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -31,6 +45,7 @@ import { LoginComponent } from './Components/login/login.component';
     NgbDropdownModule,
     NgbRatingModule,
     NgbNavModule,
+    NgbAccordionModule,
     AngularFireModule.initializeApp(environment.firebase),
     FirebaseAppModule,
   ],

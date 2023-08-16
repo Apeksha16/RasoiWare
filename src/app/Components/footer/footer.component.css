@@ -14,14 +14,18 @@
   color:#fff
 }
 
+.content{
+  margin-top: 3rem;
+}
+
 .news-ltr .form-control input{
   height: 30px;
 }
 
 .news-ltr .form-control{
   max-width: 350px;
-  margin-right: 2rem;
   height: 40px;
+  font-size: 1.4rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .news-ltr .form-control:focus{
@@ -32,6 +36,7 @@
 .news-ltr .form-group .btn-primary{
   background-color: #2ec4b6;
   border-color: #2ec4b6;
+  font-size: 1.6rem;
 }
 
 .news-ltr .form-group .btn-primary:hover{
@@ -42,4 +47,21 @@ border-color: #96e2d9;
 .news-ltr .form-group .btn:active{
   background-color: #2ec4b6;
   border-color: #2ec4b6;
+}
+.acc-links{
+  font-size: 14px;
+  color: #212529;
+}
+
+.acc-links:hover{
+  text-decoration: underline;
+  color: #2ec4b6;
+  cursor: pointer;
+}
+
+.accordion {
+  --bs-accordion-active-bg: #2ec4b6;
+  --bs-accordion-btn-focus-box-shadow:0 0 0 0.25rem #2ec4b550;
+  --bs-accordion-active-color:#fff;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }

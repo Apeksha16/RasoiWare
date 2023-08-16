@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -70,7 +71,9 @@ export class HomeComponent {
     },
   ];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private router: Router) {
+    router.navigate(['/home']);
+  }
 
   getSafeUrl(iconName: string): any {
     const url = `assets/icons/${iconName}.svg`;

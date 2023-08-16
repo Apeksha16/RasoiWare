@@ -12,11 +12,15 @@
   background-color: #011627;
   color: white;
   border-radius: 4px 4px 0px 0px;
-  height: 80px;
+  height: 54px;
 }
 
 .mwidth-60{
   /* max-width: 60%; */
+}
+
+.input-content{
+  height: 350px;
 }
 
 .input-content .form-floating{
@@ -35,8 +39,8 @@
 
 .signin-btn .btn{
   border-radius: 18px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   font-size: 16px;
 }
 
@@ -84,8 +88,7 @@
     font-size: 30px;
   }
   .input-content h2{
-    margin-top: 24px;
-    margin-bottom: 24px;
+    text-align: center;
   }
   .input-content .form-floating{
     width: 90%;

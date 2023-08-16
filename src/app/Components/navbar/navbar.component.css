@@ -154,6 +154,13 @@
     font-size: 12px;
   }
 
+  .login-modal .modal-lg{
+    max-width:150px !important;
+    margin-right: 1.5%;
+    margin-top: 50px;
+    margin-left: auto;
+  }
+
 }
 
 .login-modal .modal-lg{

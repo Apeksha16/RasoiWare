@@ -44,7 +44,8 @@
 
 .custom-carousel,
 .custom-carousel img {
-  height: 500px;
+  /* height: 500px; */
+  /* object-fit: cover; */
 }
 
 .popular-prd .head h2{
@@ -74,7 +75,8 @@
 
 .prd:hover{
   transition: 0.1s ease-in-out;
-  box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 8px #2ec4b550;
+  /* box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1); */
 }
 .img-hght {
   width: 60%;
@@ -124,7 +126,7 @@
 
 .counter .cnt-btn:active{
   /* box-shadow: 0 0 0 0.25rem rgba(176, 141, 25, 0.25) */
-  box-shadow: 0 0 0 0.25rem #2ec4b550
+  box-shadow: 0 0 0 0.25rem #2ec4b550;
 }
 
 .counter .cnt-txt{
@@ -150,8 +152,15 @@
 .bst-ctgy-wrap .ctgry{
   border: 4px solid #7ddcd3;
   border-radius: 10px;
+  transition: transform 0.2s ease-out;
 }
+.bst-ctgy-wrap .ctgry:hover{
+  transform: scale(1.05);
 
+}
+.bst-ctgy-wrap .ctgry .txt:hover{
+  cursor: pointer;
+}
 .bst-ctgy-wrap .ctgry .img{
   width: 80px;
   height: 80px;
@@ -177,7 +186,9 @@
 
 .lst-prd:hover{
   transition: 0.1s ease-in-out;
-  box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 10px 8px #2ec4b550;
+
 }
 
 .lst-prd .category-block{
@@ -216,7 +227,7 @@
 
   .custom-carousel,
   .custom-carousel img {
-    height: 450px;
+    /* height: 450px; */
   }
 
   .bst-ctgy-wrap .ctgry .txt{
@@ -233,7 +244,7 @@
 
   .custom-carousel,
   .custom-carousel img {
-    height: 400px;
+    /* height: 400px; */
   }
 
   .prd{
@@ -266,14 +277,17 @@
 
   .custom-carousel,
   .custom-carousel img {
-    height: 400px;
+    height: 180px;
   }
 
   .cnt{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
-
+  .view-btn{
+    font-size: 1.2rem;
+  padding: 0.6rem 2rem;
+  }
   .svgStyle{
     width: 40%;
   }
@@ -282,6 +296,27 @@
   }
   .bnr-txt{
     font-size: 14px;
+  }
+
+  .category .icn {
+    height: 52px;
+    width: 52px;
+    border: 3px solid #2ec4b6;
+  }
+
+  .icn img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ctgy-wrap {
+    min-width: 90px;
+    height: 100px;
+  }
+
+  .ctgy-wrap .txt {
+    font-size: 10px;
+    height: 30px;
   }
 
 }
