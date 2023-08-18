@@ -19,7 +19,7 @@
             <div class="ftr-head bold">
               {{section.heading}}
             </div>
-            <p class="sm-txt link" *ngFor="let link of section.links;">{{link}}</p>
+            <p class="sm-txt link" *ngFor="let link of section.links;" (click)="navigateToLink(link)">{{link}}</p>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <ngb-accordion class="ftr-acrdn">
           <ngb-panel *ngFor="let panel of footerPanels; let i = index" [id]="'panel-' + i" [title]="panel.heading">
             <ng-template ngbPanelContent>
-              <p class="acc-links" *ngFor="let link of panel.links;">{{link}}</p>
+              <p class="acc-links" *ngFor="let link of panel.links;" (click)="navigateToLink(link)">{{link}}</p>
             </ng-template>
           </ngb-panel>
         </ngb-accordion>
