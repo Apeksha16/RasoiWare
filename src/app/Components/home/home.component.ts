@@ -79,6 +79,7 @@ export class HomeComponent {
     private dialog: NgbModal
   ) {
     router.navigate(['/home']);
+    this.onOpenQuickView()
   }
 
   getSafeUrl(iconName: string): any {
