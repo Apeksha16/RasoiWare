@@ -16,168 +16,181 @@
 html {
   font-size: 62.5%;
 }
-body{
-  font-family:'Nunito';
+
+body {
+  font-family: 'Nunito';
 }
-h1, h2, h3, h4, h5 ,h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Nunito-Bold';
 }
 
 .btn {
-  font-size:100%;
+  font-size: 100%;
 }
 
-.w-100{
+.w-100 {
   width: 100%;
 }
-.w-85{
+
+.w-85 {
   width: 85%;
 }
 
-.gap2p{
+.gap2p {
   gap: 2%;
 }
 
-.gap2{
+.gap2 {
   gap: 2rem;
 }
 
-.gap4{
+.gap4 {
   gap: 4rem;
 }
 
-.gap5{
+.gap5 {
   gap: 5rem;
 }
 
-.gap6{
+.gap6 {
   gap: 6rem;
 }
 
-.fs-16{
+.fs-16 {
   font-size: 16px;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.column{
+.column {
   display: flex;
   flex-direction: column;
 }
 
-.start{
+.start {
   display: flex;
   align-items: center;
   justify-content: start;
 }
 
-.center{
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.end{
+
+.end {
   display: flex;
   align-items: center;
   justify-content: end;
 }
 
-.around{
+.around {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.evenly{
+.evenly {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.between{
+.between {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.flex-wrap{
+.flex-wrap {
   display: flex;
   flex-wrap: wrap;
   /* gap:1rem */
 }
-.nowrap{
+
+.nowrap {
   flex-wrap: nowrap;
 }
 
 
-.flex-gap{
+.flex-gap {
   display: inline-flex;
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 1rem;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-.black{
+.black {
   background-color: #0a100d;
 }
 
-.container{
+.container {
   max-width: 1280px;
 }
 
-.bold{
+.bold {
   font-family: 'Nunito-Bold';
 }
-.bold-x{
+
+.bold-x {
   font-family: 'Nunito-X-Bold';
 }
 
-img{
-  width:100%;
+img {
+  width: 100%;
 }
 
-.cut-txt{
+.cut-txt {
   color: #ff6b6b;
   font-size: 14px;
   text-decoration: line-through;
 }
 
-.white{
+.white {
   color: #fff;
 }
 
-.row{
+.row {
   margin: 0 !important;
 }
 
-.btn-primary{
+.btn-primary {
   background-color: #2ec4b6;
   border-color: #2ec4b6;
 }
 
-.btn-primary:hover{
-background-color: #7ddcd3;
-border-color: #7ddcd3;
+.btn-primary:hover {
+  background-color: #7ddcd3;
+  border-color: #7ddcd3;
 }
 
-.btn:first-child:active{
+.btn:first-child:active {
   background-color: #2ec4b6;
   border-color: #2ec4b6;
 }
 
-.btn:focus-visible{
-  border-color:#2ec4b6;
+.btn:focus-visible {
+  border-color: #2ec4b6;
   outline: 0;
   background-color: #2ec4b6;
   box-shadow: 0 0 0 0.25rem #2ec4b550
 }
 
-.link:hover{
+.link:hover {
   cursor: pointer;
   text-decoration: underline;
 }
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
