@@ -14,6 +14,11 @@
   color: #2ec4b6;
 }
 
+.input-group{
+  width: 70%;
+  transition: width 0.3s ease;
+}
+
 .nav-search .form-control {
   font-size: 14px;
   height: 36px;
@@ -74,6 +79,34 @@
   top:6%;
 }
 
+.config-list{
+  display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.config-item{
+  color: #fff;
+  border: 1px solid white;
+  font-size: 14px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.config-item:hover{
+  background-color: #2ec4b6;
+}
+
+.logout{
+  font-size: 16px;
+}
+.logout:hover{
+  color: #2ec4b6;
+}
+
 @media (max-width: 1199.98px) {
   .home-container {
     font-size: 16px;
@@ -87,12 +120,16 @@
 
 @media (max-width: 991.98px) {
 
+  .gap4{
+    gap:3rem;
+  }
+
   .nav-links {
     font-size: 14px;
   }
 
-  .logo .txt {
-    display: none;
+  .input-group{
+    width: 80%;
   }
 
   .cart .txt,
@@ -106,6 +143,15 @@
 }
 
 @media (max-width: 767.98px) {
+
+  .gap4{
+    gap:2rem;
+  }
+
+  .logo .txt {
+    display: none;
+  }
+
   .nav-search .btn i {
     display: block;
     padding: 0 1rem 0 1rem;
@@ -117,6 +163,14 @@
 }
 
 @media (max-width: 575.98px) {
+
+  .input-group{
+    width: 95%;
+  }
+
+  .gap4{
+    gap: 0.6rem;
+  }
 
   .nav-search .form-control{
     font-size: 14px;
@@ -155,12 +209,17 @@
   }
 
   .login-modal .modal-lg{
-    max-width:150px !important;
+    max-width:160px !important;
     margin-right: 1.5%;
     margin-top: 50px;
     margin-left: auto;
   }
-
+  .config-item span{
+    font-size: 12px;
+  }
+  .logout{
+    font-size: 14px;
+  }
 }
 
 .login-modal .modal-lg{

@@ -79,4 +79,7 @@ export class HomeComponent {
     const url = `assets/icons/${iconName}.svg`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+  onCategoryNavigation() {
+    this.router.navigate(['products']);
+  }
 }

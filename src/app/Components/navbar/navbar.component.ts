@@ -15,14 +15,18 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class NavbarComponent {
-  constructor(private modalService: NgbModal, private router: Router) {
-    // this.modalService.open(LoginComponent, {
-    //   size: 'lg',
-    //   windowClass: 'login',
-    //   backdropClass: 'login-backdrop',
-    //   centered: true,
-    // });
-  }
+  configList: any = [
+    {
+      itemName: 'Orders',
+      iconName: 'fa-bag-shopping',
+    },
+    {
+      itemName: 'Notification Centre',
+      iconName: 'fa-bell',
+    },
+  ];
+
+  constructor(private modalService: NgbModal, private router: Router) {}
 
   openModal(loginModal: TemplateRef<any>) {
     this.modalService.open(loginModal, {
@@ -41,13 +45,7 @@ export class NavbarComponent {
     });
   }
 
-  onCategoryNavigation() {
-    this.router.navigate(['category']);
-  }
-  onProductsNavigation() {
-    this.router.navigate(['products']);
-  }
-  onContactUsNavigation() {
-    this.router.navigate(['contact-us']);
+  onHomeNavigation() {
+    this.router.navigate(['']);
   }
 }

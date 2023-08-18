@@ -1,13 +1,10 @@
 <section class="main-nav center">
   <div class="container row">
-    <div class="hmbrgr center col-1">
-      <i class="fa-solid fa-bars white"></i>
-    </div>
-    <div class="logo col-sm-1 col-md-1 col-lg-2 col-2 center">
+    <div class="logo col-2 col-lg-3 start" (click)="onHomeNavigation()">
       <img src="assets/rasoiware.png" alt="RasoiWare">
       <span class="txt">Rasoiware</span>
     </div>
-    <div class="nav-search col-sm-4 col-md-4 col-lg-3 col-6 center">
+    <div class="nav-search col-lg-6 col-7 end">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="">
         <button class="btn btn-outline-secondary" type="button">
@@ -16,12 +13,8 @@
         </button>
       </div>
     </div>
-    <div class="nav-links col-6 col-sm-5 col-md-5 col-lg-5 col-xl-5 around">
-      <span class="link" (click)="onCategoryNavigation()">Categories</span>
-      <span class="link" (click)="onProductsNavigation()">Products</span>
-      <span class="link" (click)="onContactUsNavigation()">Contact Us</span>
-    </div>
-    <div class="col-3 col-sm-2 col-lg-2 col-xl-2 around log-cart">
+
+    <div class="col-3 end gap4 log-cart">
       <div class="cart d-flex">
         <span class="icn"><i class="fa-solid fa-cart-shopping me-3"></i></span>
         <span class="txt">Cart</span>
@@ -30,23 +23,30 @@
         <span class="icn"><i class="fa-solid fa-circle-user me-3"></i></span>
         <span class="txt">Login</span>
       </div>
-
-
-
-
     </div>
   </div>
 </section>
 
 
-
 <!-- ng-bootstrap modal -->
 <ng-template #login let-modal>
-  <div class="modal-header">
+  <!-- <div class="modal-header">
     <button class="btn btn-primary w-100 fs-16" type="button" (click)="onLoginPopup()">Login</button>
   </div>
   <div class="modal-body end">
     <span class="link white">New member? &nbsp; Register</span>
+  </div> -->
+
+  <div class="modal-header">
+    <div class="config-list">
+      <div class="config-item" *ngFor="let item of configList;">
+        <i class="fa-solid me-3" [ngClass]="item.iconName"></i>
+        <span>{{item.itemName}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body center">
+    <span class="logout pointer white">Log Out</span>
   </div>
 
 </ng-template>

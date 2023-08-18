@@ -2,7 +2,7 @@
   <div class="container d-flex justify-content-center pe-2 ps-2">
     <div class="category row nowrap">
       <ng-container *ngFor="let x of category;">
-        <div class="column center ctgy-wrap">
+        <div class="column center ctgy-wrap" (click)="onCategoryNavigation()">
           <div class="icn center">
             <img src="assets/icons/{{x.img}}.svg" alt="" srcset="">
           </div>
