@@ -24,6 +24,7 @@ import { CategoryComponent } from './Components/category/category.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { QuickViewComponent } from './quick-view/quick-view.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { QuickViewComponent } from './quick-view/quick-view.component';
     ProductsComponent,
     ContactUsComponent,
     QuickViewComponent,
+    ViewOrderComponent,
   ],
   imports: [
     BrowserModule,

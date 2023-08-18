@@ -1,0 +1,36 @@
+.my-orders {
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.order-details {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 15px;
+    width: 80%;
+    margin: 0 auto;
+    /* Center the white div */
+}
+
+.product-details {
+    margin-top: 20px;
+}
+
+.product-details img {
+    max-width: 100px;
+    /* Adjust image width as needed */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.cancel-order {
+    color: red;
+    cursor: pointer;
+}
+
+.credit-card {
+    color: gray;
+}
