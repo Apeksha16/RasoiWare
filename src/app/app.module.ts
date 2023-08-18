@@ -23,6 +23,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { CategoryComponent } from './Components/category/category.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
+import { QuickViewComponent } from './quick-view/quick-view.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ContactUsComponent } from './Components/contact-us/contact-us.component
     CategoryComponent,
     ProductsComponent,
     ContactUsComponent,
+    QuickViewComponent,
   ],
   imports: [
     BrowserModule,

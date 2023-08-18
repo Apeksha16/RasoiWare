@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { QuickViewComponent } from 'src/app/quick-view/quick-view.component';
 
 @Component({
   selector: 'app-home',
@@ -71,13 +73,26 @@ export class HomeComponent {
     },
   ];
 
-  constructor(private sanitizer: DomSanitizer, private router: Router) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private router: Router,
+    private dialog: NgbModal
+  ) {
     router.navigate(['/home']);
   }
 
   getSafeUrl(iconName: string): any {
     const url = `assets/icons/${iconName}.svg`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  onOpenQuickView() {
+    this.dialog.open(QuickViewComponent, {
+      centered: true,
+      size: 'lg',
+      windowClass: 'login',
+      backdropClass: 'login-backdrop',
+    });
   }
   onCategoryNavigation() {
     this.router.navigate(['products']);

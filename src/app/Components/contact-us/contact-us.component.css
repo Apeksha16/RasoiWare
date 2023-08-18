@@ -1,0 +1,17 @@
+.bold-text {
+    font-weight: bold;
+}
+
+.custom-input {
+    height: 40px;
+    /* You can adjust the value as needed */
+}
+
+
+.larger-text {
+    font-size: 1.25rem;
+}
+
+.normal-text {
+    font-size: 1.2rem;
+}
