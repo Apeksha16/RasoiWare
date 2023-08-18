@@ -37,7 +37,7 @@
     <span class="link white">New member? &nbsp; Register</span>
   </div> -->
 
-  <div class="modal-header">
+  <div class="modal-header" (click)="orderDetails()">
     <div class="config-list">
       <div class="config-item" *ngFor="let item of configList;">
         <i class="fa-solid me-3" [ngClass]="item.iconName"></i>

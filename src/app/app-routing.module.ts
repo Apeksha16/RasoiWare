@@ -4,6 +4,7 @@ import { CategoryComponent } from './Components/category/category.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { ProductsComponent } from './Components/products/products.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 const routes: Routes = [
   {
@@ -27,10 +28,14 @@ const routes: Routes = [
     path: 'contact-us',
     component: ContactUsComponent,
   },
+  {
+    path: 'view-orders',
+    component: ViewOrderComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
