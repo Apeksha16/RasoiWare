@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -48,7 +49,13 @@ export class FooterComponent {
     },
   ];
 
-  constructor(config: NgbAccordionConfig) {
+  constructor(config: NgbAccordionConfig, private router: Router) {
     config.closeOthers = true;
+  }
+
+  navigateToLink(link: string) {
+    if (link == 'Contact Us') {
+      this.router.navigate(['/contact-us']);
+    }
   }
 }

@@ -3,7 +3,7 @@
 }
 
 .custom-input {
-    height: 40px;
+    font-size: 14px;
     /* You can adjust the value as needed */
 }
 
@@ -14,4 +14,25 @@
 
 .normal-text {
     font-size: 1.2rem;
+}
+
+.contact-head h1{
+  font-size: 46px;
+}
+
+.contact-head p{
+  font-size: 20px;
+}
+
+.contact-form .form-label{
+font-size: 16px;
+}
+
+.contact-form .form-control{
+  font-size: 14px;
+  height: 40px;
+}
+
+.txt-area{
+  min-height: 80px;
 }
