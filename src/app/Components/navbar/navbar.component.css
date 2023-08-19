@@ -1,7 +1,3 @@
-.hmbrgr {
-  display: none;
-}
-
 .logo img {
   width: 60px;
   height: 60px;
@@ -15,7 +11,7 @@
 }
 
 .input-group{
-  width: 70%;
+  width: 90%;
   transition: width 0.3s ease;
 }
 
@@ -64,9 +60,16 @@
   color: #fff;
 }
 
-.link:hover{
-  text-decoration: underline;
+.nav-links i{
+  font-size: 20px;
   cursor: pointer;
+  transition: color 0.2s ease-out;
+}
+.nav-links i:hover{
+color: #2ec4b6;
+}
+ .link:hover{
+  text-decoration: underline;
 }
 
 .main-nav{
@@ -120,17 +123,17 @@
 
 @media (max-width: 991.98px) {
 
-  .gap4{
-    gap:3rem;
+  .gap3{
+    gap:2rem;
   }
 
   .nav-links {
     font-size: 14px;
   }
 
-  .input-group{
+  /* .input-group{
     width: 80%;
-  }
+  } */
 
   .cart .txt,
   .login .txt {
@@ -144,31 +147,35 @@
 
 @media (max-width: 767.98px) {
 
-  .gap4{
-    gap:2rem;
+  .main-nav{
+    height: 60px;
   }
 
-  .logo .txt {
-    display: none;
+  .gap3{
+    gap:1rem;
   }
+
+  /* .logo .txt {
+    display: none;
+  } */
 
   .nav-search .btn i {
     display: block;
     padding: 0 1rem 0 1rem;
   }
 
-  .nav-search .btn span {
+  /* .nav-search .btn span {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 575.98px) {
 
-  .input-group{
+  /* .input-group{
     width: 95%;
-  }
+  } */
 
-  .gap4{
+  .gap3{
     gap: 0.6rem;
   }
 
@@ -179,17 +186,10 @@
   }
 
   .logo img {
-    width: 50px;
+    width: 40px;
     height: auto;
   }
 
-  .nav-links {
-    display: none;
-  }
-
-  .hmbrgr {
-    display: flex;
-  }
   .hmbrgr i:hover{
     cursor: pointer;
     transform: scale(1.2);
@@ -220,6 +220,14 @@
   .logout{
     font-size: 14px;
   }
+}
+
+@media (max-width: 449.98px) {
+
+  .input-group .btn span{
+    display: none;
+  }
+
 }
 
 .login-modal .modal-lg{

@@ -52,6 +52,10 @@ h6 {
   gap: 2rem;
 }
 
+.gap3 {
+  gap: 3rem;
+}
+
 .gap4 {
   gap: 4rem;
 }

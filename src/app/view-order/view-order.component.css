@@ -34,3 +34,28 @@
 .credit-card {
     color: gray;
 }
+
+.order-container{
+  background-color: #f8f9fa;
+}
+
+.order-head{
+  height: 100px;
+  gap:2rem;
+}
+
+.order-head h1{
+  font-size: 30px;
+}
+
+.head-desc{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.head-desc p{
+  margin: 0;
+  font-size: 14px;
+  color: #8d99ae;
+}

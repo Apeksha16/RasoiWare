@@ -1,26 +1,38 @@
 <section class="main-nav center">
   <div class="container row">
-    <div class="logo col-2 col-lg-3 start" (click)="onHomeNavigation()">
-      <img src="assets/rasoiware.png" alt="RasoiWare">
-      <span class="txt">Rasoiware</span>
+    <div class="hmbrgr center col-2 d-flex d-sm-none">
+      <i class="fa-solid fa-bars white"></i>
     </div>
-    <div class="nav-search col-lg-6 col-7 end">
+    <div class="logo col-2 col-sm-1 center" (click)="onHomeNavigation()">
+      <img src="assets/rasoiware.png" alt="RasoiWare">
+      <span class="txt d-none d-md-flex">Rasoiware</span>
+    </div>
+    <div class="nav-search col-8 col-sm-5 center">
       <div class="input-group">
         <input type="text" class="form-control" aria-label="">
-        <button class="btn btn-outline-secondary" type="button">
-          <i class="fa-solid fa-magnifying-glass me-lg-2"></i>
+        <button class="btn btn-outline-secondary center" type="button">
+          <i class="fa-solid fa-magnifying-glass me-2"></i>
           <span>Search</span>
         </button>
       </div>
     </div>
 
-    <div class="col-3 end gap4 log-cart">
+    <div class="nav-links col-4 around white d-sm-flex d-none">
+      <span class="link">Products</span>
+      <span class="link">Contact Us</span>
+    </div>
+    <div class="nav-links col-3 start white d-sm-flex d-none">
+      <i class="fa-solid fa-box-open me-4"></i>
+      <i class="fa-solid fa-headset"></i>
+    </div>
+
+    <div class="col-2 end gap3 log-cart d-sm-flex d-none">
       <div class="cart d-flex">
         <span class="icn"><i class="fa-solid fa-cart-shopping me-3"></i></span>
         <span class="txt">Cart</span>
       </div>
       <div class="login d-flex" (click)="openModal(login)">
-        <span class="icn"><i class="fa-solid fa-circle-user me-3"></i></span>
+        <span class="icn"><i class="fa-solid fa-circle-user"></i></span>
         <span class="txt">Login</span>
       </div>
     </div>

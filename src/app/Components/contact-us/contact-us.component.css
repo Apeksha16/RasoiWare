@@ -1,28 +1,12 @@
-.bold-text {
-    font-weight: bold;
-}
-
-.custom-input {
-    font-size: 14px;
-    /* You can adjust the value as needed */
-}
-
-
-.larger-text {
-    font-size: 1.25rem;
-}
-
-.normal-text {
-    font-size: 1.2rem;
-}
-
 .contact-head h1{
   font-size: 46px;
   color: #2ec4b6;
+  font-family: 'Saira Condensed', sans-serif;
 }
 
 .contact-head p{
-  font-size: 20px;
+  font-size: 18px;
+  color: #212529;
 }
 
 .contact-form .form-label{
@@ -32,6 +16,20 @@ font-size: 16px;
 .contact-form .form-control{
   font-size: 14px;
   height: 40px;
+}
+
+.contact-info{
+  border-radius: 2rem;
+  background-color: #e5f9f8;
+}
+
+.contact-wrap{
+  margin-bottom: 6rem;
+}
+
+.contact-info p{
+ font-size: 14px;
+ margin-bottom: 0.2rem;
 }
 
 .txt-area{
