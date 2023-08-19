@@ -35,3 +35,13 @@ font-size: 16px;
 .txt-area{
   min-height: 80px;
 }
+
+@media (max-width: 575.98px) {
+  .contact-head h1{
+    font-size: 30px;
+  }
+  .contact-head p{
+    font-size: 14px;
+  }
+
+}
