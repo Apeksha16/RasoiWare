@@ -54,7 +54,9 @@ export class FooterComponent {
   }
 
   navigateToLink(link: string) {
-    if (link == 'Contact Us') {
+    if (link === 'Return Policy') {
+      this.router.navigate(['/return-policy']);
+    } else if (link === 'Contact Us') {
       this.router.navigate(['/contact-us']);
     }
   }

@@ -1,60 +1,60 @@
 .my-orders {
-    background-color: lightgray;
-    padding: 15px;
-    border-radius: 10px;
-    width: 100%;
+  background-color: lightgray;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .order-details {
-    background-color: white;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding: 15px;
-    width: 80%;
-    margin: 0 auto;
-    /* Center the white div */
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  width: 80%;
+  margin: 0 auto;
+
 }
 
 .product-details {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .product-details img {
-    max-width: 100px;
-    /* Adjust image width as needed */
-    height: auto;
-    margin-bottom: 15px;
+  max-width: 100px;
+
+  height: auto;
+  margin-bottom: 15px;
 }
 
 .cancel-order {
-    color: red;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }
 
 .credit-card {
-    color: gray;
+  color: gray;
 }
 
-.order-container{
+.order-container {
   background-color: #f8f9fa;
 }
 
-.order-head{
+.order-head {
   height: 100px;
-  gap:2rem;
+  gap: 2rem;
 }
 
-.order-head h1{
+.order-head h1 {
   font-size: 30px;
 }
 
-.head-desc{
+.head-desc {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.head-desc p{
+.head-desc p {
   margin: 0;
   font-size: 14px;
   color: #8d99ae;
