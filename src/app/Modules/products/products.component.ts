@@ -5,26 +5,27 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-
-  productColumns: string[] = ['name', 'id', 'stock', 'category','brand', 'action'];
+  productColumns: string[] = [
+    'name',
+    'id',
+    'stock',
+    'category',
+    'brand',
+    'action',
+  ];
   productTableData: any;
 
-  constructor(
-    private router: Router,
-    private productService:ProductsService
-  ) {
+  constructor(private router: Router, private productService: ProductsService) {
     this.fetchProducts();
-   }
-
+  }
 
   fetchProducts() {
-    this.productService.fetchAllProducts().then(res => {
+    this.productService.fetchAllProducts().then((res) => {
       this.productTableData = new MatTableDataSource(res);
-      console.log(this.productTableData);
-    })
+    });
   }
   editProduct(id: string) {
     this.router.navigate(['/products/edit-product', id]);

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GatewayService } from 'src/app/Utils/gateway.service';
+import { UtilityService } from 'src/app/Utils/utility.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -17,17 +18,20 @@ export class EditProductComponent implements OnDestroy, OnInit {
   public subCategories: string[] = [];
   public productForm: FormGroup;
   public brandList: string[] = [];
-  public productImages: any[] = [];
+  public productImagesOnLocal: any[] = [];
   private productId: string = '';
   private subscription: Subscription;
   public productImgLink: string[] = [];
   public isAllImagesUploaded: boolean = false;
+  private isValueChanges: boolean = false;
+  private productFormCopy: { [key: string]: any } = {};
 
   constructor(
     private router: ActivatedRoute,
     private fb: FormBuilder,
     private prodService: ProductsService,
-    private loading: GatewayService
+    private loading: GatewayService,
+    private utilService: UtilityService
   ) {
     this.productForm = fb.group({
       name: ['', Validators.required],
@@ -52,12 +56,28 @@ export class EditProductComponent implements OnDestroy, OnInit {
       this.productId = decodeURI(x[1].path);
       this.fetchProductDetails();
     });
+    this.productForm.valueChanges.subscribe((_event) => {
+      this.isValueChanges = true;
+    });
+
+    // Object.keys(this.productForm.controls).forEach((fieldName) => {
+    //   const formControl = this.productForm.get(fieldName);
+    //   if (formControl) {
+    //     formControl.valueChanges.subscribe((newValue) => {
+    //       const prevValue = this.productFormCopy[fieldName];
+    //       if (newValue !== prevValue) {
+    //         this.isValueChanges = true;
+    //       } else {
+    //         this.isValueChanges = false;
+    //       }
+    //     });
+    //   }
+    // });
   }
 
   ngOnInit() {
     this.fetchAllBrands();
     this.fetchAllCategory();
-    this.fetchAllProductImages();
   }
 
   fetchAllProductImages() {
@@ -75,7 +95,6 @@ export class EditProductComponent implements OnDestroy, OnInit {
     this.prodService
       .fetchBrands()
       .then((res) => {
-        console.log(res);
         this.brandList = res.name;
       })
       .catch((e) => {
@@ -87,7 +106,6 @@ export class EditProductComponent implements OnDestroy, OnInit {
     this.prodService
       .fetchAllCategories()
       .then((res) => {
-        console.log(res);
         const categories: string[] = [];
         if (res.length) {
           res.forEach((res, i) => {
@@ -113,14 +131,12 @@ export class EditProductComponent implements OnDestroy, OnInit {
         this.subCategories = Object.keys(x.data);
       }
     });
-    console.log(this.subCategories);
   }
 
   fetchProductDetails() {
     this.prodService
       .fetchProductDetails(this.productId)
       .then((x: any) => {
-        console.log(x);
         let productInfo = x.data;
         this.productForm.setValue({
           name: productInfo.name,
@@ -135,8 +151,10 @@ export class EditProductComponent implements OnDestroy, OnInit {
           stock: productInfo.stock,
           specifications: productInfo.specifications,
         });
-        // this.productImgLink = productInfo.images;
         this.productForm.controls['discount'].enable();
+        this.isValueChanges = false;
+        this.productFormCopy = { ...this.productForm.getRawValue() };
+        this.fetchAllProductImages();
       })
       .catch((e) => {
         console.log(e);
@@ -169,27 +187,29 @@ export class EditProductComponent implements OnDestroy, OnInit {
     const files: any[] = Array.from(event.files).slice(0, 10);
     const allowedTypes = ['image/jpeg', 'image/png'];
     const maxSizeInBytes = 300 * 1024; // 300KB
-    this.productImages = [];
+    this.productImagesOnLocal = [];
     for (let i = 0; i < files.length; i++) {
       if (
         allowedTypes.includes(files[i].type) &&
         files[i].size < maxSizeInBytes
       ) {
-        this.productImages.push(files[i]);
+        this.productImagesOnLocal.push(files[i]);
       }
     }
   }
 
   async onUploadImage() {
-    if (this.productImages.length) {
+    if (this.productImagesOnLocal.length) {
       let response = await this.prodService.uploadImages(
         this.productId,
-        this.productImages
+        this.productImagesOnLocal
       );
       response.forEach((x) => {
         this.productImgLink.push(x);
       });
-      this.productImages = [];
+      this.productImagesOnLocal = [];
+    } else {
+      this.utilService.showMessage('Please select product images.');
     }
   }
 
@@ -207,8 +227,21 @@ export class EditProductComponent implements OnDestroy, OnInit {
       });
   }
 
-  onUpdateProduct() {
-    console.log(this.productForm);
+  async onUpdateProduct() {
+    if (this.productImagesOnLocal.length) {
+      this.utilService.showMessage(
+        'Please upload selected Images then, Try again.'
+      );
+    } else if (!this.productImgLink.length) {
+      this.utilService.showMessage('Please upload product images.');
+    } else if (this.productForm.valid) {
+      if (this.isValueChanges) {
+        await this.prodService.onUpdateProduct(
+          this.productId,
+          this.productForm.value
+        );
+      }
+    }
   }
 
   ngOnDestroy() {

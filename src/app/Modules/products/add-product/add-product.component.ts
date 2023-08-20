@@ -8,6 +8,7 @@ import {
 import { ProductsService } from '../products.service';
 import { GatewayService } from 'src/app/Utils/gateway.service';
 import { Router } from '@angular/router';
+import { UtilityService } from 'src/app/Utils/utility.service';
 
 @Component({
   selector: 'app-add-product',
@@ -29,7 +30,8 @@ export class AddProductComponent {
   public prdouctId: string = '';
   public brandList: string[] = [];
   public productImages: any[] = [];
-  private productImgLink: string[] = [];
+  public productImgLink: string[] = [];
+  public previewLocalImgs: any[] = [];
   public isAllImagesUploaded: boolean = false;
 
   constructor(
@@ -37,7 +39,8 @@ export class AddProductComponent {
     private fb: FormBuilder,
     private router: Router,
     private elementRef: ElementRef,
-    private loading: GatewayService
+    private loading: GatewayService,
+    private utils: UtilityService
   ) {
     this.fetchAllCategory();
     this.fetchAllBrands();
@@ -59,7 +62,6 @@ export class AddProductComponent {
       brand: ['', Validators.required],
       stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       description: ['', Validators.required],
-      images: [[], Validators.required],
       specifications: ['', Validators.required],
     });
   }
@@ -84,13 +86,16 @@ export class AddProductComponent {
   }
 
   onSubmit() {
-    console.log(this.productForm);
-    if (this.productForm.valid) {
+    if (this.previewLocalImgs.length) {
+      this.utils.showMessage('Please Upload Choosen Images then, Try again!.');
+    } else if (!this.productImgLink.length) {
+      this.utils.showMessage('Please Upload Images for Product.');
+    } else if (this.productForm.valid) {
       this.productService
         .addProduct(this.prdouctId, this.productForm)
-        .then((res) => {
-          // console.log(res);
+        .then((_res) => {
           this.router.navigate(['/products']);
+          this.utils.showMessage('Product Added Successfully');
         })
         .catch((e) => {
           console.log(e);
@@ -135,27 +140,56 @@ export class AddProductComponent {
         this.productImages.push(files[i]);
       }
     }
+    this.previewImage();
   }
-  onRemoveFile() {
-    this.productImages.splice(0, 1);
+
+  previewImage() {
+    this.previewLocalImgs = [];
+    this.productImages.forEach((x) => {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.previewLocalImgs.push(e.target.result);
+      };
+      reader.readAsDataURL(x);
+    });
   }
+
+  onRemoveFile(i: number) {
+    this.productImages.splice(i, 1);
+    this.previewLocalImgs.splice(i, 1);
+  }
+
+  onRemoveImgFromServer(link: string) {
+    this.productService
+      .removeImage(link)
+      .then((_res: any) => {
+        this.productImgLink.splice(
+          this.productImgLink.findIndex((x) => x === link),
+          1
+        );
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
   async onUploadImage() {
     const response = this.generatePrdId();
-    if (response.status) {
+    if (response.status && this.productImages.length) {
       if (!this.prdouctId.length) {
         this.prdouctId = response.message;
       }
-      this.productImages.forEach(async (x: File) => {
-        this.loading.setLoading(true);
-        // this.productImgLink.push(
-        //   await this.productService.uploadImages(this.prdouctId, x)
-        // );
-        this.loading.setLoading(false);
-        if (this.productImages.length === this.productImgLink.length) {
-          this.isAllImagesUploaded = true;
-          this.productForm.patchValue({ images: this.productImgLink });
-        }
+      let resImages = await this.productService.uploadImages(
+        this.prdouctId,
+        this.productImages
+      );
+      resImages.forEach((x) => {
+        this.productImgLink.push(x);
       });
+      this.productImages = [];
+      this.previewLocalImgs = [];
+    } else {
+      this.utils.showMessage('Please choose product images to upload.');
     }
   }
 
@@ -197,7 +231,6 @@ export class AddProductComponent {
     this.productService
       .fetchBrands()
       .then((res) => {
-        console.log(res);
         this.brandList = res.name;
       })
       .catch((e) => {
@@ -209,7 +242,6 @@ export class AddProductComponent {
     this.productService
       .fetchAllCategories()
       .then((res) => {
-        console.log(res);
         const categories: string[] = [];
         if (res.length) {
           res.forEach((res, i) => {
@@ -231,13 +263,11 @@ export class AddProductComponent {
         this.subCategories = Object.keys(x.data);
       }
     });
-    console.log(this.subCategories);
   }
 
   onSelectSubCategory(event: any) {
     this.categoryData.map((x: any) => {
       if (x.id === this.prdCategory) {
-        console.log(x.data[event.value]);
       }
     });
   }

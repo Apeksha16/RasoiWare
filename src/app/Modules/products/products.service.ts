@@ -22,6 +22,7 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { UtilityService } from 'src/app/Utils/utility.service';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +31,7 @@ export class ProductsService {
   fireStore: any = getFirestore();
   fireStorage: any = getStorage();
 
-  constructor(private gateway: GatewayService) {}
+  constructor(private gateway: GatewayService, private utils: UtilityService) {}
 
   async fetchAllCategories() {
     this.gateway.setLoading(true);
@@ -106,7 +107,6 @@ export class ProductsService {
 
   async removeImage(link: string) {
     this.gateway.setLoading(true);
-
     try {
       const fileRef = ref(this.fireStorage, link);
       await deleteObject(fileRef);
@@ -189,7 +189,7 @@ export class ProductsService {
           })
         );
         this.gateway.setLoading(false);
-        console.log('Download URLs of all images:', downloadURLs);
+        // console.log('Download URLs of all images:', downloadURLs);
         return downloadURLs;
       } else {
         this.gateway.setLoading(false);
@@ -229,6 +229,19 @@ export class ProductsService {
       this.gateway.setLoading(false);
       console.error('Error fetching products:', error);
       return [];
+    }
+  }
+
+  async onUpdateProduct(documentId: string, updateData: any): Promise<any> {
+    this.gateway.setLoading(true);
+    try {
+      const documentRef = doc(this.fireStore, 'products', documentId);
+      await updateDoc(documentRef, updateData);
+      this.gateway.setLoading(false);
+      this.utils.showMessage('Product Updated Successfully');
+    } catch (error) {
+      this.gateway.setLoading(false);
+      this.utils.showMessage('Error updating product' + error);
     }
   }
 }

@@ -75,7 +75,7 @@
           <div fxWidth="100%" fxLayout="row" layout="m-b-20">
             <div class="imagePicker" fxLayout="row" layout="m-r-20" fxAlign="center center"
               (click)="productImg.value = ''; productImg.click();"
-              matBadge="{{productImages.length > 0 ? productImages.length:''}}">
+              matBadge="{{productImagesOnLocal.length > 0 ? productImagesOnLocal.length:''}}">
               <span class="file-upld-txt" layout="m-r-10">Add More Images</span>
               <input type="file" accept="image/*" multiple name="product" id="product" #productImg hidden
                 (change)="onAddImages(productImg)">
