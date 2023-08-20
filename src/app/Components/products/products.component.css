@@ -3,16 +3,19 @@
   height: 40px;
 }
 
-.bread-items{
+.bread-items, .bread-last-item{
   display: flex;
   align-items: center;
   font-size: 16px;
 }
 
 .bread-items .txt:hover {
-  color: cadetblue;
+  color: #2ec4b6;
   text-decoration: underline;
   cursor: pointer;
+}
+.bread-items:hover i {
+  color: #2ec4b6;
 }
 
 .top-deals-products{
@@ -27,9 +30,7 @@
   font-weight: 600;
 }
 
-.prd{
-  min-width: 250px;
-}
+
 
 .brand-list{
   gap:1.5rem;
@@ -67,4 +68,32 @@
   height:400px;
 }
 
+@media (max-width: 1199.98px) {
 
+
+
+}
+
+@media (max-width: 991.98px) {
+
+.bread-items, .bread-last-item{
+  font-size: 14px;
+}
+
+}
+
+@media (max-width: 767.98px) {
+
+
+
+}
+
+@media (max-width: 575.98px) {
+
+
+
+  .bread-items, .bread-last-item{
+    font-size: 12px;
+  }
+
+}

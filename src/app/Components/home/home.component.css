@@ -42,12 +42,6 @@
 
 }
 
-.custom-carousel,
-.custom-carousel img {
-  /* height: 500px; */
-  /* object-fit: cover; */
-}
-
 .popular-prd .head h2{
   font-size: 24px;
   font-weight: 600;
@@ -107,51 +101,7 @@
   font-size: 22px;
 }
 
-.lst-prd-wrap{
-  background-color: #e5f9f8;
-  border-radius: 12px;
-}
 
-.lst-prd{
-  border-radius: 1rem;
-  background-color: #fff;
-}
-
-.lst-prd:hover{
-  transition: 0.1s ease-in-out;
-  /* box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.1); */
-  box-shadow: 0 0 10px 8px #2ec4b550;
-
-}
-
-.lst-prd .category-block{
-  font-size: 14px;
-}
-
-.lst-prd .category-block span{
-  background-color: #e5f9f8;
-  color: #2ec4b6;
-}
-
-.lst-prd .name{
-  font-size: 16px;
-  text-align: center;
-}
-
-.lst-prd .price{
-  font-size: 18px;
-}
-.lst-prd .cut-txt{
-  font-size: 12px;
-}
-
-.lst-prd .cart-btn{
-  font-size: 16px;
-}
-
-.lst-prd .counter{
-  font-size: 16px;
-}
 
 
 @media (max-width: 1199.98px) {}
@@ -170,10 +120,6 @@
 
 @media (max-width: 767.98px) {
 
-  .custom-carousel,
-  .custom-carousel img {
-    /* height: 400px; */
-  }
   .bst-ctgy .row :nth-child(n+5), .cnt .row :nth-child(n+5){
     display: none;
   }

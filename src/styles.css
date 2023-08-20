@@ -30,6 +30,7 @@ h4,
 h5,
 h6 {
   font-family: 'Nunito-Bold';
+  margin: 0;
 }
 
 .btn {
@@ -216,6 +217,7 @@ img {
   border: 1px solid #adb5bd;
   border-radius: 1rem;
   background-color:#fff;
+  min-width: 250px;
 }
 
 .prd:hover{
@@ -233,13 +235,32 @@ img {
   font-size: 22px;
 }
 
+.lst-prd-wrap{
+  background-color: #e5f9f8;
+  border-radius: 12px;
+}
+
+.lst-prd{
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+.lst-prd:hover{
+  transition: 0.1s ease-in-out;
+  box-shadow: 0 0 10px 8px #2ec4b550;
+}
+
+.lst-prd .category-block span{
+  background-color: #e5f9f8;
+  color: #2ec4b6;
+}
+
 .counter .cnt-btn{
   border: 1px solid grey;
   width: 3rem;
   height: 3rem;
   border-radius: 4px;
   cursor: pointer;
-
 }
 
 .counter .cnt-btn:hover{
@@ -260,6 +281,11 @@ img {
   overflow: hidden;
   padding-top: 0.2rem;
 }
+
+.cart-wrap{
+  padding: 0px;
+}
+
 .cart-btn{
   width: 100%;
   display: flex;
@@ -268,11 +294,27 @@ img {
   border-radius: 8px;
 }
 
+@media (max-width: 1199.98px) {
+
+  h1,h2,h3,h4,h5,h6{
+    font-size: 120%;
+  }
+
+
+}
+
+@media (max-width: 991.98px) {
+
+  /* h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+  } */
+
+}
 
 @media (max-width: 767.98px) {
 
-  .prd{
-    padding: 1rem !important;
+  h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
   }
   .price{
     font-size: 20px;
@@ -280,15 +322,52 @@ img {
   .counter .cnt-txt{
     width: 2.5rem;
   }
-  .prd-txt .name{
-    font-size: 16px;
-  }
+
 }
 
 @media (max-width: 575.98px) {
 
-  .cnt{
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+  h1,h2,h3,h4,h5,h6{
+    font-size: 80%;
   }
+
+  .prd{
+    min-width: 180px;
+  }
+
+  .category-block span{
+    font-size: 12px;
+  }
+
+  .price{
+    font-size: 16px;
+  }
+
+  .counter .cnt-btn{
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .counter .cnt-txt{
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 14px;
+  }
+  .prd-txt .name{
+    font-size: 14px;
+  }
+  .cnt{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .cut-txt {
+    font-size: 12px;
+  }
+  .cart-btn{
+    font-size: 14px;
+  }
+  .cart-btn i{
+    margin-right: 0.5rem;
+  }
+
 }

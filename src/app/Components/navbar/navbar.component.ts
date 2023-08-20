@@ -26,7 +26,7 @@ export class NavbarComponent {
     },
   ];
 
-  constructor(private modalService: NgbModal, private router: Router) { }
+  constructor(private modalService: NgbModal, private router: Router) {}
 
   openModal(loginModal: TemplateRef<any>) {
     this.modalService.open(loginModal, {
@@ -50,5 +50,12 @@ export class NavbarComponent {
   }
   orderDetails() {
     this.router.navigate(['view-orders']);
+  }
+
+  navigateToProducts() {
+    this.router.navigate(['products']);
+  }
+  navigateToContactUs() {
+    this.router.navigate(['contact-us']);
   }
 }

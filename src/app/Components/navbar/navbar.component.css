@@ -208,6 +208,10 @@ color: #2ec4b6;
     display: none;
   }
 
+  .input-group{
+    width: 100%;
+  }
+
 }
 
 .login-modal .modal-lg{
