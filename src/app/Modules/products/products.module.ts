@@ -13,20 +13,18 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBadgeModule } from '@angular/material/badge';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatRadioModule } from '@angular/material/radio';
+
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
-  declarations: [
-    ProductsComponent,
-    AddProductComponent,
-    EditProductComponent,
-  ],
+  declarations: [ProductsComponent, AddProductComponent, EditProductComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -44,7 +42,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     MatTableModule,
     MatPaginatorModule,
     MatBadgeModule,
-    MatTooltipModule
-  ]
+    MatTooltipModule,
+    MatRadioModule,
+  ],
 })
-export class ProductsModule { }
+export class ProductsModule {}

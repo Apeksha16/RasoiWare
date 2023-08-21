@@ -27,9 +27,9 @@
   padding: 4px;
   position: relative;
 }
-.uploaded.imageBox{
+/* .uploaded.imageBox{
   border-color: #0f9d58;
-}
+} */
 
 .imageBox button{
   position: absolute;
@@ -38,12 +38,12 @@
   z-index: 1;
 }
 
-.imageBox .upload-icon{
+/* .imageBox .upload-icon{
   position: absolute;
   top: 18px;
   left: 18px;
   color:#0f9d58;
-}
+} */
 
 .imageBox .imageBoxText {
   width: 200px;
@@ -63,6 +63,7 @@
   justify-content: flex-start;
   overflow-x: scroll;
 }
+
 .img-container-empty{
   height: 280px;
   width: 100%;
@@ -89,4 +90,18 @@
 
 .right-container {
   overflow-y: auto;
+}
+
+
+.container{
+  border: 2px solid #4286f4;
+  border-radius: 8px;
+  height: 110px;
+  padding: 0px 10px;
+}
+
+.imgBox{
+  width: 90px;
+  height: 90px;
+  border-radius: 6px;
 }

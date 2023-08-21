@@ -67,35 +67,6 @@
     <div class="divider"></div>
     <div layout="p-l-20 p-b-10 p-t-10 p-r-10" fxHeight="100% - 20px" fxWidth="40%" class="right-container"
       fxLayout="column" fxAlign="space-between start">
-      <!-- <div fxLayout="column" fxWidth="100%">
-        <div layout="m-b-22" fxLayout="row" fxAlign="space-between center">
-          <div (click)="productImg.value = ''; productImg.click();" class="imagePicker" fxLayout="column"
-            fxAlign="center center">
-            <span class="file-upld-txt">Upload</span>
-            <span class="file-upld-txt">Product Image</span>
-            <input type="file" accept="image/*" (change)="onFileChange(productImg)" multiple name="product" id="product"
-              #productImg hidden>
-          </div>
-          <div fxLayout="column" fxAlign="start" *ngIf="productImages.length">
-            <div class="imageBox" layout="m-b-10" matBadge="+{{productImages.length - 1}}" matBadgeSize="medium"
-              fxAlign="space-between center">
-              <span class="imageBoxText" layout="m-l-6">{{productImages[0].name}}</span>
-              <button mat-icon-button layout="m-r-6" [disabled]="isAllImagesUploaded"
-                (click)="onRemoveFile()"><mat-icon>cancel</mat-icon></button>
-            </div>
-            <div fxWidth="100%">
-              <button mat-stroked-button color="primary"
-                [matTooltip]="generatePrdId().status ? '':generatePrdId().message" (click)="onUploadImage()"
-                [disabled]="isAllImagesUploaded">Upload Images</button>
-            </div>
-          </div>
-        </div>
-
-        <mat-form-field appearance="outline">
-          <mat-label>Enter Specifications</mat-label>
-          <textarea matInput formControlName="specifications" placeholder="Product Specification" rows="4"></textarea>
-        </mat-form-field>
-      </div> -->
 
       <div fxLayout="column" fxWidth="100%">
         <mat-form-field appearance="outline">
@@ -110,33 +81,25 @@
               <input type="file" accept="image/*" multiple name="product" id="product" #productImg hidden
                 (change)="onFileChange(productImg)">
             </div>
-            <button mat-raised-button color="primary" [matTooltip]="generatePrdId().status ? '':generatePrdId().message"
-              (click)="onUploadImage()" matBadgeColor="accent"
-              matBadge="{{productImages.length < 1 ? '':productImages.length}}">Upload</button>
           </div>
-          <div [ngClass]="(previewLocalImgs.length || productImgLink.length) ? 'img-container':'img-container-empty'">
-            <div class="imageBox" layout="m-b-10" *ngFor="let img of previewLocalImgs; let i = index;"
-              fxAlign="space-between center">
-              <img class="img-cnt" src="{{img}}" alt="product-img" srcset="">
-              <button mat-icon-button layout="m-r-6" (click)="onRemoveFile(i)"><mat-icon
-                  color="warn">cancel</mat-icon></button>
+
+          <mat-radio-group [ngStyle]="{'width': '100%'}" formControlName="coverImage">
+            <div [ngClass]="previewLocalImgs.length ? 'img-container':'img-container-empty'">
+              <div class="container" fxAlign="space-between center"
+                *ngFor="let img of previewLocalImgs; let i = index;">
+                <mat-radio-button matTooltip="Mark as Cover Image" value="{{i}}"></mat-radio-button>
+                <img class="imgBox" src="{{img}}" alt="">
+              </div>
+              <span *ngIf="!previewLocalImgs.length" class="file-upld-txt">No Images
+                Found</span>
             </div>
-            <div class="imageBox uploaded" layout="m-b-10" *ngFor="let img of productImgLink; let i = index;"
-              fxAlign="space-between center">
-              <img class="img-cnt" src="{{img}}" alt="product-img" srcset="">
-              <mat-icon class="upload-icon">cloud_done</mat-icon>
-              <button mat-icon-button layout="m-r-6" (click)="onRemoveImgFromServer(img)"><mat-icon
-                  color="warn">cancel</mat-icon></button>
-            </div>
-            <span *ngIf="(!previewLocalImgs.length && !productImgLink.length)" class="file-upld-txt">No Images
-              Found</span>
-          </div>
+          </mat-radio-group>
         </div>
       </div>
 
       <div fxWidth="100%" fxGap="4" fxAlign="end center">
         <button color="primary" mat-stroked-button routerLink="/products">Back</button>
-        <button color="primary" mat-raised-button type="submit" (click)="onSubmit()">Save Product</button>
+        <button color="primary" mat-raised-button type="submit" (click)="onSaveProduct()">Save Product</button>
       </div>
     </div>
   </form>

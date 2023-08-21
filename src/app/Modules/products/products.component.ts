@@ -8,14 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-  productColumns: string[] = [
-    'name',
-    'id',
-    'stock',
-    'category',
-    'brand',
-    'action',
-  ];
+  productColumns: string[] = ['name', 'id', 'stock', 'category', 'brand'];
   productTableData: any;
 
   constructor(private router: Router, private productService: ProductsService) {

@@ -30,9 +30,7 @@ export class AddProductComponent {
   public prdouctId: string = '';
   public brandList: string[] = [];
   public productImages: any[] = [];
-  public productImgLink: string[] = [];
   public previewLocalImgs: any[] = [];
-  public isAllImagesUploaded: boolean = false;
 
   constructor(
     private productService: ProductsService,
@@ -63,6 +61,7 @@ export class AddProductComponent {
       stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       description: ['', Validators.required],
       specifications: ['', Validators.required],
+      coverImage: ['', Validators.required],
     });
   }
   changeInDiscount(_event: any) {
@@ -83,24 +82,6 @@ export class AddProductComponent {
       discountControl.clearValidators();
     }
     discountControl.updateValueAndValidity();
-  }
-
-  onSubmit() {
-    if (this.previewLocalImgs.length) {
-      this.utils.showMessage('Please Upload Choosen Images then, Try again!.');
-    } else if (!this.productImgLink.length) {
-      this.utils.showMessage('Please Upload Images for Product.');
-    } else if (this.productForm.valid) {
-      this.productService
-        .addProduct(this.prdouctId, this.productForm)
-        .then((_res) => {
-          this.router.navigate(['/products']);
-          this.utils.showMessage('Product Added Successfully');
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
   }
 
   onInputChange(event: any) {
@@ -159,37 +140,39 @@ export class AddProductComponent {
     this.previewLocalImgs.splice(i, 1);
   }
 
-  onRemoveImgFromServer(link: string) {
-    this.productService
-      .removeImage(link)
-      .then((_res: any) => {
-        this.productImgLink.splice(
-          this.productImgLink.findIndex((x) => x === link),
-          1
-        );
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  async onUploadImage() {
-    const response = this.generatePrdId();
-    if (response.status && this.productImages.length) {
-      if (!this.prdouctId.length) {
-        this.prdouctId = response.message;
-      }
-      let resImages = await this.productService.uploadImages(
-        this.prdouctId,
-        this.productImages
-      );
-      resImages.forEach((x) => {
-        this.productImgLink.push(x);
-      });
-      this.productImages = [];
-      this.previewLocalImgs = [];
-    } else {
+  async onSaveProduct() {
+    if (!this.productImages.length) {
       this.utils.showMessage('Please choose product images to upload.');
+    } else if (!this.productForm.controls['coverImage'].valid) {
+      this.utils.showMessage('Please choose cover image.');
+    } else if (this.productForm.valid) {
+      this.prdouctId = this.generatePrdId().message;
+      let coverImgIndex = this.productForm.controls['coverImage'].value;
+      let coverImage = this.productImages[coverImgIndex];
+      let otherImages = this.productImages.filter(
+        (_x, i) => i !== coverImgIndex
+      );
+      this.productService.uploadImages(this.prdouctId, otherImages);
+      let coverImgLink = await this.productService.uploadImages(
+        this.prdouctId,
+        [coverImage]
+      );
+      this.productForm.get('coverImage')?.patchValue(coverImgLink[0]);
+      this.productService
+        .addProduct(this.prdouctId, this.productForm)
+        .then((_res) => {
+          this.router.navigate(['/products']);
+          this.productImages = [];
+          this.previewLocalImgs = [];
+          this.utils.showMessage('Product Added Successfully');
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      this.utils.showMessage(
+        'Please validate product information and Try Again!.'
+      );
     }
   }
 

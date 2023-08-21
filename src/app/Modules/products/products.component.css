@@ -19,3 +19,8 @@
   width: 250px;
   overflow: hidden;
 }
+
+.mat-mdc-table .mat-mdc-row:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
+}
