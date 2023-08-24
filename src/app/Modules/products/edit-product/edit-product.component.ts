@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -18,16 +18,16 @@ export class EditProductComponent implements OnDestroy, OnInit {
   public subCategories: string[] = [];
   public productForm: FormGroup;
   public brandList: string[] = [];
-  public productImagesOnLocal: any[] = [];
   private productId: string = '';
   private subscription: Subscription;
   public productImgLink: string[] = [];
-  public isAllImagesUploaded: boolean = false;
-  private isValueChanges: boolean = false;
-  private productFormCopy: { [key: string]: any } = {};
+  public productImagesOnLocal: any[] = [];
+  public previewLocalImgs: any[] = [];
+  private prevCoverImg: string = '';
 
   constructor(
-    private router: ActivatedRoute,
+    private actvRouter: ActivatedRoute,
+    private router: Router,
     private fb: FormBuilder,
     private prodService: ProductsService,
     private loading: GatewayService,
@@ -51,28 +51,12 @@ export class EditProductComponent implements OnDestroy, OnInit {
       stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       description: ['', Validators.required],
       specifications: ['', Validators.required],
+      coverImage: ['', Validators.required],
     });
-    this.subscription = router.url.subscribe((x) => {
+    this.subscription = actvRouter.url.subscribe((x) => {
       this.productId = decodeURI(x[1].path);
       this.fetchProductDetails();
     });
-    this.productForm.valueChanges.subscribe((_event) => {
-      this.isValueChanges = true;
-    });
-
-    // Object.keys(this.productForm.controls).forEach((fieldName) => {
-    //   const formControl = this.productForm.get(fieldName);
-    //   if (formControl) {
-    //     formControl.valueChanges.subscribe((newValue) => {
-    //       const prevValue = this.productFormCopy[fieldName];
-    //       if (newValue !== prevValue) {
-    //         this.isValueChanges = true;
-    //       } else {
-    //         this.isValueChanges = false;
-    //       }
-    //     });
-    //   }
-    // });
   }
 
   ngOnInit() {
@@ -150,10 +134,10 @@ export class EditProductComponent implements OnDestroy, OnInit {
           description: productInfo.description,
           stock: productInfo.stock,
           specifications: productInfo.specifications,
+          coverImage: productInfo.coverImage,
         });
         this.productForm.controls['discount'].enable();
-        this.isValueChanges = false;
-        this.productFormCopy = { ...this.productForm.getRawValue() };
+        this.prevCoverImg = this.productForm.controls['coverImage'].value;
         this.fetchAllProductImages();
       })
       .catch((e) => {
@@ -196,6 +180,18 @@ export class EditProductComponent implements OnDestroy, OnInit {
         this.productImagesOnLocal.push(files[i]);
       }
     }
+    this.previewImage();
+  }
+
+  previewImage() {
+    this.previewLocalImgs = [];
+    this.productImagesOnLocal.forEach((x) => {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.previewLocalImgs.push(e.target.result);
+      };
+      reader.readAsDataURL(x);
+    });
   }
 
   async onUploadImage() {
@@ -213,7 +209,15 @@ export class EditProductComponent implements OnDestroy, OnInit {
     }
   }
 
-  onRemoveProductImage(link: string) {
+  onRemoveImgOnLocal(index: number) {
+    this.productImagesOnLocal.splice(index, 1);
+    this.previewLocalImgs.splice(index, 1);
+    if (this.productForm.controls['coverImage'].value == index) {
+      this.productForm.controls['coverImage'].patchValue('');
+    }
+  }
+
+  onRemoveImgFromServer(link: string) {
     this.prodService
       .removeImage(link)
       .then((res: any) => {
@@ -221,6 +225,9 @@ export class EditProductComponent implements OnDestroy, OnInit {
           this.productImgLink.findIndex((x) => x === link),
           1
         );
+        if (this.productForm.controls['coverImage'].value == link) {
+          this.productForm.controls['coverImage'].patchValue('');
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -228,20 +235,54 @@ export class EditProductComponent implements OnDestroy, OnInit {
   }
 
   async onUpdateProduct() {
-    if (this.productImagesOnLocal.length) {
-      this.utilService.showMessage(
-        'Please upload selected Images then, Try again.'
-      );
-    } else if (!this.productImgLink.length) {
-      this.utilService.showMessage('Please upload product images.');
+    if (!this.productImagesOnLocal.length && !this.productImgLink.length) {
+      this.utilService.showMessage('Please choose product images to upload.');
     } else if (this.productForm.valid) {
-      if (this.isValueChanges) {
-        await this.prodService.onUpdateProduct(
-          this.productId,
-          this.productForm.value
+      let coverImgIndex = this.productForm.controls['coverImage'].value;
+      if (coverImgIndex.toString().length <= 2) {
+        let coverImage = this.productImagesOnLocal[coverImgIndex];
+        let otherImages = this.productImagesOnLocal.filter(
+          (_x, i) => i !== coverImgIndex
         );
+        this.prodService.uploadImages(this.productId, otherImages);
+        let coverImgLink = await this.prodService.uploadImages(this.productId, [
+          coverImage,
+        ]);
+        this.productForm.get('coverImage')?.patchValue(coverImgLink[0]);
       }
+      this.prodService
+        .addProduct(this.productId, this.productForm)
+        .then((_res) => {
+          this.router.navigate(['/products']);
+          this.productImagesOnLocal = [];
+          this.previewLocalImgs = [];
+          this.utilService.showMessage('Product Updated Successfully');
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      this.utilService.showMessage(
+        'Please validate product information and Try Again!.'
+      );
     }
+  }
+
+  async deleteProductById() {
+    this.prodService
+      .deleteProduct(this.productId)
+      .then(
+        (_res) => {
+          this.router.navigate(['/products']);
+          this.utilService.showMessage('Product has been deleted successfully');
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   ngOnDestroy() {

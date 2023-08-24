@@ -1,6 +1,7 @@
 <div fxHeight="100% - 20px" fxWidth="100% - 20px" layout="m-10" class="">
   <div fxAlign="space-between center">
     <h2>Edit Product</h2>
+    <button mat-stroked-button color="warn" (click)="deleteProductById()">Delete Product</button>
   </div>
   <form [formGroup]="productForm" fxHeight="100% - 35px" fxLayout="row" fxAlign="space-between center">
     <div layout="p-l-10 p-b-10 p-t-10 p-r-20" fxHeight="100% - 20px" fxWidth="60%" class="left-container"
@@ -74,22 +75,41 @@
         <div fxLayout="column" fxAlign="space-between start">
           <div fxWidth="100%" fxLayout="row" layout="m-b-20">
             <div class="imagePicker" fxLayout="row" layout="m-r-20" fxAlign="center center"
-              (click)="productImg.value = ''; productImg.click();"
-              matBadge="{{productImagesOnLocal.length > 0 ? productImagesOnLocal.length:''}}">
+              (click)="productImg.value = ''; productImg.click();">
               <span class="file-upld-txt" layout="m-r-10">Add More Images</span>
               <input type="file" accept="image/*" multiple name="product" id="product" #productImg hidden
                 (change)="onAddImages(productImg)">
             </div>
-            <button mat-raised-button color="primary" (click)="onUploadImage()">Upload</button>
           </div>
-          <div [ngClass]="productImgLink.length ? 'img-container':'img-container-empty'">
-            <div class="imageBox" layout="m-b-10" *ngFor="let img of productImgLink;" fxAlign="space-between center">
-              <img class="img-cnt" src="{{img}}" alt="product-img" srcset="">
-              <button mat-icon-button layout="m-r-6" (click)="onRemoveProductImage(img)"><mat-icon
-                  color="warn">cancel</mat-icon></button>
+          <mat-radio-group [ngStyle]="{'width': '100%'}" formControlName="coverImage">
+            <div [ngClass]="(previewLocalImgs.length || productImgLink.length) ? 'img-container':'img-container-empty'">
+              <div class="container" fxAlign="space-between center"
+                *ngFor="let img of previewLocalImgs; let i = index;">
+                <mat-radio-button matTooltip="Mark as Cover Image" value="{{i}}"></mat-radio-button>
+                <div class="img-content" fxAlign="center">
+                  <img class="imgBox" src="{{img}}" alt="Product Image {{i}}">
+                  <button mat-fab color="warn" class="delete-icn" aria-label="Delete Product Image"
+                    (click)="onRemoveImgOnLocal(i)">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="container uploaded" fxAlign="space-between center"
+                *ngFor="let img of productImgLink; let i = index;">
+                <mat-radio-button [checked]="productForm.value['coverImage'] == img" matTooltip="Mark as Cover Image"
+                  value="{{img}}"></mat-radio-button>
+                <div class="img-content" fxAlign="center">
+                  <img class="imgBox" src="{{img}}" alt="Product Image {{i}}">
+                  <button mat-fab color="warn" class="delete-icn" aria-label="Delete Product Image"
+                    (click)="onRemoveImgFromServer(img)">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <span *ngIf="!previewLocalImgs.length && !productImgLink.length" class="file-upld-txt">No Images
+                Found</span>
             </div>
-            <span *ngIf="!productImgLink.length" class="file-upld-txt">No Images Found</span>
-          </div>
+          </mat-radio-group>
         </div>
       </div>
       <div fxWidth="100%" fxGap="4" fxAlign="end center">

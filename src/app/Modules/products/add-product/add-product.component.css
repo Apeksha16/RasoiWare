@@ -105,3 +105,30 @@
   height: 90px;
   border-radius: 6px;
 }
+
+.delete-icn{
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  background-color: #db4437;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.img-content{
+  position: relative;
+}
+
+.img-content:hover .delete-icn{
+  display: block;
+}
+
+.delete-icn mat-icon{
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1px;
+}

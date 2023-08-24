@@ -88,7 +88,11 @@
               <div class="container" fxAlign="space-between center"
                 *ngFor="let img of previewLocalImgs; let i = index;">
                 <mat-radio-button matTooltip="Mark as Cover Image" value="{{i}}"></mat-radio-button>
-                <img class="imgBox" src="{{img}}" alt="">
+                <div class="img-content" fxAlign="center">
+                  <img class="imgBox" src="{{img}}" alt="Product Image {{i}}">
+                  <button mat-fab color="warn" class="delete-icn" aria-label="Delete Product Image"
+                    (click)="onRemoveFile(i)"> <mat-icon>close</mat-icon> </button>
+                </div>
               </div>
               <span *ngIf="!previewLocalImgs.length" class="file-upld-txt">No Images
                 Found</span>

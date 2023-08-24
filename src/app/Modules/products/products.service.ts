@@ -10,6 +10,7 @@ import {
   QuerySnapshot,
   getDocs,
   DocumentSnapshot,
+  deleteDoc,
 } from 'firebase/firestore';
 import {
   deleteObject,
@@ -23,6 +24,7 @@ import {
 } from 'firebase/storage';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
 import { UtilityService } from 'src/app/Utils/utility.service';
+// import { Firebase, Observable } from '@angular/fire';
 
 @Injectable({
   providedIn: 'root',
@@ -206,7 +208,7 @@ export class ProductsService {
   async fetchAllProducts(): Promise<any[]> {
     this.gateway.setLoading(true);
     const productsCollectionRef = collection(this.fireStore, 'products');
-    const selectedFields = ['name', 'stock', 'category', 'brand'];
+    const selectedFields = ['name', 'stock', 'category', 'brand', 'coverImage'];
     try {
       const querySnapshot: QuerySnapshot<any> = await getDocs(
         productsCollectionRef
@@ -243,5 +245,50 @@ export class ProductsService {
       this.gateway.setLoading(false);
       this.utils.showMessage('Error updating product' + error);
     }
+  }
+
+  async deleteAllImages(productId: string): Promise<any> {
+    const fullPath = `products/${productId}`;
+    const fullPathRef = ref(this.fireStorage, fullPath);
+    const listResult = await listAll(fullPathRef);
+    const deletePromises: Promise<void>[] = listResult.items.map((item) =>
+      deleteObject(item)
+    );
+    await Promise.all(deletePromises);
+    console.log(`Subpath ${fullPath} and its contents deleted.`);
+    return {
+      status: true,
+      message: 'All Images has been deleted successfully.',
+    };
+  }
+  async deleteProduct(productId: string) {
+    this.gateway.setLoading(true);
+    const documentRef = doc(this.fireStore, 'products', productId);
+    await deleteDoc(documentRef).then(
+      (_res) => {
+        this.gateway.setLoading(false);
+        this.deleteAllImages(productId);
+        return {
+          status: true,
+          message: 'Product has been deleted successfully.',
+        };
+      },
+      (err) => {
+        this.gateway.setLoading(false);
+        console.log(err);
+        return { status: false };
+      }
+    );
+  }
+
+  searchProduct(query: string) {
+    this.fireStore
+      .collection('products')
+      .where('name', 'like', `%${query}%`)
+      .orderByChild('name')
+      .get()
+      .then((docs: any) => {
+        console.log(docs);
+      });
   }
 }

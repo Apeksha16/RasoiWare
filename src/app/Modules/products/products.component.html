@@ -6,6 +6,15 @@
   <div layout="m-t-20" fxWidth="96%">
     <div>
       <mat-table [dataSource]="productTableData" class="mat-elevation-z4">
+        <ng-container matColumnDef="img">
+          <mat-header-cell *matHeaderCellDef> <strong>Product Image</strong> </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <div class="tbl-img" fxAlign="center">
+              <img [ngStyle]="{'width':'100%','border-radius':'8px'}" [src]="element.data?.coverImage"
+                alt="Product Image">
+            </div>
+          </mat-cell>
+        </ng-container>
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> <strong> Name</strong> </mat-header-cell>
           <mat-cell *matCellDef="let element" matTooltip="{{element.data.name.length > 30 ? element.data.name:''}}">
