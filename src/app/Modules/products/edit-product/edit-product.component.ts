@@ -270,7 +270,7 @@ export class EditProductComponent implements OnDestroy, OnInit {
 
   async deleteProductById() {
     this.prodService
-      .deleteProduct(this.productId)
+      .deleteProduct(this.productId, this.productForm)
       .then(
         (_res) => {
           this.router.navigate(['/products']);

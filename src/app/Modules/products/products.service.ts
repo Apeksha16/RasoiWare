@@ -136,18 +136,14 @@ export class ProductsService {
 
   async addProduct(id: string, productForm: FormGroup) {
     const productsCollectionRef = collection(this.fireStore, 'products');
-    // Get the form values
-    this.gateway.setLoading(true);
     const productData = productForm.value;
     try {
-      // Save the product data to Firestore
       const productDocRef = doc(productsCollectionRef, id);
+      this.onUpdateDashboardData(productData, 'ADD');
       await setDoc(productDocRef, productData);
       console.log('Product saved successfully!');
-      this.gateway.setLoading(false);
     } catch (error) {
       console.error('Error saving product:', error);
-      this.gateway.setLoading(false);
     }
   }
 
@@ -247,6 +243,38 @@ export class ProductsService {
     }
   }
 
+  async onUpdateDashboardData(productForm: FormGroup, type: string) {
+    const prdVals = productForm.value;
+    this.gateway.setLoading(true);
+    try {
+      const documentRef = doc(this.fireStore, 'dashboard', 'cards');
+      const docSnapshot: DocumentSnapshot<any> = await getDoc(documentRef);
+      this.gateway.setLoading(false);
+      if (docSnapshot.exists()) {
+        const dashboardData = docSnapshot.data();
+        console.log(dashboardData);
+        if (type === 'ADD') {
+          dashboardData.activeProducts += 1;
+          if (parseInt(prdVals.stock) <= 50) {
+            dashboardData.thresHoldProducts += 1;
+          }
+        } else if (type === 'DELETE') {
+          dashboardData.activeProducts -= 1;
+          if (parseInt(prdVals.stock) <= 50) {
+            dashboardData.thresHoldProducts -= 1;
+          }
+        } else if (type === 'UPDATE') {
+        }
+        await updateDoc(documentRef, dashboardData);
+      } else {
+        this.utils.showMessage('Dashboard Update Unsuccessfull');
+      }
+    } catch (error) {
+      this.gateway.setLoading(false);
+      this.utils.showMessage('Error updating dashboard details' + error);
+    }
+  }
+
   async deleteAllImages(productId: string): Promise<any> {
     const fullPath = `products/${productId}`;
     const fullPathRef = ref(this.fireStorage, fullPath);
@@ -261,13 +289,14 @@ export class ProductsService {
       message: 'All Images has been deleted successfully.',
     };
   }
-  async deleteProduct(productId: string) {
+  async deleteProduct(productId: string, product: FormGroup) {
     this.gateway.setLoading(true);
     const documentRef = doc(this.fireStore, 'products', productId);
     await deleteDoc(documentRef).then(
       (_res) => {
         this.gateway.setLoading(false);
         this.deleteAllImages(productId);
+        this.onUpdateDashboardData(product, 'DELETE');
         return {
           status: true,
           message: 'Product has been deleted successfully.',
@@ -279,16 +308,5 @@ export class ProductsService {
         return { status: false };
       }
     );
-  }
-
-  searchProduct(query: string) {
-    this.fireStore
-      .collection('products')
-      .where('name', 'like', `%${query}%`)
-      .orderByChild('name')
-      .get()
-      .then((docs: any) => {
-        console.log(docs);
-      });
   }
 }

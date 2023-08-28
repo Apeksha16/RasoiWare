@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[fxLayout],[fxAlign],[fxGap],[fxWrap],[fxHeight],[fxWidth]'
+  selector: '[fxLayout],[fxAlign],[fxGap],[fxWrap],[fxHeight],[fxWidth]',
 })
 export class FlexDirective implements OnInit {
   @Input('fxLayout') layout: string | undefined;
@@ -29,14 +29,12 @@ export class FlexDirective implements OnInit {
     if (this.wrap) {
       this.applyWrapStyles(this.wrap);
     }
-    if (this.height)
-    {
+    if (this.height) {
       this.applyWidthOrHeight('height', this.height);
     }
-    if (this.width)
-    {
+    if (this.width) {
       this.applyWidthOrHeight('width', this.width);
-      }
+    }
   }
 
   private applyLayoutStyles(layout: string) {
@@ -44,12 +42,20 @@ export class FlexDirective implements OnInit {
 
     if (styles.includes('row')) {
       this.renderer.setStyle(this.elementRef.nativeElement, 'display', 'flex');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'flex-direction', 'row');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'flex-direction',
+        'row'
+      );
     }
 
     if (styles.includes('column')) {
       this.renderer.setStyle(this.elementRef.nativeElement, 'display', 'flex');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'flex-direction', 'column');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'flex-direction',
+        'column'
+      );
     }
   }
 
@@ -60,49 +66,99 @@ export class FlexDirective implements OnInit {
 
     // Horizontal alignment
     if (horizontalAlign === 'start') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'justify-content', 'flex-start');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'flex-start'
+      );
     } else if (horizontalAlign === 'center') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'justify-content', 'center');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'center'
+      );
     } else if (horizontalAlign === 'end') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'justify-content', 'flex-end');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'flex-end'
+      );
     } else if (horizontalAlign === 'space-between') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'justify-content', 'space-between');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'space-between'
+      );
+    } else if (horizontalAlign === 'around') {
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'space-around'
+      );
     } else if (horizontalAlign === 'none') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'justify-content', 'unset');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'unset'
+      );
     }
 
     // Vertical alignment
     if (verticalAlign === 'start') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'align-items', 'flex-start');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'align-items',
+        'flex-start'
+      );
     } else if (verticalAlign === 'center') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'align-items', 'center');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'align-items',
+        'center'
+      );
     } else if (verticalAlign === 'end') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'align-items', 'flex-end');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'align-items',
+        'flex-end'
+      );
     } else if (verticalAlign === 'none') {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'align-items', 'unset');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'align-items',
+        'unset'
+      );
     }
   }
 
   private applyGapStyles(gap: string) {
-    this.renderer.setStyle(this.elementRef.nativeElement, 'gap', gap+'%');
+    this.renderer.setStyle(this.elementRef.nativeElement, 'gap', gap + '%');
   }
 
   private applyWrapStyles(wrap: string) {
     if (wrap === 'wrap') {
       this.renderer.setStyle(this.elementRef.nativeElement, 'display', 'flex');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'flex-wrap', 'wrap');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'flex-wrap',
+        'wrap'
+      );
     } else if (wrap === 'nowrap') {
       this.renderer.setStyle(this.elementRef.nativeElement, 'display', 'flex');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'flex-wrap', 'nowrap');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'flex-wrap',
+        'nowrap'
+      );
     }
   }
-  applyWidthOrHeight(type: string, value: string | undefined)
-  {
+  applyWidthOrHeight(type: string, value: string | undefined) {
     if (value?.includes(' - ')) {
-    this.renderer.setStyle(this.elementRef.nativeElement, type, 'calc(' + value + ')');
-    }
-    else
-    this.renderer.setStyle(this.elementRef.nativeElement, type, value);
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        type,
+        'calc(' + value + ')'
+      );
+    } else this.renderer.setStyle(this.elementRef.nativeElement, type, value);
   }
 }
-
