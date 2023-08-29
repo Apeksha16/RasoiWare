@@ -81,7 +81,7 @@ color: #2ec4b6;
 }
 
 .login.modal {
-  --bs-modal-width:70%;
+  --bs-modal-width:40%;
   top:6%;
 }
 

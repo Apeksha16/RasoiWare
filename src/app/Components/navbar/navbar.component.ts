@@ -38,7 +38,7 @@ export class NavbarComponent {
   onLoginPopup() {
     this.modalService.dismissAll();
     this.modalService.open(LoginComponent, {
-      size: 'lg',
+      // size: 'lg',
       windowClass: 'login',
       backdropClass: 'login-backdrop',
       centered: true,

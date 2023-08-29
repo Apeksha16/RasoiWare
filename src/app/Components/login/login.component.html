@@ -13,48 +13,48 @@
     <h2 class="my-3 my-sm-5">Welcome to Rasoiware</h2>
 
     <div class="form-floating inp-box mb-3">
-      <input type="email" class="form-control" id="floatingInput" >
-      <label for="floatingInput">Email or Mobile number</label>
+      <input type="email" class="form-control" id="floatingInput">
+      <label for="floatingInput">Mobile number</label>
     </div>
 
 
     <div class="otp-box row center" *ngIf="otpbox">
-    <div class=" mb-3 col-3 ps-0">
-      <input type="text" class="form-control otp-digits">
-   
-    </div>
-     <div class="mb-3 col-3">
-      <input type="text" class="form-control otp-digits"  >
-   
-    </div>
-    <div class=" mb-3 col-3">
-      <input type="text" class="form-control otp-digits">
+      <div class=" mb-3 col-3 ps-0">
+        <input type="text" class="form-control otp-digits">
+
+      </div>
+      <div class="mb-3 col-3">
+        <input type="text" class="form-control otp-digits">
+
+      </div>
+      <div class=" mb-3 col-3">
+        <input type="text" class="form-control otp-digits">
+
+      </div>
+      <div class=" mb-3 col-3 pe-0">
+        <input type="text" class="form-control otp-digits">
+
+      </div>
 
     </div>
-    <div class=" mb-3 col-3 pe-0">
-      <input type="text" class="form-control otp-digits" >
-  
-    </div>
-  
-  </div>
 
-    <div class="signin-btn">
-      <button type="submit" class="btn btn-primary" (click)="visibleOTPBoxes()">Get OTP</button>
+    <div class="signin-btn mt-5">
+      <button type="submit" class="btn btn-primary" (click)="visibleOTPBoxes(); sendOtp();">{{btnName}} OTP</button>
     </div>
-    <div class="my-3 w-100">
+    <!-- <div class="my-3 w-100">
       <span class="line-before-after">or</span>
-    </div>
-    <div class=" mb-3">
+    </div> -->
+    <div class=" mb-3" id="sign-in-btn">
 
-      <button class="outline-btn d-flex">
+      <!-- <button class="outline-btn d-flex">
         <img src="assets/images/google.png" alt="Google Icon">
         <span>Sign in with Google</span>
-      </button>
+      </button> -->
 
     </div>
-    <div class="my-2">
+    <!-- <div class="my-2">
       <span class="link">New to Rasoiware? Create Account</span>
-    </div>
+    </div> -->
   </div>
 
 </div>
