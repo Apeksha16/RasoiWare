@@ -18,7 +18,7 @@ export class HomeComponent {
       img: 'appliances',
     },
     {
-      name: 'Cooking',
+      name: 'Cookware',
       img: 'cooking',
     },
     {
@@ -30,11 +30,7 @@ export class HomeComponent {
       img: 'storage',
     },
     {
-      name: 'Home Furnishing',
-      img: 'homefurnishing',
-    },
-    {
-      name: 'Decor',
+      name: 'Decor & Furnishing',
       img: 'decor',
     },
     {
@@ -46,7 +42,19 @@ export class HomeComponent {
       img: 'outdoor',
     },
     {
-      name: 'Cooktops',
+      name: 'Bandhan Collection',
+      img: 'outdoor',
+    },
+    {
+      name: 'Copperware',
+      img: 'cooktops',
+    },
+    {
+      name: 'Kitchen Linen',
+      img: 'cooktops',
+    },
+    {
+      name: 'Drinkware',
       img: 'cooktops',
     },
   ];

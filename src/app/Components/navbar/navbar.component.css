@@ -74,6 +74,10 @@ color: #2ec4b6;
 .main-nav{
   background-color: #011627;
   height: 80px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .login.modal {
