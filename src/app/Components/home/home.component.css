@@ -34,7 +34,7 @@
 }
 
 .category {
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .cty-nav {

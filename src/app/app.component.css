@@ -1,9 +1,11 @@
 .home-container{
   font-size: 18px;
 }
-.fixed-nav{
-  /* position: fixed; */
-  z-index: 1000;
+
+.web-body,
+.home-container:hover,
+.home-container:focus {
+  visibility: visible;
 }
 
 .router-content{
