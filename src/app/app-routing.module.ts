@@ -6,6 +6,7 @@ import { ContactUsComponent } from './Components/contact-us/contact-us.component
 import { ProductsComponent } from './Components/products/products.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
+import { CartViewComponent } from './cart-view/cart-view.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'return-policy',
     component: ReturnPolicyComponent,
+  },
+  {
+    path: 'cart-view',
+    component: CartViewComponent,
   },
 ];
 

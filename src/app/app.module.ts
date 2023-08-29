@@ -26,6 +26,9 @@ import { ContactUsComponent } from './Components/contact-us/contact-us.component
 import { QuickViewComponent } from './quick-view/quick-view.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
+import { CartViewComponent } from './cart-view/cart-view.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +44,8 @@ import { ReturnPolicyComponent } from './return-policy/return-policy.component';
     QuickViewComponent,
     ViewOrderComponent,
     ReturnPolicyComponent,
+    CartViewComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,7 @@ import { ReturnPolicyComponent } from './return-policy/return-policy.component';
     NgbAccordionModule,
     AngularFireModule.initializeApp(environment.firebase),
     FirebaseAppModule,
+    FormsModule,
   ],
   providers: [NgbDropdownConfig],
   bootstrap: [AppComponent],

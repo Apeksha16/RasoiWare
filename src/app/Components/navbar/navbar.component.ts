@@ -51,4 +51,6 @@ export class NavbarComponent {
   orderDetails() {
     this.router.navigate(['view-orders']);
   }
+
+  
 }

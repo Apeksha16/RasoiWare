@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CartViewComponent } from 'src/app/cart-view/cart-view.component';
 import { QuickViewComponent } from 'src/app/quick-view/quick-view.component';
 
 @Component({
@@ -76,10 +77,11 @@ export class HomeComponent {
   constructor(
     private sanitizer: DomSanitizer,
     private router: Router,
-    private dialog: NgbModal
+    private dialog: NgbModal,
+
   ) {
     router.navigate(['/home']);
-    // this.onOpenQuickView()
+// this.onOpenQuickView();
   }
 
   getSafeUrl(iconName: string): any {
@@ -89,6 +91,14 @@ export class HomeComponent {
 
   onOpenQuickView() {
     this.dialog.open(QuickViewComponent, {
+      centered: true,
+      size: 'lg',
+      windowClass: 'login',
+      backdropClass: 'login-backdrop',
+    });
+  }
+  onOpenCartView(){
+    this.dialog.open(CartViewComponent, {
       centered: true,
       size: 'lg',
       windowClass: 'login',

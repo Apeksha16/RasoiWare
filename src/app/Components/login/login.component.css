@@ -15,9 +15,7 @@
   height: 54px;
 }
 
-.mwidth-60{
-  /* max-width: 60%; */
-}
+
 
 .input-content{
   height: 350px;
@@ -30,8 +28,13 @@
 .form-floating label{
   font-size: 14px;
 }
-
-
+.otp-box{
+  width: 60%;
+ 
+}
+.otp-digits{
+  text-align: center;
+}
 .form-control{
   font-size: 14px;
   height: 50px;
