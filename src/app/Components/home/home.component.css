@@ -1,3 +1,33 @@
+  ::-webkit-scrollbar {
+    width: 20px;
+    height: 8px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #2ec4b6;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #2ec4b6 transparent;
+}
+
+.category {
+  overflow-x: auto;
+}
+
+.category:hover {
+  transition: all 0.1s ease-out;
+}
+
 .category .icn {
   height: 64px;
   width: 64px;
@@ -31,10 +61,6 @@
   font-size: 14px;
   color: #000;
   height: 45px;
-}
-
-.category {
-  overflow-y: auto;
 }
 
 .cty-nav {
@@ -176,4 +202,9 @@
     height: 30px;
   }
 
+}
+
+
+
+.quick-view .modal-dialog{
 }

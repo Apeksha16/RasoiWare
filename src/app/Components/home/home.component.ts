@@ -85,11 +85,11 @@ export class HomeComponent {
   constructor(
     private sanitizer: DomSanitizer,
     private router: Router,
-    private dialog: NgbModal,
-
+    private dialog: NgbModal
   ) {
     router.navigate(['/home']);
-// this.onOpenQuickView();
+    // this.onOpenQuickView();
+    this.onOpenQuickView();
   }
 
   getSafeUrl(iconName: string): any {
@@ -101,11 +101,12 @@ export class HomeComponent {
     this.dialog.open(QuickViewComponent, {
       centered: true,
       size: 'lg',
-      windowClass: 'login',
-      backdropClass: 'login-backdrop',
+      windowClass: 'quick-modal',
+      modalDialogClass: 'quick-view',
+      backdropClass: 'quick-backdrop',
     });
   }
-  onOpenCartView(){
+  onOpenCartView() {
     this.dialog.open(CartViewComponent, {
       centered: true,
       size: 'lg',
