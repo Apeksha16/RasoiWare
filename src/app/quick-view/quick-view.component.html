@@ -1,137 +1,91 @@
-<!-- <div class="container">
-    <div class="row product-quick-view justify-content-center">
-        <div class="col-6 product-details">
-            <p class="product-name my-3 font-weight-bold">Modena 3-in-1 Cot Bed</p>
-            <p class="brand">See More by <a href="#">Tutti Bambini</a></p>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <span class="rating-value">4.8 | 891 Reviews</span>
-            </div>
-            <img src="assets/prd.jpeg" alt="Product Image" class="product-image">
-        </div>
-        <div class="col-6 product-pricing">
-            <p class="price my-4 font-weight-bold">INR 2500</p>
-            <div class="color-options text-left">
-                <div class="btn-group col-12">
-                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Color
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Black</a></li>
-                        <li><a class="dropdown-item" href="#">Blue</a></li>
-                        <li><a class="dropdown-item" href="#">Red</a></li>
-                    </ul>
-                </div>
-            </div>
-            <p class="product-info-heading my-4 font-weight-bold">Product Information</p>
-            <ul class="product-info-list">
-                <li>Material: Manufactured Wood</li>
-                <li>Conversion Types: Day bed; Toddler bed; Bench/Sofa</li>
-                <li>Mattress Included: No</li>
-                <li>Compatible Mattress Size: 70 X 140cm</li>
-                <li>Assembly Required: No</li>
-            </ul>
-            <div class="quantity">
-                <div class="counter start">
-                    <button class="cnt-btn center">-</button>
-                    <span class="cnt-txt mx-1">2</span>
-                    <button class="cnt-btn center">+</button>
-                    <button class="cart-btn btn btn-primary mx-4">
-                        <span> Add to Cart</span>
-                    </button>
-                </div>
-            </div>
-            <div>
-                <button class="cart-btn btn btn-primary mt-3">
-                    <i class="fas fa-heart"></i>
-                    <span class="d-inline-block">Save</span>
-                </button>
-            </div>
-            <p class="full-details-link  mt-3">
-                <a href="#">See Full Details</a>
-            </p>
-        </div>
+<div class="quick-container">
+  <div class="quick-header">
+    <div class="txt">
+      <span>Nutri Blend Product name and will contain so on</span>
     </div>
-</div> -->
+  </div>
+  <div class="quick-content row">
+    <div class="imgs col-12 col-md-6">
+      <!-- <div class="my-3 mx-3">
+        <p class="prdct-owner ">See more by <a href="#">Apeksha Verma</a></p>
 
-
-<div class="row">
-    <div class="product-image col-6">
-        <div class="my-3 mx-3" >
-            <p class="prdct-name">Nutri Blend</p>
-            <p class="prdct-owner ">See more by <a href="#">Apeksha Verma</a></p>
-        
         <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <span class="rating-value mx-3">4.8 | 891 Reviews</span>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <span class="rating-value mx-3">4.8 | 891 Reviews</span>
         </div>
         <div class="my-2 col-6 mx-5">
-        <img src="assets/prd.jpeg" alt="Product Image">
+          <img src="assets/prd.jpeg" alt="Product Image">
+        </div>
+      </div> -->
+
+      <ngb-carousel class="" [showNavigationIndicators]="false">
+        <ng-template ngbSlide *ngFor="let x of [1,2,3,4]; let i = index;">
+          <div>
+            <img src="assets/images/prd-img-{{x}}.webp" alt="Carousel {{i}} Image" />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
     </div>
-    </div>
-    </div>
 
-    <div class="product-details col-6">
-        <div class="my-3 mx-3" >
-            <p class="prdct-name">Rs. 1250</p>
+    <div class="product-details col-12 col-md-6">
+      <div class="my-3 mx-3">
+        <p class="prdct-name">Rs. 1250</p>
 
 
-            <div class="row">
-                <div class="col">
-                    <div ngbDropdown class="d-inline-block">
-                        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-                            Color
-                        </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Black</button>
-                            <button ngbDropdownItem>Pink</button>
-                            <button ngbDropdownItem>Purple</button>
-                        </div>
-                    </div>
-                </div>
-                <p class="product-info-heading my-4 ">Product Information</p>
-                <ul class="product-info-list mx-3">
-                    <li>Material: Manufactured Wood</li>
-                    <li>Conversion Types: Day bed; Toddler bed; Bench/Sofa</li>
-                    <li>Mattress Included: No</li>
-                    <li>Compatible Mattress Size: 70 X 140cm</li>
-                    <li>Assembly Required: No</li>
-                </ul>
-
-
-                <div class="quantity-box">
-                    <div class="rectangle">
-                        <button class="quantity-btn minus">-</button>
-                    </div>
-                    <div class="rectangle">
-                        <span class="quantity-number">2</span>
-                    </div>
-                    <div class="rectangle">
-                        <button class="quantity-btn plus">+</button>
-                    </div>
-                    <div class="align-self-end">
-                        <button type="button" class="btn btn-info btn-wide">Add to Cart</button>
-                    </div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-info btn-wide1">
-                    <i class="fas fa-heart"></i>
-                Save
-                </button>
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                Color
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Black</button>
+                <button ngbDropdownItem>Pink</button>
+                <button ngbDropdownItem>Purple</button>
+              </div>
             </div>
+          </div>
+          <p class="product-info-heading my-4 ">Product Information</p>
+          <ul class="product-info-list mx-3">
+            <li>Material: Manufactured Wood</li>
+            <li>Conversion Types: Day bed; Toddler bed; Bench/Sofa</li>
+            <li>Mattress Included: No</li>
+            <li>Compatible Mattress Size: 70 X 140cm</li>
+            <li>Assembly Required: No</li>
+          </ul>
 
-            <p class="full-details-link  mt-3">
-                <a href="#">See Full Details</a>
-            </p>
-</div>
+
+          <div class="quantity-box">
+            <div class="rectangle">
+              <button class="quantity-btn minus">-</button>
+            </div>
+            <div class="rectangle">
+              <span class="quantity-number">2</span>
+            </div>
+            <div class="rectangle">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="align-self-end">
+              <button type="button" class="btn btn-info btn-wide">Add to Cart</button>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-info btn-wide1">
+              <i class="fas fa-heart"></i>
+              Save
+            </button>
+          </div>
+
+          <p class="full-details-link  mt-3">
+            <a href="#">See Full Details</a>
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

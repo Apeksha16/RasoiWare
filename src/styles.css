@@ -371,5 +371,16 @@ img {
   .cart-btn i{
     margin-right: 0.5rem;
   }
-
+  .quick-modal{
+    display: flex !important;
+    justify-content: center;
+  }
+  .quick-view{
+    width: 80% !important;
+  }
 }
+
+.quick-view .modal-content{
+  border-radius: 8px;
+}
+
