@@ -21,7 +21,7 @@ export class NavbarComponent {
       iconName: 'fa-bag-shopping',
     },
     {
-      itemName: 'Notification Centre',
+      itemName: 'My Profile',
       iconName: 'fa-bell',
     },
   ];
@@ -48,8 +48,13 @@ export class NavbarComponent {
   onHomeNavigation() {
     this.router.navigate(['']);
   }
-  orderDetails() {
-    this.router.navigate(['view-orders']);
+  orderDetails(item:any) {
+    if (item.itemName== 'Order'){
+      this.router.navigate(['view-orders']);
+    }
+    else if(item.itemName=='My Profile'){
+      this.router.navigate(['my-profile']);
+    }
   }
 
   navigateToProducts() {

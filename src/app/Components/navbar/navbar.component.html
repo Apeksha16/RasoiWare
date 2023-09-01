@@ -43,17 +43,17 @@
 
 
 <ng-template #login let-modal>
-  <div class="modal-header">
+  <!-- <div class="modal-header">
     <button class="btn btn-primary w-100 fs-16" type="button" (click)="onLoginPopup()">Login</button>
   </div>
   <div class="modal-body end">
     <span class="link white">New member? &nbsp; Register</span>
-  </div>
+  </div> -->
 
 
-  <!-- <div class="modal-header" (click)="orderDetails()">
+  <div class="modal-header" >
     <div class="config-list">
-      <div class="config-item" *ngFor="let item of configList;">
+      <div class="config-item" *ngFor="let item of configList;" (click)="orderDetails(item)">
         <i class="fa-solid me-3" [ngClass]="item.iconName"></i>
         <span>{{item.itemName}}</span>
       </div>
@@ -61,6 +61,6 @@
   </div>
   <div class="modal-body center">
     <span class="logout pointer white">Log Out</span>
-  </div> -->
+  </div>
 
 </ng-template>
