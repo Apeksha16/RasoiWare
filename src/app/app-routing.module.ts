@@ -7,6 +7,8 @@ import { ProductsComponent } from './Components/products/products.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
+import { MyProfileComponent } from './Components/my-profile/my-profile.component';
+import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'cart-view',
     component: CartViewComponent,
+  },
+  {
+    path: 'my-profile',
+    component: MyProfileComponent,
+  },
+  {
+    path: 'manage-addresses',
+    component: ManageAddressesComponent,
   },
 ];
 

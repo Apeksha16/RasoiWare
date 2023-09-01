@@ -27,6 +27,8 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
 import { FormsModule } from '@angular/forms';
+import { MyProfileComponent } from './Components/my-profile/my-profile.component';
+import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { FormsModule } from '@angular/forms';
     ViewOrderComponent,
     ReturnPolicyComponent,
     CartViewComponent,
+    MyProfileComponent,
+    ManageAddressesComponent,
    
   ],
   imports: [
