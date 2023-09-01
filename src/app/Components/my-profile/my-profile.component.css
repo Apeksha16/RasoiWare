@@ -1,4 +1,42 @@
-.user-details{
-    background-color: wheat;
- 
+.user-details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.user-icon {
+    color: #007bff;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.personal-information {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.personal-information span {
+    font-size: 16px;
+}
+
+.right-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.right-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.custom-input {
+    height: 40px; 
+    font-size: 14px; 
 }

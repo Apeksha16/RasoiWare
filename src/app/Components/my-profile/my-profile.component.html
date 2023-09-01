@@ -1,6 +1,8 @@
-<div class="container">
-    <div class="user-details col-3 d-flex align-items-center">
-        <div class="user-icon my-4 mx-4">
+<div class="container  row">
+<div class="col-3">
+
+    <div class="user-details d-flex align-items-center" >
+        <div class="user-icon my-4 mx-3">
             <i class="fas fa-user-circle fa-3x my-3"></i>
         </div>
         <div class="user-name">
@@ -9,87 +11,143 @@
         </div>
     </div>
 
-    <div class="col-3">
-    <div class="row mt-4 ">
-        <div class="col-10">
-            <span>My Orders</span>
-        </div>
-        <div class="col-2 text-right">
+    <div class="personal-information my-5">
+        <div class="d-flex align-items-center">
             <i class="fas fa-shopping-bag"></i>
+            <div class="col-10 mx-3">
+                <span>My Orders</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
         </div>
-    </div>
-    <hr>
+        <hr>
 
-    <div class="row">
-        <div class="col-10">
-            <span>Account Settings</span>
+        <div class="d-flex align-items-center" (click)="toggleComponent()">
+            <i class="fas fa-user"></i>
+            <div class="col-10 mx-3">
+                <span>Account Settings</span>
+            </div>
         </div>
-        <div class="col-2 text-right">
-            <i class="fas fa-cog"></i>
+        <div class="row ml-4">
+            <div class="col-12 my-2 mx-4">
+                <span>Profile Information</span>
+            </div>
+            <div class="col-12 mx-4">
+                <span>Manage Addresses</span>
+            </div>
+            <div class="col-12 my-2 mx-4">
+                <span>PAN Card Information</span>
+            </div>
         </div>
-    </div>
-    <div class="row ml-4">
-        <div class="col-12">
-            <span>Profile Information</span>
-        </div>
-        <div class="col-12">
-            <span>Manage Addresses</span>
-        </div>
-        <div class="col-12">
-            <span>PAN Card Information</span>
-        </div>
-    </div>
-    <hr>
+        <hr>
 
-    <div class="row">
-        <div class="col-10">
-            <span>Payments</span>
-        </div>
-        <div class="col-2 text-right">
+        <div class="d-flex align-items-center">
             <i class="fas fa-credit-card"></i>
+            <div class="col-10 mx-3">
+                <span>Payments</span>
+            </div>
         </div>
-    </div>
-    <div class="row ml-4">
-        <div class="col-12">
-            <span>Gift Cards</span>
+        <div class="row ml-4">
+            <div class="col-12 mx-4 my-2">
+                <span>Gift Cards</span>
+            </div>
+            <div class="col-12 mx-4">
+                <span>Saved UPI</span>
+            </div>
+            <div class="col-12 mx-4 my-2">
+                <span>Saved Cards</span>
+            </div>
         </div>
-        <div class="col-12">
-            <span>Saved UPI</span>
-        </div>
-        <div class="col-12">
-            <span>Saved Cards</span>
-        </div>
-    </div>
-    <hr>
+        <hr>
 
-    <div class="row">
-        <div class="col-10">
-            <span>My Stuff</span>
-        </div>
-        <div class="col-2 text-right">
+        <div class="d-flex align-items-center">
             <i class="fas fa-cubes"></i>
+            <div class="col-10 mx-3">
+                <span>My Stuff</span>
+            </div>
         </div>
-    </div>
-    <div class="row ml-4">
-        <div class="col-12">
-            <span>My Coupons</span>
+        <div class="row ml-4">
+            <div class="col-12 mx-4 my-2">
+                <span>My Coupons</span>
+            </div>
+            <div class="col-12 mx-4">
+                <span>My Reviews & Ratings</span>
+            </div>
+            <div class="col-12 mx-4">
+                <span>All Notifications</span>
+            </div>
+            <div class="col-12 mx-4 my-2">
+                <span>My Wishlist</span>
+            </div>
         </div>
-        <div class="col-12">
-            <span>My Reviews & Ratings</span>
-        </div>
-        <div class="col-12">
-            <span>All Notifications</span>
-        </div>
-        <div class="col-12">
-            <span>My Wishlist</span>
-        </div>
-    </div>
-    <hr>
+        <hr>
 
-    <div class="row mt-2">
-        <div class="col-12 text-center">
-            <span>Logout</span>
+        <div class="row mt-2">
+            <div class="col-12 text-left"> 
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="mx-3">Logout</span>
+            </div>
         </div>
     </div>
 </div>
+
+
+
+<div class="col-9">
+    <div class="col-9">
+    
+        <!-- Manage Addresses Component (initially hidden) -->
+        <app-manage-addresses *ngIf="!showPersonalInformation"></app-manage-addresses>
+      </div>
+    <div class="personal-information mt-4 mx-4">
+        <span>Personal Information</span>
+
+        <div class="row mt-2 my-5">
+            <div class="col-3 my-3">
+                <input type="text" class="form-control mt-4 custom-input" value="Apeksha" disabled>
+            </div>
+            <div class="col-3 my-3">
+                <input type="text" class="form-control mt-4 custom-input" value="Verma" disabled>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 my-5">
+                <label for="gender">Gender:</label>
+            </div>
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" disabled>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" disabled>
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 my-5">
+                <span>Email Address:</span>
+            </div>
+            <div class="col-6 ">
+                <input type="text" class="form-control mt-2 custom-input" value="apeksha16verma@gmail.com" disabled>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 my-5">
+                <span>Mobile Number</span>
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control mt-2 custom-input" value="7668804527" disabled>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </div>
