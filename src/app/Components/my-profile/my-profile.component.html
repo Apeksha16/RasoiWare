@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
-
+    <div class="col-3 my-5">
       <div class="user-details d-flex align-items-center">
         <div class="user-icon my-4 mx-3">
           <i class="fas fa-user-circle fa-3x my-3"></i>
@@ -22,12 +21,6 @@
         </div>
         <hr>
 
-        <!-- <div class="d-flex align-items-center" (click)="toggleComponent()">
-          <i class="fas fa-user"></i>
-          <div class="col-10 mx-3">
-            <span>Account Settings</span>
-          </div>
-        </div> -->
         <div class="row ml-4">
           <div class="col-12 my-2 mx-4" (click)="toggleInfo('PI')">
             <span>Profile Information</span>
@@ -35,52 +28,8 @@
           <div class="col-12 mx-4" (click)="toggleInfo('MA')">
             <span>Manage Addresses</span>
           </div>
-          <!-- <div class="col-12 my-2 mx-4">
-            <span>PAN Card Information</span>
-          </div> -->
         </div>
         <hr>
-
-        <!-- <div class="d-flex align-items-center">
-          <i class="fas fa-credit-card"></i>
-          <div class="col-10 mx-3">
-            <span>Payments</span>
-          </div>
-        </div> -->
-        <!-- <div class="row ml-4">
-          <div class="col-12 mx-4 my-2">
-            <span>Gift Cards</span>
-          </div>
-          <div class="col-12 mx-4">
-            <span>Saved UPI</span>
-          </div>
-          <div class="col-12 mx-4 my-2">
-            <span>Saved Cards</span>
-          </div>
-        </div> -->
-        <!-- <hr> -->
-
-        <!-- <div class="d-flex align-items-center">
-          <i class="fas fa-cubes"></i>
-          <div class="col-10 mx-3">
-            <span>My Stuff</span>
-          </div>
-        </div> -->
-        <!-- <div class="row ml-4">
-          <div class="col-12 mx-4 my-2">
-            <span>My Coupons</span>
-          </div>
-          <div class="col-12 mx-4">
-            <span>My Reviews & Ratings</span>
-          </div>
-          <div class="col-12 mx-4">
-            <span>All Notifications</span>
-          </div>
-          <div class="col-12 mx-4 my-2">
-            <span>My Wishlist</span>
-          </div>
-        </div> -->
-        <!-- <hr> -->
 
         <div class="row mt-2">
           <div class="col-12 text-left">
@@ -91,50 +40,49 @@
       </div>
     </div>
 
-
-
     <div class="col-9">
-      <div class="col-9">
-
-        <!-- Manage Addresses Component (initially hidden) -->
+      <div class="col-9 my-5">
         <app-manage-addresses *ngIf="!showPersonalInformation"></app-manage-addresses>
       </div>
-      <div class="personal-information mt-4 mx-4" *ngIf="showPersonalInformation">
-        <span>Personal Information</span>
+      <div class="personal-information mt-4 mx-4 right-container">
+        <div class="d-flex align-items-center">
+          <span class="personal-info-heading">Personal Information</span>
+          <i class="edit-icon fas fa-edit mx-4"></i>
+        </div>
 
         <div class="row mt-2 my-5">
           <div class="col-3 my-3">
-            <input type="text" class="form-control mt-4 custom-input" value="Apeksha" disabled>
+            <input type="text" class="form-control mt-4 custom-input" placeholder="Apeksha">
           </div>
           <div class="col-3 my-3">
-            <input type="text" class="form-control mt-4 custom-input" value="Verma" disabled>
+            <input type="text" class="form-control mt-4 custom-input" placeholder="Verma">
           </div>
         </div>
 
         <div class="row mt-4">
           <div class="col-12 my-5">
-            <label for="gender">Gender:</label>
+            <label for="gender">Gender</label>
           </div>
           <div class="col-3">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" id="male" disabled>
-              <label class="form-check-label" for="male">Male</label>
+              <input class="form-check-input" type="radio" name="gender" id="male">
+              <label for="male">Male</label>
             </div>
           </div>
           <div class="col-3">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" id="female" disabled>
-              <label class="form-check-label" for="female">Female</label>
+              <input class="form-check-input" type="radio" name="gender" id="female">
+              <label for="female">Female</label>
             </div>
           </div>
         </div>
 
         <div class="row mt-4">
           <div class="col-12 my-5">
-            <span>Email Address:</span>
+            <span>Email Address</span>
           </div>
-          <div class="col-6 ">
-            <input type="text" class="form-control mt-2 custom-input" value="apeksha16verma@gmail.com" disabled>
+          <div class="col-6">
+            <input type="text" class="form-control mt-2 custom-input" placeholder="apeksha16verma@gmail.com">
           </div>
         </div>
 
@@ -143,13 +91,10 @@
             <span>Mobile Number</span>
           </div>
           <div class="col-6">
-            <input type="text" class="form-control mt-2 custom-input" value="7668804527" disabled>
+            <input type="text" class="form-control mt-2 custom-input" placeholder="7668804527">
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
 </div>

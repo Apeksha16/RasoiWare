@@ -1,42 +1,56 @@
+
 .user-details {
-    background-color: #f8f9fa;
+    background-color: #e5f9f8;
     padding: 20px;
     border-radius: 5px;
-}
-
-.user-icon {
-    color: #007bff;
-}
-
-.user-name {
+  }
+  
+  .user-icon {
+    color: #2ec4b6;
+  }
+  
+  .user-name {
     font-weight: bold;
     font-size: 18px;
-}
+  }
+  
 
-.personal-information {
-    background-color: #f8f9fa;
+  .personal-information {
+    background-color: #e5f9f8;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
-}
+  }
+  
 
-.personal-information span {
-    font-size: 16px;
-}
-
-.right-container {
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-.right-container h2 {
-    font-size: 24px;
+  .personal-info-heading {
+    font-family: 'Saira Condensed', sans-serif;
     font-weight: bold;
-    color: #333;
+    font-size: 46px;
+    color: #2ec4b6;
+  }
+  
+.edit-icon{
+    color: #2ec4b6;
+    cursor: pointer;
 }
-.custom-input {
-    height: 40px; 
-    font-size: 14px; 
-}
+  .custom-input {
+    height: 40px;
+    font-size: 14px;
+  }
+  
+
+  .form-check-label {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 575.98px) {
+    .user-name {
+      font-size: 16px;
+    }
+    
+    .form-check-label {
+      font-size: 14px;
+    }
+  }
+  
