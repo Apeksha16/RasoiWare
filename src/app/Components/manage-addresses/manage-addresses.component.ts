@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./manage-addresses.component.css']
 })
 export class ManageAddressesComponent {
+  showAddressForm: boolean = false;
 
+  toggleAddressForm() {
+    this.showAddressForm = !this.showAddressForm;
+  }
 }

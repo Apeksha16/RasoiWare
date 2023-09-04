@@ -44,7 +44,7 @@
       <div class="col-9 my-5">
         <app-manage-addresses *ngIf="!showPersonalInformation"></app-manage-addresses>
       </div>
-      <div class="personal-information mt-4 mx-4 right-container">
+      <div class="personal-information mt-4 mx-4 right-container"  *ngIf="showPersonalInformation">
         <div class="d-flex align-items-center">
           <span class="personal-info-heading">Personal Information</span>
           <i class="edit-icon fas fa-edit mx-4"></i>
