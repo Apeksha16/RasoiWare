@@ -27,7 +27,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
 import { FormsModule } from '@angular/forms';
-import { NgxStarRatingModule } from 'ngx-star-rating';
+// import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
 
@@ -61,7 +61,7 @@ import { ManageAddressesComponent } from './Components/manage-addresses/manage-a
     AngularFireModule.initializeApp(environment.firebase),
     FirebaseAppModule,
     FormsModule,
-    NgxStarRatingModule,
+    // NgxStarRatingModule,
   ],
   providers: [NgbDropdownConfig],
   bootstrap: [AppComponent],
