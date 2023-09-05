@@ -48,13 +48,13 @@ export class NavbarComponent {
   onHomeNavigation() {
     this.router.navigate(['']);
   }
-  orderDetails(item:any) {
-    if (item.itemName== 'Order'){
+  orderDetails(item: any) {
+    if (item.itemName == 'Order') {
       this.router.navigate(['view-orders']);
-    }
-    else if(item.itemName=='My Profile'){
+    } else if (item.itemName == 'My Profile') {
       this.router.navigate(['my-profile']);
     }
+    this.modalService.dismissAll();
   }
 
   navigateToProducts() {

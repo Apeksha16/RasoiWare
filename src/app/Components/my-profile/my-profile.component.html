@@ -6,7 +6,7 @@
           <i class="fas fa-user-circle fa-3x my-3"></i>
         </div>
         <div class="user-name">
-          <span>Hello,</span>
+          <span>Hello, </span>
           <span>Apeksha Verma</span>
         </div>
       </div>
@@ -21,12 +21,14 @@
         </div>
         <hr>
 
-        <div class="row ml-4">
-          <div class="col-12 my-2 mx-4" (click)="toggleInfo('PI')">
-            <span>Profile Information</span>
+        <div class="info-content ms-4 me-5">
+          <div class="info-item start" (click)="toggleInfo('PI')">
+            <i class="fa-solid fa-house-user ps-3"></i>
+            <span class="ps-3">Profile Information</span>
           </div>
-          <div class="col-12 mx-4" (click)="toggleInfo('MA')">
-            <span>Manage Addresses</span>
+          <div class="info-item start" (click)="toggleInfo('MA')">
+            <i class="fa-solid fa-address-card ps-3"></i>
+            <span class="ps-3">Manage Addresses</span>
           </div>
         </div>
         <hr>
@@ -44,7 +46,7 @@
       <div class="col-9 my-5">
         <app-manage-addresses *ngIf="!showPersonalInformation"></app-manage-addresses>
       </div>
-      <div class="personal-information mt-4 mx-4 right-container"  *ngIf="showPersonalInformation">
+      <div class="personal-information mt-4 mx-4 mb-5 right-container" *ngIf="showPersonalInformation">
         <div class="d-flex align-items-center">
           <span class="personal-info-heading">Personal Information</span>
           <i class="edit-icon fas fa-edit mx-4"></i>
