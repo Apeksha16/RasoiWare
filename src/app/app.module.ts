@@ -27,7 +27,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
 import { FormsModule } from '@angular/forms';
-
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { FormsModule } from '@angular/forms';
     ViewOrderComponent,
     ReturnPolicyComponent,
     CartViewComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -58,6 +57,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     FirebaseAppModule,
     FormsModule,
+    NgxStarRatingModule,
   ],
   providers: [NgbDropdownConfig],
   bootstrap: [AppComponent],

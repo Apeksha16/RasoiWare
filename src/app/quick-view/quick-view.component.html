@@ -1,91 +1,134 @@
 <div class="quick-container">
-  <div class="quick-header">
+  <div class="quick-header px-3">
     <div class="txt">
       <span>Nutri Blend Product name and will contain so on</span>
     </div>
+    <div class="icn pointer" (click)="closeModal()">
+      <i class="fa-solid fa-circle-xmark"></i>
+    </div>
   </div>
   <div class="quick-content row">
-    <div class="imgs col-12 col-md-6">
-      <!-- <div class="my-3 mx-3">
-        <p class="prdct-owner ">See more by <a href="#">Apeksha Verma</a></p>
-
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <span class="rating-value mx-3">4.8 | 891 Reviews</span>
-        </div>
-        <div class="my-2 col-6 mx-5">
-          <img src="assets/prd.jpeg" alt="Product Image">
-        </div>
-      </div> -->
-
-      <ngb-carousel class="" [showNavigationIndicators]="false">
+    <div class="imgs center col-12 col-sm-6">
+      <ngb-carousel class="mt-2 mt-sm-0" [pauseOnHover]="true">
         <ng-template ngbSlide *ngFor="let x of [1,2,3,4]; let i = index;">
           <div>
             <img src="assets/images/prd-img-{{x}}.webp" alt="Carousel {{i}} Image" />
           </div>
         </ng-template>
       </ngb-carousel>
-
     </div>
+    <div class="quick-info px-lg-4 col-12 col-sm-6">
 
-    <div class="product-details col-12 col-md-6">
-      <div class="my-3 mx-3">
-        <p class="prdct-name">Rs. 1250</p>
-
-
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-                Color
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem>Black</button>
-                <button ngbDropdownItem>Pink</button>
-                <button ngbDropdownItem>Purple</button>
-              </div>
-            </div>
-          </div>
-          <p class="product-info-heading my-4 ">Product Information</p>
-          <ul class="product-info-list mx-3">
-            <li>Material: Manufactured Wood</li>
-            <li>Conversion Types: Day bed; Toddler bed; Bench/Sofa</li>
-            <li>Mattress Included: No</li>
-            <li>Compatible Mattress Size: 70 X 140cm</li>
-            <li>Assembly Required: No</li>
-          </ul>
-
-
-          <div class="quantity-box">
-            <div class="rectangle">
-              <button class="quantity-btn minus">-</button>
-            </div>
-            <div class="rectangle">
-              <span class="quantity-number">2</span>
-            </div>
-            <div class="rectangle">
-              <button class="quantity-btn plus">+</button>
-            </div>
-            <div class="align-self-end">
-              <button type="button" class="btn btn-info btn-wide">Add to Cart</button>
-            </div>
-          </div>
-          <div>
-            <button type="button" class="btn btn-info btn-wide1">
-              <i class="fas fa-heart"></i>
-              Save
-            </button>
-          </div>
-
-          <p class="full-details-link  mt-3">
-            <a href="#">See Full Details</a>
-          </p>
+      <div class="tag-rating-wrap flex between">
+        <div class="qty-tag">
+          <p class="tag px-2">Limited Stock</p>
+        </div>
+        <div class="rating my-2 me-1">
+          <ngb-rating [max]="5" [rate]="3" class="">
+          </ngb-rating>
         </div>
       </div>
+      <div class="filters mt-3 start">
+        <div class="color-filter">
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-drop" id="dropdownBasic1" ngbDropdownToggle>
+              <div class="head-txt">
+                <span class="clr-circle"></span>
+                <p class="name pe-1">Color</p>
+              </div>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem>
+                <div class="head-txt">
+                  <span class="clr-circle"></span>
+                  <p class="name">Color</p>
+                </div>
+              </button>
+              <button ngbDropdownItem>
+                <div class="head-txt">
+                  <span class="clr-circle"></span>
+                  <p class="name">Color</p>
+                </div>
+              </button>
+              <button ngbDropdownItem>
+                <div class="head-txt">
+                  <span class="clr-circle"></span>
+                  <p class="name">Color</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="size-filter">
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-drop" id="dropdownBasic2" ngbDropdownToggle>
+              Size
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button ngbDropdownItem>
+                <p class="name">Small</p>
+              </button>
+              <button ngbDropdownItem>
+                <p class="name">Medium</p>
+              </button>
+              <button ngbDropdownItem>
+                <p class="name">Large</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tag-rating-wrap pb-3">
+        <p class="bold h5 text-end mb-2">Qantity</p>
+        <div class="flex between">
+          <div class="cart-btn-wrap">
+            <button class="btn btn-outline">
+              <i class="fas fa-shopping-cart pe-2"></i>
+              <p>Add to Cart</p>
+            </button>
+          </div>
+          <div class="counter start">
+            <span class="cnt-btn center">-</span>
+            <span class="cnt-txt mx-1">2</span>
+            <span class="cnt-btn center">+</span>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="info-txt my-3">
+        <div class="category-block pointer text-center">
+          <span>Category Name</span>
+        </div>
+        <div class="brand-wrap mt-3 mb-2 mb-1 pb-2 pb-md-1">
+          <span class="bold h5">Brand- </span>
+          <span class=""> WonderChef</span>
+        </div>
+        <div class="price-wrap d-none d-md-flex">
+          <div class="price center ">
+            <p class="txt bold">₹ 3900</p>
+            <p class="strike-txt">₹ 3900</p>
+            <span class="discount-tag">You save: 80%</span>
+          </div>
+        </div>
+        <p class="info-head bold">Product Information</p>
+        <ul class="info-desc" [ngClass]="isExpanded ? '':'mx-h-60'">
+          <li *ngFor="let point of productDesc;">
+            {{point}}
+          </li>
+        </ul>
+        <p class="mt-10 link" *ngIf="!isExpanded" (click)="isExpanded = true;">See full details
+        </p>
+      </div>
+
+
     </div>
+  </div>
+  <div class="quick-footer model-footer flex justify-content-between justify-content-md-end">
+    <div class="price center d-flex d-md-none">
+      <p class="txt bold">₹ 3900</p>
+      <p class="strike-txt">₹ 3900</p>
+    </div>
+    <button class="btn btn-primary buy">Buy Now</button>
   </div>
 </div>

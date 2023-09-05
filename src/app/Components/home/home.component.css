@@ -1,24 +1,4 @@
-  ::-webkit-scrollbar {
-    width: 20px;
-    height: 8px;
-    border-radius: 10px;
-  }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #2ec4b6;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar {
-    width: 20px;
-    scrollbar-width: thin;
-    scrollbar-color: #2ec4b6 transparent;
-}
 
 .category {
   overflow-x: auto;
@@ -42,7 +22,7 @@
 }
 
 .ctgy-wrap {
-  min-width: 130px;
+  min-width: 100px;
   width: 10%;
   height: 140px;
   cursor: pointer;
@@ -160,6 +140,31 @@
   }
 }
 
+@media (min-width:991.98px){
+  ::-webkit-scrollbar {
+    width: 20px;
+    height: 8px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #7ddcd3;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #7ddcd3 transparent;
+    opacity: 0.5;
+}
+}
+
 @media (max-width: 575.98px) {
 
   .custom-carousel,
@@ -193,7 +198,7 @@
   }
 
   .ctgy-wrap {
-    min-width: 90px;
+    min-width: 80px;
     height: 100px;
   }
 

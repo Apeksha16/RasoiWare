@@ -112,6 +112,7 @@ export class HomeComponent {
       size: 'lg',
       windowClass: 'login',
       backdropClass: 'login-backdrop',
+      scrollable: true,
     });
   }
   onCategoryNavigation() {
