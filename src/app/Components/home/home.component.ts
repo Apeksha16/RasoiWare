@@ -89,7 +89,7 @@ export class HomeComponent {
   ) {
     router.navigate(['/home']);
     // this.onOpenQuickView();
-    this.onOpenQuickView();
+    // this.onOpenQuickView();
   }
 
   getSafeUrl(iconName: string): any {
