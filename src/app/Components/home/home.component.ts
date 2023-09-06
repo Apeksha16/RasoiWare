@@ -118,4 +118,8 @@ export class HomeComponent {
   onCategoryNavigation() {
     this.router.navigate(['products']);
   }
+  openPopularProducts(){
+    this.router.navigate(['popular-products']);
+
+  }
 }
