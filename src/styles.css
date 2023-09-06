@@ -181,15 +181,24 @@ img {
 .row {
   margin: 0 !important;
 }
-
-.btn-primary {
-  background-color: #2ec4b6;
-  border-color: #2ec4b6;
+.btn{
+  --bs-btn-active-bg:#2ec4b6;
+  --bs-btn-active-border-color: #2ec4b6;
 }
 
 .btn-primary:hover {
   background-color: #7ddcd3;
   border-color: #7ddcd3;
+}
+
+.btn-primary{
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+  font-size: 1.6rem;
+}
+.btn:active{
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
 }
 
 .btn:first-child:active {
