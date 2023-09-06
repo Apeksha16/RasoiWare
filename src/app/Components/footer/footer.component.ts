@@ -12,41 +12,35 @@ export class FooterComponent {
 
   footerPanels = [
     {
-      heading: 'ABOUT WONDERCHEF',
+      heading: 'ABOUT RASOIWARE',
       links: [
-        'Our Story',
-        'Blogs & Recipes',
-        'Contact Us',
+        'Our Journey so far',
         'Member Login',
+        'Contact Us',
         'Gift Card',
       ],
     },
     {
       heading: 'OUR POLICIES',
       links: [
-        'Return Policy',
         'Terms & Conditions',
+        'Shipping & Return',
         'Privacy Policy',
-        'Wonderpoints T&C',
-        'Investor',
       ],
     },
     {
       heading: 'INFORMATION',
       links: [
-        'E-Recipe Books',
-        'Warranty Details',
-        'Track Your Order',
-        'Replace Your Product',
-        'Locate Brand Outlets',
-        'Franchise',
         'Corporate Gifting',
+        'Track Your Order',
+      'Replacements',
+      
       ],
     },
-    {
-      heading: 'ALSO AVAILABLE ON',
-      links: ['Wonderchef.com.au', 'Wonderchef.us', 'wonderchef.uk'],
-    },
+    // {
+    //   heading: 'ALSO AVAILABLE ON',
+    //   links: ['Wonderchef.com.au', 'Wonderchef.us', 'wonderchef.uk'],
+    // },
   ];
 
   constructor(config: NgbAccordionConfig, private router: Router) {

@@ -1,4 +1,4 @@
-<section class="footer pt-4 pb-4">
+<!-- <section class="footer pt-4 pb-4">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-xl-4 pe-3 pe-sm-5 news-ltr">
@@ -35,5 +35,53 @@
         </ngb-accordion>
       </div>
     </div>
+  </div>
+</section> -->
+
+<section class="footer pt-4 pb-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 col-xl-4 pe-3 pe-sm-5 news-ltr">
+              <div class="ftr-head bold">
+                  SUBSCRIBE TO OUR NEWSLETTER
+              </div>
+              <p class="sm-txt">Subscribe to email alerts. We promise not to spam your inbox.</p>
+              <div class="form-group d-flex align-items-center">
+                  <input type="text" class="form-control me-3 me-sm-4" id="inputField" placeholder="Email Address">
+                  <button type="button" class="btn btn-primary py-2">Subscribe</button>
+              </div>
+          </div>
+
+          <div class="col-lg-12 col-xl-8 mt-5 mt-xl-0 d-none d-sm-block">
+              <div class="row">
+                  <div class="col-3" *ngFor="let section of footerPanels;">
+                      <div class="ftr-head bold">
+                          {{section.heading}}
+                      </div>
+                      <p class="sm-txt link" *ngFor="let link of section.links;" (click)="navigateToLink(link)">{{link}}</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-12 col-xl-8 mt-5 mt-xl-0 d-block d-sm-none">
+              <ngb-accordion class="ftr-acrdn">
+                  <ngb-panel *ngFor="let panel of footerPanels; let i = index" [id]="'panel-' + i" [title]="panel.heading">
+                      <ng-template ngbPanelContent>
+                          <p class="acc-links" *ngFor="let link of panel.links;" (click)="navigateToLink(link)">{{link}}</p>
+                      </ng-template>
+                  </ngb-panel>
+              </ngb-accordion>
+          </div>
+
+          <!-- Social media icons -->
+          <div class="col-lg-12 col-xl-12 mt-5 mt-xl-0  text-end">
+              <ul class="social-icons">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <!-- Add more social media icons as needed -->
+              </ul>
+          </div>
+      </div>
   </div>
 </section>
