@@ -1,37 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 my-5">
-      <div class="user-details d-flex align-items-center">
-        <div class="user-icon my-4 mx-3">
-          <i class="fas fa-user-circle fa-3x my-3"></i>
-        </div>
-        <div class="user-name">
-          <span>Hello, </span>
-          <span>Apeksha Verma</span>
+    <div class="col-12 col-md-4 col-lg-3 col-sm-5 my-4 row gx-5 gx-sm-0">
+      <div class="col-6 col-sm-12 my-sm-0">
+        <div class="user-details d-flex align-items-center p-2">
+          <div class="user-icon my-4 mx-3">
+            <i class="fas fa-user-circle fa-3x"></i>
+          </div>
+          <div class="user-name">
+            <p>Hello, </p>
+            <p>{{'Username' | uppercase}} </p>
+          </div>
         </div>
       </div>
 
-      <div class="personal-information my-5">
-        <div class="d-flex align-items-center">
+      <div class="col-6 col-sm-12 personal-information column">
+        <div class="my-orders d-flex align-items-baseline">
           <i class="fas fa-shopping-bag"></i>
-          <div class="col-10 mx-3">
-            <span>My Orders</span>
-          </div>
+          <p class="mx-3">My Orders</p>
           <i class="fas fa-chevron-right"></i>
         </div>
-        <hr>
+        <hr class="mb-4">
 
-        <div class="info-content ms-4 me-5">
+        <div class="info-content ms-1 me-1 ms-sm-2 me-sm-2 ms-md-4 me-md-5">
           <div class="info-item start" (click)="toggleInfo('PI')">
             <i class="fa-solid fa-house-user ps-3"></i>
-            <span class="ps-3">Profile Information</span>
+            <span class="px-3">Profile Information</span>
           </div>
           <div class="info-item start" (click)="toggleInfo('MA')">
             <i class="fa-solid fa-address-card ps-3"></i>
-            <span class="ps-3">Manage Addresses</span>
+            <span class="px-3">Manage Addresses</span>
           </div>
         </div>
-        <hr>
+        <hr class="mt-4">
 
         <div class="row mt-2">
           <div class="col-12 text-left">
@@ -42,60 +42,61 @@
       </div>
     </div>
 
-    <div class="col-9">
-      <div class="col-9 my-5">
-        <app-manage-addresses *ngIf="!showPersonalInformation"></app-manage-addresses>
+    <div class="col-12 col-lg-9 col-md-8 col-sm-7">
+      <div class="col-9 my-5" *ngIf="!showPersonalInformation">
+        <app-manage-addresses></app-manage-addresses>
       </div>
-      <div class="personal-information mt-4 mx-4 mb-5 right-container" *ngIf="showPersonalInformation">
-        <div class="d-flex align-items-center">
-          <span class="personal-info-heading">Personal Information</span>
-          <i class="edit-icon fas fa-edit mx-4"></i>
+      <div class="personal-information my-4 right-container" *ngIf="showPersonalInformation">
+        <div class="between mb-4">
+          <h1 class="personal-info-heading ">Personal Information</h1>
+          <i class="edit-icon fas fa-edit"></i>
         </div>
 
-        <div class="row mt-2 my-5">
-          <div class="col-3 my-3">
-            <input type="text" class="form-control mt-4 custom-input" placeholder="Apeksha">
-          </div>
-          <div class="col-3 my-3">
-            <input type="text" class="form-control mt-4 custom-input" placeholder="Verma">
-          </div>
-        </div>
+        <div class="row">
+          <div class="col-12 col-lg-6 col-md-8 personal-form">
+            <div class="row">
+              <div class="col-6">
+                <p for="">First Name</p>
+                <input type="text" class="form-control custom-input" placeholder="Apeksha">
+              </div>
+              <div class="col-6">
+                <p for="">Last Name</p>
+                <input type="text" class="form-control custom-input" placeholder="Verma">
+              </div>
+            </div>
 
-        <div class="row mt-4">
-          <div class="col-12 my-5">
-            <label for="gender">Gender</label>
-          </div>
-          <div class="col-3">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" id="male">
-              <label for="male">Male</label>
+            <div class="row">
+              <p for="gender">Gender</p>
+              <div class="col-6 flex gap-3">
+                <input class="form-check-input " type="radio" name="gender" id="male">
+                <label class="pointer" for="male">Male</label>
+              </div>
+              <div class="col-6 flex gap-3">
+                <input class="form-check-input " type="radio" name="gender" id="female">
+                <label class="pointer" for="female">Female</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <p>Email Address</p>
+              <div class="col-12">
+                <input type="text" class="form-control mt-2 custom-input" placeholder="apeksha16verma@gmail.com">
+              </div>
+            </div>
+
+            <div class="row">
+              <p>Mobile Number</p>
+              <div class="col-12">
+                <input type="text" class="form-control mt-2 custom-input" placeholder="7668804527">
+              </div>
             </div>
           </div>
-          <div class="col-3">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" id="female">
-              <label for="female">Female</label>
-            </div>
-          </div>
+
+
+
         </div>
 
-        <div class="row mt-4">
-          <div class="col-12 my-5">
-            <span>Email Address</span>
-          </div>
-          <div class="col-6">
-            <input type="text" class="form-control mt-2 custom-input" placeholder="apeksha16verma@gmail.com">
-          </div>
-        </div>
 
-        <div class="row mt-4">
-          <div class="col-12 my-5">
-            <span>Mobile Number</span>
-          </div>
-          <div class="col-6">
-            <input type="text" class="form-control mt-2 custom-input" placeholder="7668804527">
-          </div>
-        </div>
       </div>
     </div>
   </div>

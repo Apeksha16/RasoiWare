@@ -58,6 +58,14 @@ h6 {
   gap: 2%;
 }
 
+.gap-5{
+  gap: 0.5rem;
+}
+
+.gap1{
+  gap: 1rem;
+}
+
 .gap2 {
   gap: 2rem;
 }

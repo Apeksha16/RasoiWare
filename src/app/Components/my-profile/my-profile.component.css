@@ -1,32 +1,92 @@
+h1{
+  font-family: 'Saira Condensed', sans-serif;
+}
+/* h2{
+  font-size: 38px;
+  font-family: 'Saira Condensed', sans-serif;
+}
+h3{
+  font-size: 34px;
+  font-family: 'Saira Condensed', sans-serif;
+}
+h4{
+  font-size: 30px;
+  font-family: 'Saira Condensed', sans-serif;
+}
+h5{
+  font-size: 26px;
+  font-family: 'Saira Condensed', sans-serif;
+}
+h6{
+  font-size: 22px;
+  font-family: 'Saira Condensed', sans-serif;
+} */
+p{
+  margin-bottom: 0.5rem;
+}
+
+.personal-form{
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+}
+
+.personal-form p{
+  font-weight: 600;
+}
+
+.form-check-input:checked{
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+}
+
 
 .user-details {
     background-color: #e5f9f8;
     padding: 20px;
     border-radius: 5px;
+    height: 100%;
   }
 
   .user-icon {
     color: #2ec4b6;
   }
 
-  .user-name {
-    font-weight: bold;
-    font-size: 18px;
+  .user-row.row{
+    --bs-gutter-x:2rem;
   }
 
+  .user-name {
+    font-weight: bold;
+    /* display: inline-block; */
+  }
+
+  .my-orders{
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+  }
+
+.my-orders:hover{
+
+  color: #2ec4b6;
+
+}
+
+  .my-orders i{
+    font-size: 16px;
+  }
+  .my-orders p{
+    margin-bottom: 0;
+  }
 
   .personal-information {
     background-color: #e5f9f8;
     padding: 20px;
-    margin-top: 20px;
     border-radius: 5px;
   }
 
 
   .personal-info-heading {
-    font-family: 'Saira Condensed', sans-serif;
-    font-weight: bold;
-    font-size: 46px;
     color: #2ec4b6;
   }
 
@@ -66,6 +126,55 @@
   .info-item:hover{
     background-color: #2ec4b6;
     color: #fff;
+  }
+
+
+  @media (min-width:575.98px) {
+
+    h1{
+      font-size: 32px;
+    }
+    p{
+  font-size: 12px;
+    }
+    .personal-form label, .personal-form .form-check-input{
+      font-size: 12px;
+    }
+    .personal-form input{
+      font-size: 10px;
+    }
+  }
+
+  @media (min-width:767.98px) {
+
+    h1{
+      font-size: 40px;
+    }
+    p{
+  font-size: 14px;
+    }
+    .personal-form label, .personal-form .form-check-input{
+      font-size: 12px;
+    }
+    .personal-form input{
+      font-size: 10px;
+    }
+  }
+
+  @media (min-width:991.98px) {
+
+    h1{
+      font-size: 44px;
+    }
+    p{
+  font-size: 16px;
+    }
+    .personal-form label, .personal-form .form-check-input{
+      font-size: 14px;
+    }
+    .personal-form input{
+      font-size: 12px;
+    }
   }
 
   @media (max-width: 575.98px) {
