@@ -160,6 +160,13 @@ h6 {
   background-color: #0a100d;
 }
 
+.primary-color{
+  color: #2ec4b6;
+}
+.primary-background{
+  background-color: #2ec4b6;
+}
+
 .container {
   max-width: 1280px;
 }

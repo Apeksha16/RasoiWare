@@ -1,54 +1,54 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-4 col-lg-3 col-sm-5 my-4 row gx-5 gx-sm-0">
-      <div class="col-6 col-sm-12 my-sm-0">
-        <div class="user-details d-flex align-items-center p-2">
-          <div class="user-icon my-4 mx-3">
-            <i class="fas fa-user-circle fa-3x"></i>
-          </div>
-          <div class="user-name">
-            <p>Hello, </p>
-            <p>{{'Username' | uppercase}} </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-12 personal-information column">
-        <div class="my-orders d-flex align-items-baseline">
-          <i class="fas fa-shopping-bag"></i>
-          <p class="mx-3">My Orders</p>
-          <i class="fas fa-chevron-right"></i>
-        </div>
-        <hr class="mb-4">
-
-        <div class="info-content ms-1 me-1 ms-sm-2 me-sm-2 ms-md-4 me-md-5">
-          <div class="info-item start" (click)="toggleInfo('PI')">
-            <i class="fa-solid fa-house-user ps-3"></i>
-            <span class="px-3">Profile Information</span>
-          </div>
-          <div class="info-item start" (click)="toggleInfo('MA')">
-            <i class="fa-solid fa-address-card ps-3"></i>
-            <span class="px-3">Manage Addresses</span>
+    <div class="col-12 col-md-4 col-lg-3 col-sm-5 my-4">
+      <div class="row">
+        <div class="col-4 col-sm-12 p-sm-around6 col-sm-12 p-sm-0">
+          <div
+            class="user-details p-3 p-sm-4 me-3 me-sm-0 d-flex align-items-center flex-column flex-sm-row justify-content-between justify-content-sm-start">
+            <div class="user-icon mx-0 mx-sm-4 my-0 my-sm-4">
+              <i class="fas fa-user-circle fa-3x"></i>
+            </div>
+            <div class="user-name text-center text-sm-start">
+              <p>Hello, </p>
+              <p>{{'Username' | uppercase}} </p>
+            </div>
           </div>
         </div>
-        <hr class="mt-4">
+        <div class="col-8 col-sm-12 mt-0 mt-sm-4 personal-information column p-3 p-sm-5">
+          <div class="my-orders d-flex align-items-baseline">
+            <i class="fas fa-shopping-bag"></i>
+            <p class="mx-3">My Orders</p>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <hr class="mb-3 mb-sm-4">
 
-        <div class="row mt-2">
-          <div class="col-12 text-left">
-            <i class="fas fa-sign-out-alt"></i>
-            <span class="mx-3">Logout</span>
+          <div class="info-content ms-1 me-1 ms-sm-2 me-sm-2 ms-md-3 me-md-3 ms-lg-4 me-lg-5">
+            <div class="info-item start" (click)="toggleInfo('PI')">
+              <i class="fa-solid fa-house-user ps-3"></i>
+              <span class="px-3">Profile Information</span>
+            </div>
+            <div class="info-item start" (click)="toggleInfo('MA')">
+              <i class="fa-solid fa-address-card ps-3"></i>
+              <span class="px-3">Manage Addresses</span>
+            </div>
+          </div>
+          <hr class="mt-4 d-none d-sm-block">
+
+          <div class="row mt-2 d-none d-sm-block">
+            <div class="col-12 text-left">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="mx-3">Logout</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="col-12 col-lg-9 col-md-8 col-sm-7">
-      <div class="col-9 my-5" *ngIf="!showPersonalInformation">
-        <app-manage-addresses></app-manage-addresses>
-      </div>
-      <div class="personal-information my-4 right-container" *ngIf="showPersonalInformation">
+      <app-manage-addresses class="" *ngIf="showPersonalInformation"></app-manage-addresses>
+      <div class="personal-information p-4 mb-4 mt-0 mt-sm-4" *ngIf="!showPersonalInformation">
         <div class="between mb-4">
-          <h1 class="personal-info-heading ">Personal Information</h1>
+          <h1 class="personal-info-heading">Personal Information</h1>
           <i class="edit-icon fas fa-edit"></i>
         </div>
 
@@ -91,12 +91,7 @@
               </div>
             </div>
           </div>
-
-
-
         </div>
-
-
       </div>
     </div>
   </div>

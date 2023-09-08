@@ -1,172 +1,103 @@
-
-<div class="user-details">
-    <h2 class="user-name">MANAGE ADDRESSES</h2>
-  
-
-    <div class="add-address-container"   (click)="toggleAddressForm()">
-      <div class="add-icon user-icon">+</div>
-      <div class="add-text user-name">Add a New Address</div>
+<div class="h-100 pb-4 pt-0 pt-sm-4">
+  <div class="manage-content p-4 ">
+    <div class="between mb-3">
+      <h1 class="bold">Manage Addresses</h1>
+      <div class="add-address-container evenly px-3 px-sm-4 py-3 py-sm-4 gap-3" (click)="toggleAddressForm()">
+        <i class="fa-solid fa-square-plus"></i>
+        <p class="d-none d-md-flex">Add a New Address</p>
+      </div>
     </div>
-  
-
-    <form class="address-form"  [hidden]="!showAddressForm">
-
-      <div class="row">
-        <div class="col">
-          <label for="name" class="user-name">Name:</label>
-          <input type="text" id="name" class="form-control custom-input" required>
-        </div>
-        <div class="col">
-          <label for="mobile" class="user-name">Mobile Number:</label>
-          <input type="tel" id="mobile" class="form-control custom-input" pattern="[0-9]{10}" required>
+    <div class="my-address-container row">
+      <!-- <div class=""> -->
+      <div class="col-12 col-md-6" *ngFor="let address of myAddresses; index as i;">
+        <div class="address p-3 p-lg-4">
+          <div class="icn between mb-2 mb-lg-3">
+            <i class="fa-solid fa-house-chimney-window"></i>
+            <span class="def-icn px-2 px-md-3" *ngIf="i == 4">Default</span>
+            <i class="pointer fas fa-edit"></i>
+          </div>
+          <p>{{address}}</p>
         </div>
       </div>
+      <!-- </div> -->
 
-      <div class="row">
-        <div class="col">
-          <label for="pincode" class="user-name">Pincode:</label>
-          <input type="text" id="pincode" class="form-control custom-input" required>
-        </div>
-        <div class="col">
-          <label for="locality" class="user-name">Locality:</label>
-          <input type="text" id="locality" class="form-control custom-input" required>
-        </div>
-      </div>
-  
+    </div>
+  </div>
+</div>
 
-      <div class="form-group">
-        <label for="address" class="user-name">Address:</label>
-        <textarea id="address" class="form-control custom-input" rows="4" required></textarea>
-      </div>
-  
 
-      <div class="row">
-        <div class="col">
-          <label for="city" class="user-name">City/District/Town:</label>
-          <input type="text" id="city" class="form-control custom-input" required>
-        </div>
-        <div class="col">
-          <label for="state" class="user-name">State:</label>
-          <select id="state" class="form-control custom-input" required>
-            <option value="state1">State 1</option>
-            <option value="state2">State 2</option>
+<form class="address-form" [hidden]="!showAddressForm">
 
-          </select>
-        </div>
-      </div>
-  
+  <div class="row">
+    <div class="col">
+      <label for="name" class="user-name">Name:</label>
+      <input type="text" id="name" class="form-control custom-input" required>
+    </div>
+    <div class="col">
+      <label for="mobile" class="user-name">Mobile Number:</label>
+      <input type="tel" id="mobile" class="form-control custom-input" pattern="[0-9]{10}" required>
+    </div>
+  </div>
 
-      <div class="row">
-        <div class="col">
-          <label for="landmark" class="user-name">Landmark (Optional):</label>
-          <input type="text" id="landmark" class="form-control custom-input">
-        </div>
-        <div class="col">
-          <label for="alternate-phone" class="user-name">Alternate Phone (Optional):</label>
-          <input type="tel" id="alternate-phone" class="form-control custom-input" pattern="[0-9]{10}">
-        </div>
-      </div>
-  
-
-      <div class="form-group address-type">
-        <label class="user-name">Address Type:</label>
-        <div class="radio-group">
-          <input type="radio" id="home" name="address-type" value="home" required>
-          <label for="home" class="user-name">Home</label>
-          <input type="radio" id="work" name="address-type" value="work" required>
-          <label for="work" class="user-name">Work</label>
-        </div>
-      </div>
-  
-
-      <div class="buttons">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-warn">Cancel</button>
-      </div>
-    </form>
+  <div class="row">
+    <div class="col">
+      <label for="pincode" class="user-name">Pincode:</label>
+      <input type="text" id="pincode" class="form-control custom-input" required>
+    </div>
+    <div class="col">
+      <label for="locality" class="user-name">Locality:</label>
+      <input type="text" id="locality" class="form-control custom-input" required>
+    </div>
   </div>
 
 
+  <div class="form-group">
+    <label for="address" class="user-name">Address:</label>
+    <textarea id="address" class="form-control custom-input" rows="4" required></textarea>
+  </div>
 
-<!-- <div class="container mt-5">
-    <div class="user-details">
-      <h2 class="user-name text-center">MANAGE ADDRESSES</h2>
-  
-      <div class="add-address-container text-center" (click)="toggleAddressForm()">
-        <div class="add-icon user-icon">+</div>
-        <div class="add-text user-name">Add a New Address</div>
-      </div>
-  
-      <form class="address-form" [hidden]="!showAddressForm">
-        <div class="row mb-3">
-          <div class="col">
-            <label for="name" class="user-name">Name:</label>
-            <input type="text" id="name" class="form-control" required>
-          </div>
-          <div class="col">
-            <label for="mobile" class="user-name">Mobile Number:</label>
-            <input type="tel" id="mobile" class="form-control" pattern="[0-9]{10}" required>
-          </div>
-        </div>
-  
-        <div class="row mb-3">
-          <div class="col">
-            <label for="pincode" class="user-name">Pincode:</label>
-            <input type="text" id="pincode" class="form-control" required>
-          </div>
-          <div class="col">
-            <label for="locality" class="user-name">Locality:</label>
-            <input type="text" id="locality" class="form-control" required>
-          </div>
-        </div>
-  
-        <div class="form-group mb-3">
-          <label for="address" class="user-name">Address:</label>
-          <textarea id="address" class="form-control" rows="4" required></textarea>
-        </div>
-  
-        <div class="row mb-3">
-          <div class="col">
-            <label for="city" class="user-name">City/District/Town:</label>
-            <input type="text" id="city" class="form-control" required>
-          </div>
-          <div class="col">
-            <label for="state" class="user-name">State:</label>
-            <select id="state" class="form-control" required>
-              <option value="state1">State 1</option>
-              <option value="state2">State 2</option>
-            </select>
-          </div>
-        </div>
-  
-        <div class="row mb-3">
-          <div class="col">
-            <label for="landmark" class="user-name">Landmark (Optional):</label>
-            <input type="text" id="landmark" class="form-control">
-          </div>
-          <div class="col">
-            <label for="alternate-phone" class="user-name">Alternate Phone (Optional):</label>
-            <input type="tel" id="alternate-phone" class="form-control" pattern="[0-9]{10}">
-          </div>
-        </div>
-  
-        <div class="form-group address-type mb-3">
-          <label class="user-name">Address Type:</label>
-          <div class="form-check form-check-inline d-flex align-items-center">
-            <input class="form-check-input" type="radio" id="home" name="address-type" value="home" required>
-            <label class="form-check-label user-name" for="home">Home</label>
-          </div>
-          <div class="form-check form-check-inline d-flex align-items-center">
-            <input class="form-check-input" type="radio" id="work" name="address-type" value="work" required>
-            <label class="form-check-label user-name" for="work">Work</label>
-          </div>
-        </div>
-  
-        <div class="buttons text-center">
-          <button type="submit" class="btn btn-primary">Save</button>
-          <button type="button" class="btn btn-secondary">Cancel</button>
-        </div>
-      </form>
+
+  <div class="row">
+    <div class="col">
+      <label for="city" class="user-name">City/District/Town:</label>
+      <input type="text" id="city" class="form-control custom-input" required>
     </div>
-  </div> -->
-  
+    <div class="col">
+      <label for="state" class="user-name">State:</label>
+      <select id="state" class="form-control custom-input" required>
+        <option value="state1">State 1</option>
+        <option value="state2">State 2</option>
+
+      </select>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <label for="landmark" class="user-name">Landmark (Optional):</label>
+      <input type="text" id="landmark" class="form-control custom-input">
+    </div>
+    <div class="col">
+      <label for="alternate-phone" class="user-name">Alternate Phone (Optional):</label>
+      <input type="tel" id="alternate-phone" class="form-control custom-input" pattern="[0-9]{10}">
+    </div>
+  </div>
+
+
+  <div class="form-group address-type">
+    <label class="user-name">Address Type:</label>
+    <div class="radio-group">
+      <input type="radio" id="home" name="address-type" value="home" required>
+      <label for="home" class="user-name">Home</label>
+      <input type="radio" id="work" name="address-type" value="work" required>
+      <label for="work" class="user-name">Work</label>
+    </div>
+  </div>
+
+
+  <div class="buttons">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-warn">Cancel</button>
+  </div>
+</form>
