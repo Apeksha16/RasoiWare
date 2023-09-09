@@ -45,8 +45,8 @@
     </div>
 
     <div class="col-12 col-lg-9 col-md-8 col-sm-7">
-      <app-manage-addresses class="" *ngIf="showPersonalInformation"></app-manage-addresses>
-      <div class="personal-information p-4 mb-4 mt-0 mt-sm-4" *ngIf="!showPersonalInformation">
+      <app-manage-addresses class="" *ngIf="!showPersonalInformation"></app-manage-addresses>
+      <div class="personal-information p-4 mb-4 mt-0 mt-sm-4" *ngIf="showPersonalInformation">
         <div class="between mb-4">
           <h1 class="personal-info-heading">Personal Information</h1>
           <i class="edit-icon fas fa-edit"></i>

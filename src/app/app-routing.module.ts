@@ -9,6 +9,7 @@ import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
+import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 
 const routes: Routes = [
   {
@@ -52,10 +53,14 @@ const routes: Routes = [
     path: 'manage-addresses',
     component: ManageAddressesComponent,
   },
+  {
+    path: 'my-orders',
+    component: MyOrdersComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

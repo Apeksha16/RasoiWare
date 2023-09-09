@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 // import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
+import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ManageAddressesComponent } from './Components/manage-addresses/manage-a
     CartViewComponent,
     MyProfileComponent,
     ManageAddressesComponent,
+    MyOrdersComponent,
   ],
   imports: [
     BrowserModule,
