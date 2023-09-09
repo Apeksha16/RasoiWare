@@ -23,6 +23,10 @@ p{
   color:#555;
   background-color: #f9f9f9;
 }
+.add-address-container:hover{
+  transition: all 0.1s ease-in-out;
+  color: #2ec4b6;
+}
 
 .my-address-container{
   overflow-x: auto;
@@ -68,8 +72,48 @@ p{
   border: 1px solid;
 }
 
+.address-form label{
+  font-size: 12px;
+}
+.address-form .form-control{
+  font-size: 12px;
+  height: 30px;
+}
+.address-form .row{
+  margin-bottom: 1.5rem !important;
+}
+.dropdown .btn, .radio-grp{
+  height: 40px;
+}
+.form-check-input{
+margin: 0;
+}
+.radio-grp{
+  align-items: center;
+}
+.form-check-input:checked{
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+}
+
+.btn-grp{
+  font-size: 12px;
+}
+.btn-grp .btn{
+  font-size: 10px;
+}
+.btn-grp .btn-primary{
+  width:80px
+}
+
 @media (min-width:575.98px) {
 
+  h1{
+    font-size: 32px;
+  }
+  p,.address p{
+    font-size: 12px;
+      }
   .icn{
     font-size: 10px;
   }
@@ -77,23 +121,41 @@ p{
   .def-icn{
     font-size: 12px;
   }
-
-  .address p{
-    font-size: 12px;
-  }
-
   .address{
     height: 100px;
   }
-
+  .address-form label{
+    font-size: 12px;
+  }
+  .address-form .form-control, .dropdown .btn, .radio-grp{
+    height: 30px;
+  }
+  .btn-grp .btn{
+    font-size: 12px;
+  }
 }
 
 @media (min-width:767.98px) {
+  h1{
+    font-size: 40px;
+  }
+  p,.address p{
+    font-size: 14px;
+      }
   .address{
     height: 120px;
   }
   .def-icn{
     font-size: 10px;
+  }
+  .address-form label{
+    font-size: 12px;
+  }
+  .address-form .form-control, .dropdown .btn, .radio-grp{
+    height: 35px;
+  }
+  .btn-grp .btn-primary{
+    width:100px
   }
 }
 
@@ -119,13 +181,27 @@ p{
     scrollbar-width: thin;
     scrollbar-color: #7ddcd3 transparent;
     opacity: 0.5;
-}
-.def-icn{
-  font-size: 12px;
-}
+  }
+
+  .def-icn{
+    font-size: 12px;
+  }
+
+  p,.address p{
+    font-size: 16px;
+  }
+      .address-form label{
+        font-size: 14px;
+      }
+      .address-form .form-control, .dropdown .btn, .radio-grp{
+        height: 40px;
+      }
+      .btn-grp .btn{
+        font-size: 14px;
+      }
 }
 
-.address-form-container {
+/* .address-form-container {
     font-family: Arial, sans-serif;
     padding: 20px;
     max-width: 400px;
@@ -202,4 +278,4 @@ p{
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
-  }
+  } */

@@ -1,5 +1,5 @@
 <div class="h-100 pb-4 pt-0 pt-sm-4">
-  <div class="manage-content p-4 ">
+  <div class="manage-content p-4" *ngIf="!showAddressForm">
     <div class="between mb-3">
       <h1 class="bold">Manage Addresses</h1>
       <div class="add-address-container evenly px-3 px-sm-4 py-3 py-sm-4 gap-3" (click)="toggleAddressForm()">
@@ -8,96 +8,100 @@
       </div>
     </div>
     <div class="my-address-container row">
-      <!-- <div class=""> -->
       <div class="col-12 col-md-6" *ngFor="let address of myAddresses; index as i;">
         <div class="address p-3 p-lg-4">
           <div class="icn between mb-2 mb-lg-3">
-            <i class="fa-solid fa-house-chimney-window"></i>
+            <i class="fa-solid fa-house-chimney-window primary-color"></i>
             <span class="def-icn px-2 px-md-3" *ngIf="i == 4">Default</span>
             <i class="pointer fas fa-edit"></i>
           </div>
           <p>{{address}}</p>
         </div>
       </div>
-      <!-- </div> -->
-
     </div>
+  </div>
+  <div class="manage-content p-4" *ngIf="showAddressForm">
+    <h1 class="bold mb-3">Add New Address</h1>
+    <form class="address-form">
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <label for="fname" class="">First Name:</label>
+          <input type="text" id="fname" class="form-control" required>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="lname" class="">Last Name:</label>
+          <input type="text" id="lname" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label for="add1" class="">Address Line 1:</label>
+          <input type="text" id="add1" class="form-control" required>
+        </div>
+        <div class="col-12 col-sm-6 d-none d-md-block">
+          <label for="add2" class="">Address Line 2:</label>
+          <input type="text" id="add2" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 d-block d-md-none">
+          <label for="add2" class="">Address Line 2:</label>
+          <input type="text" id="add2" class="form-control" required>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="mobile" class="">Mobile Number:</label>
+          <input type="tel" id="mobile" class="form-control" required>
+        </div>
+        <div class="col-12 col-sm-6 d-none d-md-block">
+          <label for="alternate-phone" class="user-name">Alternate Mobile (Optional):</label>
+          <input type="tel" id="alternate-phone" class="form-control" pattern="[0-9]{10}">
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 d-block d-md-none">
+          <label for="alternate-phone" class="user-name">Alternate Mobile (Optional):</label>
+          <input type="tel" id="alternate-phone" class="form-control" pattern="[0-9]{10}">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label for="pincode" class="">Pincode:</label>
+          <input type="tel" id="pincode" class="form-control" required>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label for="city" class="user-name">City:</label>
+          <input type="text" id="city" class="form-control" required>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label for="state" class="user-name">State:</label>
+          <input type="text" id="state" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label for="landmark" class="user-name">Landmark (Optional):</label>
+          <input type="text" id="landmark" class="form-control">
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="add-type">Address Type:</label>
+          <div class="radio-grp flex gap-3">
+            <input class="form-check-input " type="radio" name="add-type" id="home">
+            <label class="pointer" for="home">
+              <i class="fa-solid fa-house-chimney-window primary-color ms-1 me-2"></i>
+              Home
+            </label>
+            <input class="form-check-input " type="radio" name="add-type" id="office">
+            <label class="pointer" for="office">
+              <i class="fa-solid fa-building primary-color ms-1 me-2"></i>
+              Office
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="end gap-4 btn-grp">
+        <button type="button" class="btn btn-outline" (click)="toggleAddressForm()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
   </div>
 </div>
-
-
-<form class="address-form" [hidden]="!showAddressForm">
-
-  <div class="row">
-    <div class="col">
-      <label for="name" class="user-name">Name:</label>
-      <input type="text" id="name" class="form-control custom-input" required>
-    </div>
-    <div class="col">
-      <label for="mobile" class="user-name">Mobile Number:</label>
-      <input type="tel" id="mobile" class="form-control custom-input" pattern="[0-9]{10}" required>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <label for="pincode" class="user-name">Pincode:</label>
-      <input type="text" id="pincode" class="form-control custom-input" required>
-    </div>
-    <div class="col">
-      <label for="locality" class="user-name">Locality:</label>
-      <input type="text" id="locality" class="form-control custom-input" required>
-    </div>
-  </div>
-
-
-  <div class="form-group">
-    <label for="address" class="user-name">Address:</label>
-    <textarea id="address" class="form-control custom-input" rows="4" required></textarea>
-  </div>
-
-
-  <div class="row">
-    <div class="col">
-      <label for="city" class="user-name">City/District/Town:</label>
-      <input type="text" id="city" class="form-control custom-input" required>
-    </div>
-    <div class="col">
-      <label for="state" class="user-name">State:</label>
-      <select id="state" class="form-control custom-input" required>
-        <option value="state1">State 1</option>
-        <option value="state2">State 2</option>
-
-      </select>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col">
-      <label for="landmark" class="user-name">Landmark (Optional):</label>
-      <input type="text" id="landmark" class="form-control custom-input">
-    </div>
-    <div class="col">
-      <label for="alternate-phone" class="user-name">Alternate Phone (Optional):</label>
-      <input type="tel" id="alternate-phone" class="form-control custom-input" pattern="[0-9]{10}">
-    </div>
-  </div>
-
-
-  <div class="form-group address-type">
-    <label class="user-name">Address Type:</label>
-    <div class="radio-group">
-      <input type="radio" id="home" name="address-type" value="home" required>
-      <label for="home" class="user-name">Home</label>
-      <input type="radio" id="work" name="address-type" value="work" required>
-      <label for="work" class="user-name">Work</label>
-    </div>
-  </div>
-
-
-  <div class="buttons">
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-warn">Cancel</button>
-  </div>
-</form>

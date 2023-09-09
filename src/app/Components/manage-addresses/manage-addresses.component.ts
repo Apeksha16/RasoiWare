@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./manage-addresses.component.css'],
 })
 export class ManageAddressesComponent {
-  showAddressForm: boolean = false;
+  showAddressForm: boolean = true;
   myAddresses: any[] = [
     '1234 Magnolia Crescent, Apartment #567, Block D, Sunrise Residency, Lakeview Nagar, Sector 22, Gurgaon, Haryana - 122001, India',
     '7890 Willow Lane, Building A2, Floor 4, Bayside Towers, Seafront Road, Colaba, Mumbai, Maharashtra - 400005, India',

@@ -196,9 +196,14 @@ img {
 .row {
   margin: 0 !important;
 }
-.btn{
+.btn, .btn-outline-primary{
   --bs-btn-active-bg:#2ec4b6;
   --bs-btn-active-border-color: #2ec4b6;
+  --bs-btn-color: #2ec4b6;
+  --bs-btn-border-color: #2ec4b6;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #2ec4b6;
+  --bs-btn-hover-border-color: #2ec4b6;
 }
 
 .btn-primary:hover {
@@ -208,12 +213,19 @@ img {
 
 .btn-primary{
   background-color: #2ec4b6;
+  --bs-btn-color: #fff;
   border-color: #2ec4b6;
   font-size: 1.6rem;
 }
+
+.btn-outline{
+  font-size:1.6rem;
+}
+
 .btn:active{
   background-color: #2ec4b6;
   border-color: #2ec4b6;
+  --bs-btn-active-color: #fff;
 }
 
 .btn:first-child:active {
