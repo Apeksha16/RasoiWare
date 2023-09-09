@@ -9,6 +9,8 @@ import { ReturnPolicyComponent } from './return-policy/return-policy.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
+import { PopularProductsComponent } from './Components/popular-products/popular-products.component';
+import { PrivacyPolicyComponent } from './Components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
   {
     path: 'manage-addresses',
     component: ManageAddressesComponent,
+  },
+  {
+    path: 'popular-products',
+    component: PopularProductsComponent,
+  },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyComponent,
   },
 ];
 

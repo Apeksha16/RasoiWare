@@ -1,0 +1,12 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    margin-top: 20px;
+  }
+  
+  /* Add more custom styling as needed */
+  

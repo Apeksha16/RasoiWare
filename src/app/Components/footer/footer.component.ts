@@ -52,6 +52,8 @@ export class FooterComponent {
       this.router.navigate(['/return-policy']);
     } else if (link === 'Contact Us') {
       this.router.navigate(['/contact-us']);
+    } else if (link === 'Privacy Policy') {
+      this.router.navigate(['/privacy-policy']);
     }
   }
 }
