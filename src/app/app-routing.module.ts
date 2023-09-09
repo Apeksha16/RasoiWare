@@ -10,6 +10,7 @@ import { CartViewComponent } from './cart-view/cart-view.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
+import { PopularProductsComponent } from './Components/popular-products/popular-products.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'my-orders',
     component: MyOrdersComponent,
+  },
+  {
+    path: 'popular-products',
+    component: PopularProductsComponent,
   },
 ];
 

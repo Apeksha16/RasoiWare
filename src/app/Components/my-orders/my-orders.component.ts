@@ -15,6 +15,8 @@ export class MyOrdersComponent {
       estimatedDate: '24/12,2045',
       orderImg: '',
       orderPrice: '4659.43',
+      productName: 'Product name to be shown for order purpose.',
+      prodBrandName: 'WonderChef',
     },
   ];
 }

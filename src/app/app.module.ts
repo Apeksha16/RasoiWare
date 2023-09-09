@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
+import { PopularProductsComponent } from './Components/popular-products/popular-products.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
     MyProfileComponent,
     ManageAddressesComponent,
     MyOrdersComponent,
+    PopularProductsComponent,
   ],
   imports: [
     BrowserModule,
