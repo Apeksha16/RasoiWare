@@ -1,32 +1,81 @@
+h1{
+  font-size: 28px;
+  font-family: 'Saira Condensed', sans-serif;
+}
+
+p{
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+.personal-form label, .personal-form .form-check-input{
+  font-size: 12px;
+}
+.personal-form input{
+  font-size: 10px;
+}
+
+.personal-form{
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+}
+
+.personal-form p{
+  font-weight: 600;
+}
+
+.form-check-input:checked{
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+}
 
 .user-details {
     background-color: #e5f9f8;
-    padding: 20px;
     border-radius: 5px;
+    height: 100%;
   }
 
   .user-icon {
     color: #2ec4b6;
   }
 
-  .user-name {
-    font-weight: bold;
-    font-size: 18px;
+  .user-row.row{
+    --bs-gutter-x:2rem;
   }
 
+  .user-name {
+    font-weight: bold;
+  }
+  .user-name p{
+    font-size: 14px;
+  }
+  .info-item span{
+    font-size: 12px;
+  }
+
+  .my-orders{
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+  }
+
+.my-orders:hover{
+  color: #2ec4b6;
+}
+
+  .my-orders i{
+    font-size: 16px;
+  }
+
+  .my-orders p{
+    margin-bottom: 0;
+  }
 
   .personal-information {
     background-color: #e5f9f8;
-    padding: 20px;
-    margin-top: 20px;
     border-radius: 5px;
   }
 
-
   .personal-info-heading {
-    font-family: 'Saira Condensed', sans-serif;
-    font-weight: bold;
-    font-size: 46px;
     color: #2ec4b6;
   }
 
@@ -39,24 +88,18 @@
     font-size: 14px;
   }
 
-
   .form-check-label {
     font-size: 16px;
   }
 
   .info-content{
     display: flex;
-    /* align-items:center; */
     flex-direction: column;
     gap: 0.4rem;
   }
 
   .info-item{
-    /* padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem; */
-    height:40px;
+    height:34px;
     border-radius: 4px;
     border: 1px solid #2ec4b6;
     cursor: pointer;
@@ -68,12 +111,64 @@
     color: #fff;
   }
 
-  @media (max-width: 575.98px) {
-    .user-name {
-      font-size: 16px;
+  @media (max-width:349.98px) {
+    .user-icon{
+      font-size: 14px;
+    }
+    .user-name p{
+      font-size: 10px;
+    }
+  }
+
+
+  @media (min-width:575.98px) {
+
+    h1{
+      font-size: 32px;
+    }
+    p{
+  font-size: 12px;
+    }
+    .personal-form label, .personal-form .form-check-input{
+      font-size: 12px;
+    }
+    .personal-form input{
+      font-size: 10px;
+    }
+    .info-item{
+      height:40px;
     }
 
-    .form-check-label {
+  }
+
+  @media (min-width:767.98px) {
+
+    h1{
+      font-size: 40px;
+    }
+    p{
+  font-size: 14px;
+    }
+    .personal-form label, .personal-form .form-check-input{
+      font-size: 12px;
+    }
+    .personal-form input{
+      font-size: 10px;
+    }
+  }
+
+  @media (min-width:991.98px) {
+
+    h1{
+      font-size: 44px;
+    }
+    p{
+  font-size: 16px;
+    }
+    .personal-form label, .personal-form .form-check-input{
       font-size: 14px;
+    }
+    .personal-form input{
+      font-size: 12px;
     }
   }

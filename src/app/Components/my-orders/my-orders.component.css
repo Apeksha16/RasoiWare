@@ -1,0 +1,49 @@
+h1{
+  font-size: 28px;
+  font-family: 'Saira Condensed', sans-serif;
+  color: #2ec4b6;
+}
+
+p{
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.order-container{
+  border: 1px solid #555;
+  border-radius: 8px;
+/* padding: 2rem; */
+}
+
+.order-head{
+  background-color: #aaa;
+  border-radius: 8px 8px 0px 0px;
+}
+
+
+@media (min-width:575.98px) {
+
+  h1{
+    font-size: 32px;
+  }
+p{
+    font-size: 12px;
+      }
+}
+
+@media (min-width:767.98px) {
+  h1{
+    font-size: 40px;
+  }
+p{
+    font-size: 14px;
+      }
+}
+
+@media (min-width:991.98px){
+
+  p{
+    font-size: 16px;
+  }
+}

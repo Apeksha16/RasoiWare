@@ -1,221 +1,202 @@
+h1{
+  font-size: 28px;
+  font-family: 'Saira Condensed', sans-serif;
+  color: #2ec4b6;
+}
 
-.address-form-container {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
+p{
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.manage-content{
+  background-color: #e5f9f8;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.add-address-container {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  color:#555;
+  background-color: #f9f9f9;
+}
+.add-address-container:hover{
+  transition: all 0.1s ease-in-out;
+  color: #2ec4b6;
+}
+
+.my-address-container{
+  overflow-x: auto;
+  height: 300px;
+}
+
+.my-address-container.row{
+  --bs-gutter-y: 1.5rem;
+}
+
+.fa-edit:hover{
+  color:#2ec4b6;
+  transform: scale(1.1);
+}
+
+.address{
+  border: 1px solid #adb5bd;
+  background-color: #fff;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 75px;
+  border-radius: 8px;
+}
+.address p{
+  font-size: 10px;
+}
+
+.address::-webkit-scrollbar {
+  display: none;
+}
+
+.address .icn {
+  font-size: 14px;
+  color:#555;
+}
+
+.def-icn{
+  background-color: #e5f9f8;
+  border-radius: 10px;
+  font-size: 10px;
+  color:#2ec4b6;
+  border: 1px solid;
+}
+
+.address-form label{
+  font-size: 12px;
+}
+.address-form .form-control{
+  font-size: 12px;
+  height: 30px;
+}
+.address-form .row{
+  margin-bottom: 1.5rem !important;
+}
+.dropdown .btn, .radio-grp{
+  height: 40px;
+}
+.form-check-input{
+margin: 0;
+}
+.radio-grp{
+  align-items: center;
+}
+.form-check-input:checked{
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+}
+
+.btn-grp{
+  font-size: 12px;
+}
+.btn-grp .btn{
+  font-size: 10px;
+}
+.btn-grp .btn-primary{
+  width:80px
+}
+
+@media (min-width:575.98px) {
+
+  h1{
+    font-size: 32px;
+  }
+  p,.address p{
+    font-size: 12px;
+      }
+  .icn{
+    font-size: 10px;
   }
 
-  h2 {
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+  .def-icn{
+    font-size: 12px;
   }
-  
+  .address{
+    height: 100px;
+  }
+  .address-form label{
+    font-size: 12px;
+  }
+  .address-form .form-control, .dropdown .btn, .radio-grp{
+    height: 30px;
+  }
+  .btn-grp .btn{
+    font-size: 12px;
+  }
+}
 
-  .add-address-container {
-    border: 2px dashed #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
+@media (min-width:767.98px) {
+  h1{
+    font-size: 40px;
+  }
+  p,.address p{
+    font-size: 14px;
+      }
+  .address{
+    height: 120px;
+  }
+  .def-icn{
+    font-size: 10px;
+  }
+  .address-form label{
+    font-size: 12px;
+  }
+  .address-form .form-control, .dropdown .btn, .radio-grp{
+    height: 35px;
+  }
+  .btn-grp .btn-primary{
+    width:100px
+  }
+}
+
+@media (min-width:991.98px){
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
   }
 
-  .add-icon {
-    font-size: 36px;
-    color: #333;
+  ::-webkit-scrollbar-thumb {
+    background-color: #7ddcd3;
+    border-radius: 10px;
   }
 
-  .add-text {
-    font-size: 18px;
-    color: #333;
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
   }
-  
 
-  .form-group {
-    margin-bottom: 20px;
+  ::-webkit-scrollbar {
+    width: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #7ddcd3 transparent;
+    opacity: 0.5;
   }
-  
 
-  label {
+  .def-icn{
+    font-size: 12px;
+  }
+
+  p,.address p{
     font-size: 16px;
-    color: #333;
-    display: block;
-    margin-bottom: 5px;
   }
-  
-
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-
-  textarea.form-control {
-    resize: vertical;
-  }
-  
-
-  .radio-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-
-  .buttons {
-    text-align: center;
-  }
-  
-  .btn-save {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .btn-cancel {
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-
-/* 
-
-.address-form-container {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  h2 {
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .add-address-container {
-    border: 2px dashed #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .add-icon {
-    font-size: 36px;
-    color: #333;
-  }
-  
-  .add-text {
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-size: 16px;
-    color: #333;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  textarea.form-control {
-    resize: vertical;
-  }
-  
-  .radio-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .buttons {
-    text-align: center;
-  }
-  
-  .btn-save {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .btn-cancel {
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  
-  .user-details {
-    background-color: #e5f9f8;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
-  .user-icon {
-    color: #2ec4b6;
-  }
-  
-  .user-name {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  .address-type .form-check-label {
-    margin-right: 15px; 
-  }
-  
-  @media (max-width: 575.98px) {
-    h2 {
-      font-size: 20px;
-    }
-  
-    .form-control {
-      font-size: 14px;
-    }
-  
-    .user-name {
-      font-size: 16px;
-    }
-  
-    .btn-save,
-    .btn-cancel {
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-  }
-   */
+      .address-form label{
+        font-size: 14px;
+      }
+      .address-form .form-control, .dropdown .btn, .radio-grp{
+        height: 40px;
+      }
+      .btn-grp .btn{
+        font-size: 14px;
+      }
+}

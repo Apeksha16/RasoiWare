@@ -32,7 +32,7 @@ import { MyProfileComponent } from './Components/my-profile/my-profile.component
 import { ManageAddressesComponent } from './Components/manage-addresses/manage-addresses.component';
 import { PopularProductsComponent } from './Components/popular-products/popular-products.component';
 import { PrivacyPolicyComponent } from './Components/privacy-policy/privacy-policy.component';
-
+import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +51,7 @@ import { PrivacyPolicyComponent } from './Components/privacy-policy/privacy-poli
     ManageAddressesComponent,
     PopularProductsComponent,
     PrivacyPolicyComponent,
+    MyOrdersComponent,
   ],
   imports: [
     BrowserModule,

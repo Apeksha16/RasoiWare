@@ -49,8 +49,8 @@ export class NavbarComponent {
     this.router.navigate(['']);
   }
   orderDetails(item: any) {
-    if (item.itemName == 'Order') {
-      this.router.navigate(['view-orders']);
+    if (item.itemName == 'Orders') {
+      this.router.navigate(['my-orders']);
     } else if (item.itemName == 'My Profile') {
       this.router.navigate(['my-profile']);
     }
