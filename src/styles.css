@@ -160,10 +160,10 @@ h6 {
   background-color: #0a100d;
 }
 
-.primary-color{
+.color-primary{
   color: #2ec4b6;
 }
-.primary-background{
+.background-primary{
   background-color: #2ec4b6;
 }
 
@@ -196,6 +196,13 @@ img {
 .row {
   margin: 0 !important;
 }
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .btn, .btn-outline-primary{
   --bs-btn-active-bg:#2ec4b6;
   --bs-btn-active-border-color: #2ec4b6;
@@ -240,9 +247,13 @@ img {
   box-shadow: 0 0 0 0.25rem #2ec4b550
 }
 
+.link{
+  text-decoration: underline;
+  color: #3a86ff;
+}
+
 .link:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
 
 .img-hght {
