@@ -10,40 +10,129 @@ p{
   font-size: 12px;
 }
 
+.arrive-txt{
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.arrive-txt.bold-x{
+  margin-top: 3px;
+}
+
+.nav-link.active{
+  background-color: #E5F9F8;
+  color: #2ec4b6;
+  border-bottom: #E5F9F8;
+}
+.nav-link:hover{
+  color:#2ec4b6;
+}
+.nav-link{
+  color:#011627;
+  font-size:10px;
+}
+
+.tab-pane{
+  background-color: #E5F9F8;
+}
+
+
 .order-container{
-  border: 1px solid #555;
+  border: 1px solid #adb5bd;
   border-radius: 8px;
-/* padding: 2rem; */
+  background-color: #fff;
 }
 
 .order-head{
-  background-color: #aaa;
+  background-color: #011627;
   border-radius: 8px 8px 0px 0px;
+  height: 90px;
+  color: #fff;
+}
+.order-tag{
+  letter-spacing: 4px;
+}
+.prd-img{
+  width: 100%;
+  max-width: 120px;
 }
 
+.order-content{
+    width: 100%;
+}
+
+.order-divider{
+  border-top: 1px solid #adb5bd;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem !important;
+}
+.brand-name{
+  font-size: 12px;
+}
+
+.btn-grp .btn{
+  width: 100%;
+}
+.btn{
+  font-size: 10px;
+}
+.head-txt{
+  color: #2ec4b6;
+  font-size:10px;
+}
 
 @media (min-width:575.98px) {
 
   h1{
     font-size: 32px;
   }
-p{
+  p{
     font-size: 12px;
-      }
+  }
+  .order-head{
+    height: 65px;
+  }
+  .btn{
+    font-size:12px;
+  }
+  .order-tag{
+    font-size: 14px;
+  }
+  .head-txt, .nav-link{
+    font-size:12px;
+  }
+
 }
 
 @media (min-width:767.98px) {
   h1{
     font-size: 40px;
   }
-p{
+  p{
     font-size: 14px;
-      }
+  }
+  .btn, .nav-link{
+    font-size:14px;
+  }
+  .order-tag{
+    font-size: 16px;
+  }
+  .order-head{
+    height: 70px;
+  }
 }
 
 @media (min-width:991.98px){
 
-  p{
+  p, .nav-link{
     font-size: 16px;
+  }
+  .order-head{
+    height: 80px;
+  }
+  .order-tag{
+    font-size: 20px;
+  }
+  .head-txt{
+    font-size:14px;
   }
 }
