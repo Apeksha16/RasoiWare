@@ -23,11 +23,11 @@
           <hr class="mb-3 mb-sm-4">
 
           <div class="info-content ms-1 me-1 ms-sm-2 me-sm-2 ms-md-3 me-md-3 ms-lg-4 me-lg-5">
-            <div class="info-item start" (click)="toggleInfo('PI')">
+            <div class="info-item start" id="profileInfo" (click)="toggleInfo('PI')" [ngClass]="showPersonalInformation ? 'info-item-active' : '' ">
               <i class="fa-solid fa-house-user ps-3"></i>
               <span class="px-3">Profile Information</span>
             </div>
-            <div class="info-item start" (click)="toggleInfo('MA')">
+            <div class="info-item start" id="manageAddresses" (click)="toggleInfo('MA')" [ngClass]="!showPersonalInformation ? 'info-item-active' : '' ">
               <i class="fa-solid fa-address-card ps-3"></i>
               <span class="px-3">Manage Addresses</span>
             </div>

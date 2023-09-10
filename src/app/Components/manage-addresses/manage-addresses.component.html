@@ -8,14 +8,29 @@
       </div>
     </div>
     <div class="my-address-container row">
-      <div class="col-12 col-md-6" *ngFor="let address of myAddresses; index as i;">
+      <div class="col-12 col-lg-6" *ngFor="let address of myAddresses; index as i;">
         <div class="address p-3 p-lg-4">
           <div class="icn between mb-2 mb-lg-3">
             <i class="fa-solid fa-house-chimney-window primary-color"></i>
-            <span class="def-icn px-2 px-md-3" *ngIf="i == 4">Default</span>
-            <i class="pointer fas fa-edit"></i>
+            <span class="def-icn px-2 px-md-3" *ngIf="address.default==true">Default</span>
+            <!-- <i class="pointer fas fa-edit"></i> -->
+     
           </div>
-          <p>{{address}}</p>
+          <div>
+            <p class="bold">{{address.firstName}} {{address.lastName}}</p>
+            <p>{{address.address}}, {{address.city}}, {{address.state}}, {{address.pincode}}, {{address.country}} </p>
+
+            <p class="bold">Phone Number: {{address.mobileNumber}}</p>
+
+            <div class="d-flex start mt-3">
+              <p class="link">Edit</p>
+              <p class="mx-3">|</p>
+              <p class="link">Delete</p>
+
+
+          </div>
+            </div>
+       
         </div>
       </div>
     </div>

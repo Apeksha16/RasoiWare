@@ -45,12 +45,10 @@ p{
 .address{
   border: 1px solid #adb5bd;
   background-color: #fff;
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  height: 75px;
+  height: 150px;
   border-radius: 8px;
 }
+
 .address p{
   font-size: 10px;
 }
@@ -122,7 +120,7 @@ margin: 0;
     font-size: 12px;
   }
   .address{
-    height: 100px;
+    height: 180px;
   }
   .address-form label{
     font-size: 12px;
@@ -143,7 +141,7 @@ margin: 0;
     font-size: 14px;
       }
   .address{
-    height: 120px;
+    height: 180px;
   }
   .def-icn{
     font-size: 10px;
@@ -200,3 +198,5 @@ margin: 0;
         font-size: 14px;
       }
 }
+
+

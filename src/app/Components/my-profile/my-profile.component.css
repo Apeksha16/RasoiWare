@@ -106,7 +106,7 @@ p{
     font-size: 14px;
   }
 
-  .info-item:hover{
+   .info-item-active{
     background-color: #2ec4b6;
     color: #fff;
   }
