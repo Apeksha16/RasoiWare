@@ -12,6 +12,7 @@ import { ManageAddressesComponent } from './Components/manage-addresses/manage-a
 import { PopularProductsComponent } from './Components/popular-products/popular-products.component';
 import { PrivacyPolicyComponent } from './Components/privacy-policy/privacy-policy.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
+import { CheckoutJourneyComponent } from './Components/checkout-journey/checkout-journey.component';
 
 const routes: Routes = [
   {
@@ -64,8 +65,12 @@ const routes: Routes = [
     component: PrivacyPolicyComponent,
   },
   {
-  path: 'my-orders',
+    path: 'my-orders',
     component: MyOrdersComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutJourneyComponent,
   },
 ];
 

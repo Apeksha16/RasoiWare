@@ -33,6 +33,7 @@ import { ManageAddressesComponent } from './Components/manage-addresses/manage-a
 import { PopularProductsComponent } from './Components/popular-products/popular-products.component';
 import { PrivacyPolicyComponent } from './Components/privacy-policy/privacy-policy.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
+import { CheckoutJourneyComponent } from './Components/checkout-journey/checkout-journey.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
     PopularProductsComponent,
     PrivacyPolicyComponent,
     MyOrdersComponent,
+    CheckoutJourneyComponent,
   ],
   imports: [
     BrowserModule,

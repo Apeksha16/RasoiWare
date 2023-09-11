@@ -1,0 +1,39 @@
+<!-- <p>checkout-journey works!</p> -->
+<section class="container">
+
+  <h1 class="my-3">You're almost there...!</h1>
+
+  <div class="checkout-container p-4">
+
+    <div class="row">
+
+      <div class="col-8">
+
+        <div class="step-1">
+
+          <div class="mb-3 between">
+            <div class="center">
+              <span class="step-count">1</span>
+              <h2 class="">Delivery Address</h2>
+            </div>
+            <span class="link">Change</span>
+          </div>
+          <div class="ms-3 add-box p-3">
+            <p class="bold-x mb-2">{{selectedAddress.firstName}} {{selectedAddress.lastName}}</p>
+            <p>{{selectedAddress.address}}, {{selectedAddress.city}} {{selectedAddress.state}},
+              {{selectedAddress.country}}, {{selectedAddress.pincode}}</p>
+            <p class="bold d-inline">Mobile Number:</p>
+            <p class="d-inline"> {{selectedAddress.mobileNumber}}</p>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-4">
+
+      </div>
+    </div>
+
+  </div>
+
+</section>

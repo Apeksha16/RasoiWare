@@ -1,9 +1,9 @@
-<section class="container">
+<section>
 
-  <div>
+  <div class="container">
     <h1>My Orders</h1>
   </div>
-  <nav class="mt-4">
+  <nav class="mt-4 container">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link mx-1 mx-sm-3 active" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
         role="tab" aria-selected="true">Orders</button>
@@ -13,80 +13,83 @@
         aria-selected="false">Cancelled Orders</button>
     </div>
   </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-      <div class="px-3 px-sm-4 px-md-5 py-4 column gap-4">
-        <div class="order-container" *ngFor="let product of myOrderList; index as i">
+  <div class="container-fluid">
+    <div class="tab-content container" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <div class="px-3 px-sm-4 px-md-5 py-4 column gap-4">
+          <div class="order-container" *ngFor="let product of myOrderList; index as i">
 
-          <div class="order-head pt-2 pt-sm-3 pt-md-4 px-2 px-sm-3">
-            <div class="row">
-              <div class="col-12 col-sm-4">
-                <p class="order-tag bold-x">{{product.orderStatusDesc | uppercase}}</p>
-              </div>
-              <div class="col-12 d-flex d-sm-none align-items-center">
-                <p class="head-txt arrive-txt">Arriving By: &nbsp;&nbsp;</p>
-                <p class="arrive-txt color-primary bold-x"> 20/12/3002</p>
-              </div>
-              <div class="col-6 col-sm-4 start justify-content-sm-center">
-                <p class="bold">ORDER NO:</p>
-              </div>
-              <div class="col-6 col-sm-4 end">
-                <p class="bold">ORDER DATE:</p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-6 col-sm-4 d-none d-sm-flex">
-                <p class="head-txt">Arriving By: &nbsp;&nbsp;</p>
-                <p class="color-primary bold-x"> 20/12/3002</p>
-              </div>
-              <div class="col-6 col-sm-4 start justify-content-sm-center">
-                <span class="head-txt">{{product.orderNo}}</span>
-              </div>
-              <div class="col-6 col-sm-4 end">
-                <span class="head-txt">{{product.orderDate}}</span>
-              </div>
-            </div>
-          </div>
-          <div class="mt-3 pb-4 px-2">
-
-            <div class="row" [ngClass]="i != 0 ? 'order-divider':''" *ngFor="let prd of product.orderInfo; index as i;">
-              <div class="col-12 col-sm-3 center">
-                <div class="prd-img">
-                  <img [src]="prd.orderImg" alt="product-img">
+            <div class="order-head pt-2 pt-sm-3 pt-md-4 px-2 px-sm-3">
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <p class="order-tag bold-x">{{product.orderStatusDesc | uppercase}}</p>
+                </div>
+                <div class="col-12 d-flex d-sm-none align-items-center">
+                  <p class="head-txt arrive-txt">Arriving By: &nbsp;&nbsp;</p>
+                  <p class="arrive-txt color-primary bold-x"> 20/12/3002</p>
+                </div>
+                <div class="col-6 col-sm-4 start justify-content-sm-center">
+                  <p class="bold">ORDER NO:</p>
+                </div>
+                <div class="col-6 col-sm-4 end">
+                  <p class="bold">ORDER DATE:</p>
                 </div>
               </div>
-              <div class="col-12 col-sm-6">
-                <!-- <div class="end" *ngIf="i == 0">
-                  <p class="link">Invoice</p>
-                </div> -->
-                <div class="order-content mt-2 mt-sm-0 column gap-3">
-                  <p class="bold">{{prd.productName}}</p>
-                  <div class="column gap-4">
-                    <div class="brand-name">
-                      <span class="bold">Sold By: </span>
-                      <span class="link">{{prd.prodBrandName}}</span>
-                    </div>
-                    <h4 class="color-primary mb-3 mb-sm-0">₹ {{prd.orderPrice}}</h4>
+
+              <div class="row">
+                <div class="col-6 col-sm-4 d-none d-sm-flex">
+                  <p class="head-txt">Arriving By: &nbsp;&nbsp;</p>
+                  <p class="color-primary bold-x"> 20/12/3002</p>
+                </div>
+                <div class="col-6 col-sm-4 start justify-content-sm-center">
+                  <span class="head-txt">{{product.orderNo}}</span>
+                </div>
+                <div class="col-6 col-sm-4 end">
+                  <span class="head-txt">{{product.orderDate}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 pb-4 px-2">
+
+              <div class="row" [ngClass]="i != 0 ? 'order-divider':''"
+                *ngFor="let prd of product.orderInfo; index as i;">
+                <div class="col-12 col-sm-3 center">
+                  <div class="prd-img">
+                    <img [src]="prd.orderImg" alt="product-img">
                   </div>
                 </div>
-              </div>
-              <div class="col-12 col-sm-3 between btn-grp column flex-column-reverse flex-sm-column">
-                <div class="gap-2 gap-sm-3 column w-100">
-                  <button class="btn btn-outline">Request Cancellation</button>
-                  <button class="btn btn-outline">Return or Replace Items</button>
+                <div class="col-12 col-sm-6">
+                  <!-- <div class="end" *ngIf="i == 0">
+                    <p class="link">Invoice</p>
+                  </div> -->
+                  <div class="order-content mt-2 mt-sm-0 column gap-3">
+                    <p class="bold">{{prd.productName}}</p>
+                    <div class="column gap-4">
+                      <div class="brand-name">
+                        <span class="bold">Sold By: </span>
+                        <span class="link">{{prd.prodBrandName}}</span>
+                      </div>
+                      <h4 class="color-primary mb-3 mb-sm-0">₹ {{prd.orderPrice}}</h4>
+                    </div>
+                  </div>
                 </div>
-                <button class="btn btn-primary mt-2 mt-sm-5 mb-4 mb-sm-0">Track Package</button>
+                <div class="col-12 col-sm-3 between btn-grp column flex-column-reverse flex-sm-column">
+                  <div class="gap-2 gap-sm-3 column w-100">
+                    <button class="btn btn-outline">Request Cancellation</button>
+                    <button class="btn btn-outline">Return or Replace Items</button>
+                  </div>
+                  <button class="btn btn-primary mt-2 mt-sm-5 mb-4 mb-sm-0">Track Package</button>
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">B
-    </div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">C
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">B
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">C
+      </div>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -16,12 +17,16 @@ export class QuickViewComponent implements OnInit {
   ];
   isExpanded: boolean = false;
 
-  constructor(private modalRef: NgbActiveModal) {}
+  constructor(private modalRef: NgbActiveModal, private router: Router) {}
 
   ngOnInit() {}
 
   closeModal() {
     // this.modalRef.dismiss();
     this.modalRef.dismiss();
+  }
+
+  onBuyNowProduct() {
+    this.router.navigate(['checkout']);
   }
 }
