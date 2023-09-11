@@ -27,6 +27,7 @@ export class QuickViewComponent implements OnInit {
   }
 
   onBuyNowProduct() {
+    this.modalRef.dismiss();
     this.router.navigate(['checkout']);
   }
 }

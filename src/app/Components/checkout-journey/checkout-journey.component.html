@@ -1,24 +1,23 @@
-<!-- <p>checkout-journey works!</p> -->
 <section class="container">
 
-  <h1 class="my-3">You're almost there...!</h1>
+  <h1 class="my-3 ms-3 ms-sm-5">You're almost there...!</h1>
 
-  <div class="checkout-container p-4">
+  <div class="checkout-container py-4 px-2 px-md-3 px-lg-4">
 
     <div class="row">
 
-      <div class="col-8">
+      <div class="col-12 col-md-8">
 
         <div class="step-1">
 
-          <div class="mb-3 between">
+          <div class="mb-4 between">
             <div class="center">
               <span class="step-count">1</span>
               <h2 class="">Delivery Address</h2>
             </div>
-            <span class="link">Change</span>
+            <span class="link font-sm">Change</span>
           </div>
-          <div class="ms-3 add-box p-3">
+          <div class="ms-3 ms-sm-5 add-box p-3 p-md-4">
             <p class="bold-x mb-2">{{selectedAddress.firstName}} {{selectedAddress.lastName}}</p>
             <p>{{selectedAddress.address}}, {{selectedAddress.city}} {{selectedAddress.state}},
               {{selectedAddress.country}}, {{selectedAddress.pincode}}</p>
@@ -28,8 +27,114 @@
 
         </div>
 
+        <div class="step-2">
+
+          <div class="my-4 start">
+            <span class="step-count">2</span>
+            <h2 class="">Order Details</h2>
+          </div>
+          <div class="ms-3 ms-sm-5 order-details p-2 p-sm-3 p-md-4">
+
+            <div class="" *ngFor="let prd of selectedProduct; index as i;">
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <div class="prd-img center">
+                    <img [src]="prd.prdImg" alt="prd">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-8">
+                  <p class="bold prd-name">{{prd.prdName}}</p>
+                  <div class="flex">
+                    <p class="my-2 link">{{prd.prdBrand}}</p>
+                  </div>
+
+                  <div class="mt-2 d-sm-flex">
+                    <p class="price-txt bold color-primary me-3">₹ {{prd.prdPrice}}</p>
+                    <div class="col-12 col-sm-6 flex align-items-center">
+                      <p class="strike-txt me-2 font-sm">₹ {{prd.prdPrice}} </p>
+                      <p class="color-red bold-x"> {{prd.prdDiscount}}% OFF</p>
+                    </div>
+                  </div>
+
+                  <div class="filters mt-3 flex gap-3">
+                    <ng-container *ngFor="let filter of prd.prdFilters;">
+                      <div ngbDropdown class="d-inline-block"
+                        [ngClass]="{'color-filter':filter.name.toUpperCase() == 'COLOR','other-filter':filter.name.toUpperCase() !== 'COLOR'}">
+                        <button type="button" class="btn btn-drop" id="dropdownBasic1" ngbDropdownToggle>
+                          <div class="d-inline-flex align-items-center">
+                            <span class="clr-circle me-2" [ngStyle]="{'background-color':'#888'}"
+                              *ngIf="filter.name.toUpperCase() == 'COLOR'"></span>
+                            <p class="pe-1 drop-head-txt">{{filter.name}}</p>
+                          </div>
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                          <button ngbDropdownItem *ngFor="let item of filter.values;">
+                            <div class="flex align-items-center">
+                              <span class="clr-circle-item me-3" [ngStyle]="{'background-color':item.value}"
+                                *ngIf="filter.name.toUpperCase() == 'COLOR'"></span>
+                              <p class="">{{item.name}}</p>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </ng-container>
+
+                  </div>
+                  <div class="end mt-3 mt-sm-0">
+                    <p class="color-grey font-sm pointer remove-link" (click)="onRemove()">REMOVE</p>
+                  </div>
+
+                </div>
+
+              </div>
+              <hr class="mt-4" *ngIf="selectedProduct.length - 1 !== i" />
+            </div>
+
+          </div>
+        </div>
+
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4">
+
+        <div class="order-summary center mt-4 mt-md-0 ms-3 ms-md-0">
+          <div class="order-container">
+            <div class="order-head">
+              <h2 class="py-4 ps-4">Order Summary</h2>
+            </div>
+            <div class="mt-2 p-3 between">
+
+              <div class="column gap-3">
+                <p class="mb-2">Price</p>
+                <p>Delivery charges</p>
+                <p class="mt-2">Discounted Price</p>
+              </div>
+
+              <div class="column gap-3">
+                <p class="bold end price-txt">₹ 100928</p>
+                <p class="bold-x color-primary end prd-name">Free</p>
+                <p class="bold-x end price-txt">₹ 3820</p>
+              </div>
+
+            </div>
+            <hr />
+
+            <div class="p-2 between">
+              <div class="column align-items-center">
+                <p class="bold total-txt">Total Amount</p>
+                <p class="font-sm">(Incl GST)</p>
+              </div>
+              <div>
+                <p class="bold-x price-txt color-primary">₹ 83902.21</p>
+              </div>
+            </div>
+            <hr />
+
+            <div class="px-3 pb-3">
+              <button class="btn btn-primary w-100">Proceed to Payment</button>
+            </div>
+
+          </div>
+        </div>
 
       </div>
     </div>

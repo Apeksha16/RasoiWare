@@ -3,19 +3,28 @@ h1{
   font-family: 'Saira Condensed', sans-serif;
   color: #2ec4b6;
 }
+
+h2{
+  font-size:18px;
+}
+
 p{
+  font-size: 10px;
   margin: 0;
   padding: 0;
 }
 .checkout-container{
   background-color: #E5F9F8;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 .step-count{
-
-  margin: 1rem 1.5rem;
-  border: 1px solid red;
+  padding: 0px 6px;
+  margin-right: 0.5rem;
   border-radius: 30px;
-
+  background-color: #2ec4b6;
+  color:#fff;
+  font-size: 12px;
 }
 
 .add-box{
@@ -23,7 +32,41 @@ p{
   border-radius: 8px;
   border: 1px solid #adb5bd;
 }
+.price-txt{
+  font-size:16px;
+}
+.prd-name{
+  font-size: 12px;
+}
+.total-txt{
+  font-size: 12px;
+}
 
+.order-details{
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #adb5bd;
+}
+
+.prd-img img{
+  max-width: 150px;
+}
+
+.remove-link:hover{
+  color:#ff595e;
+}
+
+.order-container{
+  border-radius: 8px;
+  border:1px solid #adb5bd;
+  width: 400px;
+  background-color: #fff;
+}
+.order-head{
+  border-radius: 8px 8px 0px 0px;
+  color: #fff;
+  background-color: #011627;
+}
 
 @media (min-width:575.98px) {
 
@@ -33,7 +76,17 @@ p{
   p{
     font-size: 12px;
   }
-
+  .step-count{
+    padding: 2px 8px;
+    margin-right: 1rem;
+    font-size: 14px;
+  }
+  .price-txt{
+    font-size:18px;
+  }
+  .prd-name{
+    font-size: 14px;
+  }
 }
 
 @media (min-width:767.98px) {
@@ -43,11 +96,21 @@ p{
   p{
     font-size: 14px;
   }
+  .step-count{
+    padding: 3px 10px;
+    font-size: 16px;
+  }
+  .price-txt{
+    font-size:20px;
+  }
 }
 
 @media (min-width:991.98px){
 
   p{
     font-size: 16px;
+  }
+  .total-txt{
+    font-size: 20px;
   }
 }

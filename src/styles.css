@@ -90,6 +90,10 @@ h6 {
   font-size: 16px;
 }
 
+.font-sm{
+  font-size: 10px !important;
+}
+
 .flex {
   display: flex;
 }
@@ -163,6 +167,13 @@ h6 {
 .color-primary{
   color: #2ec4b6;
 }
+.color-grey{
+  color: #adb5bd;
+}
+.color-red{
+  color: #ff595e;
+}
+
 .background-primary{
   background-color: #2ec4b6;
 }
@@ -356,6 +367,123 @@ img {
   border: 0px;
 }
 
+.discount-tag {
+  display: block;
+  width: auto;
+  max-width: 70px;
+  height: 12px;
+  background-color: #ff595e;
+  border-radius: 3px 4px 4px 3px;
+  border-left: 1px solid #ff595e;
+  margin-left: 10px;
+  position: relative;
+  color: white;
+  font-size: 9px;
+  padding: 0 4px 0 4px;
+}
+
+.discount-tag:before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 8px solid #ff595e;
+}
+
+.discount-tag:after {
+	content: "";
+}
+
+.price .txt{
+  color:#2ec4b6;
+  font-size: 20px;
+}
+.strike-txt{
+  font-size: 10px;
+  text-decoration: line-through;
+  color: #011627;
+}
+
+.clr-circle, .clr-circle-item{
+  width: 12px;
+  height: 12px;
+  display: block;
+  border-radius: 50%;
+}
+.color-filter .dropdown-toggle::after{
+  vertical-align: 0.43em;
+}
+.other-filter .dropdown-toggle::after{
+  vertical-align: 0.2em;
+}
+
+.filters .btn-drop{
+  padding: 2.5px 4px 0px 4px;
+  height: 25px;
+  font-size: 10px;
+}
+.color-filter .drop-head-txt{
+  padding-top: 2px !important;
+}
+
+
+@media (min-width:575.98px) {
+  .font-sm{
+    font-size: 12px !important;
+  }
+  .filters .color-filter .dropdown-toggle::after{
+    vertical-align: 0.5em;
+  }
+  .color-filter .drop-head-txt{
+    padding-top: 0px !important;
+  }
+}
+
+@media (min-width:767.98px) {
+
+  .filters .btn-drop{
+  height: 30px;
+  }
+  .filters .drop-head-txt{
+    padding-bottom: 2px !important;
+  }
+  .other-filter .dropdown-toggle::after{
+    vertical-align: 0.3em;
+  }
+  .clr-circle, .clr-circle-item{
+    width: 14px;
+    height: 14px;
+  }
+  .clr-circle{
+    margin-bottom: 2px !important;
+  }
+}
+
+@media (min-width:991.98px){
+
+  .other-filter .dropdown-toggle::after{
+    vertical-align: 0.4em;
+  }
+
+  .clr-circle, .clr-circle-item{
+    width: 16px;
+    height: 16px;
+  }
+  .color-filter .drop-head-txt{
+    padding-bottom: 1px !important;
+  }
+  .price .txt{
+    font-size: 22px;
+  }
+  .price .strike-txt{
+    padding-left: 4px;
+    font-size: 12px;
+    padding-bottom: 2px;
+  }
+}
+
+
 @media (max-width: 1199.98px) {
 
   h1,h2,h3,h4,h5,h6{
@@ -439,6 +567,9 @@ img {
     width: 80% !important;
   }
 }
+
+
+
 
 .quick-view .modal-content{
   border-radius: 10px;
