@@ -8,6 +8,14 @@
   transition: all 0.1s ease-out;
 }
 
+::ng-deep .home-carousel .carousel-control-prev-icon, ::ng-deep .home-carousel .carousel-control-next-icon {
+ background-color: #000;
+ width: 25%;
+ height: 20%;
+ border-radius: 10px;
+ opacity: 0.3;
+}
+
 .category .icn {
   height: 64px;
   width: 64px;

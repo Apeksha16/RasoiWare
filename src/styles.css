@@ -571,7 +571,6 @@ img {
 
 
 
-.quick-view .modal-content{
+.quick-view .modal-content, .success-dialog .modal-content{
   border-radius: 10px;
 }
-

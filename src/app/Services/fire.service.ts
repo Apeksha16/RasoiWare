@@ -13,6 +13,10 @@ export class FireService {
 
   fireStore: any = getFirestore();
 
+  get WindowRef() {
+    return window;
+  }
+
   // async sendOtp(mobNo: string) {
   //   const auth = getAuth();
 

@@ -130,7 +130,8 @@
             <hr />
 
             <div class="px-3 pb-3">
-              <button class="btn btn-primary w-100">Proceed to Payment</button>
+              <button class="btn btn-primary w-100" #myButton (click)="onPaymentClick(content)">Proceed to
+                Payment</button>
             </div>
 
           </div>
@@ -142,3 +143,27 @@
   </div>
 
 </section>
+
+<ng-template #content let-modal>
+  <div class="">
+    <div class="modal-body column center">
+      <span class="order-success-head bold-x text-center">Your order has been received</span>
+      <div class="center my-3">
+        <div class="success-img-layer-1">
+          <div class="success-img">
+            <i class="fa-solid fa-check fa-beat-fade color-primary"></i>
+          </div>
+        </div>
+      </div>
+      <div class="column center">
+        <h1 class="thank-you mt-3 text-center">Thank you for your purchase !</h1>
+        <div class="py-4 flex">
+          <p class="color-grey">Your order ID: </p>
+          <p>&nbsp;2648042940202</p>
+        </div>
+        <p class="color-grey text-center">You will receive an order confirmation with details of your order.</p>
+        <button class="btn btn-primary my-4">CONTINUE SHOPPING</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
