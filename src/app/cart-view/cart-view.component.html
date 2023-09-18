@@ -1,11 +1,66 @@
-<!-- 
+<section class="p-3">
+
+  <div class="cart-head between">
+    <h2>My Cart (2)</h2>
+    <div class="icn pointer flex" (click)="modalService.close()">
+      <i class="fa-solid fa-circle-xmark"></i>
+    </div>
+  </div>
+  <hr />
+  <div class="prd-list pb-3 column">
+    <div [ngClass]="i != 0 ? 'mt-3':''" *ngFor="let prd of cartProducts; index as i;">
+      <div class="row" [ngClass]="i != cartProducts.length -1 ? 'prd-box':''">
+        <div class="col-2">
+          <div class="img">
+            <img [src]="prd.orderImg" [alt]="prd.productName">
+          </div>
+        </div>
+        <div class="col-7 pe-3">
+          <div class="prd-content">
+            <p class="bold">{{prd.productName}}</p>
+            <span>{{prd.prdBrandName}}</span>
+            <div class="end">
+              <div class="new-counter">
+                <span class="icn"><i class="fa-solid fa-minus fa-2xs"></i></span>
+                <span class="px-2 txt">1</span>
+                <span class="icn"><i class="fa-solid fa-plus fa-2xs"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3 prd-price bold color-primary column between">
+          <span class="ellipsis">₹ {{prd.orderPrice}}</span>
+          <span class="color-grey" *ngIf="i < cartProducts.length-1">+</span>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="row cart-ftr pt-3">
+    <div class="col-6 flex align-items-center">
+      <span class="bold color-grey prd-price">Total: &nbsp;</span>
+      <span class="color-primary bold-x total-price">₹ 5739.32</span>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-primary w-100">Checkout</button>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!--
 <div class="icon-container between my-5 mx-4">
     <div class="d-flex">
-   
+
         <h2 class="label mx-4">My Cart</h2>
         <h2 class="count">(4)</h2>
     </div>
- 
+
 </div>
 
 
@@ -25,13 +80,13 @@
 </div> -->
 
 
-<div class="container">
+<!-- <div class="container">
     <h2 class="mt-3">OTP Verification</h2>
     <p>An OTP has been sent to your registered mobile number. Please enter it below:</p>
-  
+
     <div class="input-group mb-3">
         <input type="text" class="form-control" [(ngModel)]="otp" placeholder="Enter OTP" />
         <button class="btn btn-primary" (click)="verifyOTP()">Verify OTP</button>
     </div>
     <p class="mt-2">{{ message }}</p>
-</div>
+</div> -->

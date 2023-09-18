@@ -25,7 +25,7 @@
     </div>
 
     <div class="col-2 end gap3 log-cart d-sm-flex d-none">
-      <div class="cart d-flex">
+      <div class="cart d-flex" (click)="openCart()">
         <span class="icn"><i class="fa-solid fa-cart-shopping me-3"></i></span>
         <span class="txt">Cart</span>
       </div>
@@ -51,7 +51,7 @@
   </div> -->
 
 
-  <div class="modal-header" >
+  <div class="modal-header">
     <div class="config-list">
       <div class="config-item" *ngFor="let item of configList;" (click)="orderDetails(item)">
         <i class="fa-solid me-3" [ngClass]="item.iconName"></i>

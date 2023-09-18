@@ -112,6 +112,26 @@ color: #2ec4b6;
 .logout:hover{
   color: #2ec4b6;
 }
+.login-modal .modal-lg{
+  max-width:200px;
+  margin-right: 1.5%;
+  margin-top: 50px;
+  margin-left: auto;
+}
+
+.login-modal .modal-content{
+  background-color: #011627;
+}
+
+.custom.show{
+  opacity: 0;
+}
+
+.cart-modal{
+  margin-right: 15%;
+  margin-top: 50px;
+  margin-left: auto;
+}
 
 @media (max-width: 1199.98px) {
   .home-container {
@@ -144,7 +164,12 @@ color: #2ec4b6;
   .log-cart i {
     font-size: 22px;
   }
+  .cart-modal{
+    margin-right: 10%;
+  }
 }
+
+
 
 @media (max-width: 767.98px) {
 
@@ -206,6 +231,8 @@ color: #2ec4b6;
   }
 }
 
+
+
 @media (max-width: 449.98px) {
 
   .input-group .btn span{
@@ -218,17 +245,4 @@ color: #2ec4b6;
 
 }
 
-.login-modal .modal-lg{
-  max-width:200px;
-  margin-right: 1.5%;
-  margin-top: 50px;
-  margin-left: auto;
-}
 
-.login-modal .modal-content{
-  background-color: #011627;
-}
-
-.custom.show{
-  opacity: 0;
-}

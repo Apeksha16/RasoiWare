@@ -7,6 +7,7 @@ import {
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../login/login.component';
 import { Router } from '@angular/router';
+import { CartViewComponent } from 'src/app/cart-view/cart-view.component';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +27,19 @@ export class NavbarComponent {
     },
   ];
 
-  constructor(private modalService: NgbModal, private router: Router) {}
+  constructor(private modalService: NgbModal, private router: Router) {
+    this.openCart();
+  }
+
+  openCart() {
+    this.modalService.open(CartViewComponent, {
+      windowClass: 'cart-window',
+      modalDialogClass: 'cart-modal',
+      size: 'sm',
+      centered: false,
+      backdrop: false,
+    });
+  }
 
   openModal(loginModal: TemplateRef<any>) {
     this.modalService.open(loginModal, {
