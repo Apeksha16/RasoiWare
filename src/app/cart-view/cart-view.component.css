@@ -9,6 +9,9 @@ p, h2, span{
 .cart-head .icn{
   font-size: 24px;
 }
+.cart-head .icn:hover{
+  color: #2ec4b6;
+}
 
 .prd-list{
   height: 160px;
@@ -42,8 +45,8 @@ p, h2, span{
 }
 
 .prd-box{
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #adb5bd;
+  /* padding-bottom: 1rem;
+  border-bottom: 1px solid #adb5bd; */
 }
 
 

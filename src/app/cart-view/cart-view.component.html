@@ -1,14 +1,15 @@
 <section class="p-3">
 
-  <div class="cart-head between">
+  <div class="cart-head pb-3 between">
     <h2>My Cart (2)</h2>
     <div class="icn pointer flex" (click)="modalService.close()">
       <i class="fa-solid fa-circle-xmark"></i>
     </div>
   </div>
-  <hr />
+  <!-- <hr /> -->
   <div class="prd-list pb-3 column">
-    <div [ngClass]="i != 0 ? 'mt-3':''" *ngFor="let prd of cartProducts; index as i;">
+    <div *ngFor="let prd of cartProducts; index as i;">
+      <hr />
       <div class="row" [ngClass]="i != cartProducts.length -1 ? 'prd-box':''">
         <div class="col-2">
           <div class="img">

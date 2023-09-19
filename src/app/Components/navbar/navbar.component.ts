@@ -28,7 +28,7 @@ export class NavbarComponent {
   ];
 
   constructor(private modalService: NgbModal, private router: Router) {
-    this.openCart();
+    // this.openCart();
   }
 
   openCart() {
