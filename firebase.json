@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "dist\\rasoi-ware",
+    "target":"admin",
+    "public": "dist\rasoi-ware",
     "ignore": [
       "firebase.json",
       "**/.*",

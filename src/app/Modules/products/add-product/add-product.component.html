@@ -13,14 +13,15 @@
         <mat-form-field appearance="outline">
           <mat-label>Select Category</mat-label>
           <mat-select formControlName="category" (selectionChange)="onSelectCategory($event)">
-            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category">{{category | titlecase}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Select Sub-Category</mat-label>
           <mat-select formControlName="subCategory" (selectionChange)=" onSelectSubCategory($event)">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{subCategory}}</mat-option>
+            <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{subCategory |
+              titlecase}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -48,7 +49,7 @@
           <mat-label>Brand</mat-label>
           <mat-select formControlName="brand">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let brand of brandList" [value]="brand">{{brand}}</mat-option>
+            <mat-option *ngFor="let brand of brandList" [value]="brand">{{brand | titlecase}}</mat-option>
           </mat-select>
         </mat-form-field>
 

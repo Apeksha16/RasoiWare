@@ -46,7 +46,7 @@ export class AddProductComponent {
     this.productForm = fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
-      subCategory: ['', Validators.required],
+      subCategory: [''],
       mrp: ['', Validators.required],
       isDiscount: [false, Validators.required],
       discount: [
@@ -63,7 +63,7 @@ export class AddProductComponent {
       isPopular: [false],
       isLatest: [false],
       description: ['', Validators.required],
-      specifications: ['', Validators.required],
+      specifications: [''],
       coverImage: ['', Validators.required],
     });
   }
@@ -231,7 +231,7 @@ export class AddProductComponent {
         const categories: string[] = [];
         if (res.length) {
           res.forEach((res, i) => {
-            categories.push(res.id);
+            categories.push(res.id.toUpperCase());
           });
           this.categories = categories;
         }
@@ -246,7 +246,16 @@ export class AddProductComponent {
     this.prdCategory = event.value;
     this.categoryData.map((x: any) => {
       if (x.id === this.prdCategory) {
-        this.subCategories = Object.keys(x.data);
+        this.subCategories = x.data['subCategory'];
+        if (this.subCategories.length) {
+          this.productForm.controls['subCategory'].addValidators(
+            Validators.required
+          );
+        } else {
+          this.productForm.controls['subCategory'].removeValidators(
+            Validators.required
+          );
+        }
       }
     });
   }
