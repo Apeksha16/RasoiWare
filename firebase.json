@@ -1,1 +1,17 @@
-{}
+{
+  "hosting": {
+    "target":"admin",
+    "public": "dist/rasoi-ware",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

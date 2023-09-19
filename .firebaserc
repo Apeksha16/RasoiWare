@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "testing-d22ee"
+  },
+  "targets": {
+    "testing-d22ee": {
+      "hosting": {
+        "admin": [
+          "admin-rasoiware"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
