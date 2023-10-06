@@ -111,8 +111,17 @@ export class EditProductComponent implements OnDestroy, OnInit {
   onSelectCategory(event: any) {
     this.prdCategory = event.value;
     this.categoryData.map((x: any) => {
-      if (x.id === this.prdCategory) {
-        this.subCategories = Object.keys(x.data);
+      if (x.id.toUpperCase() === this.prdCategory) {
+        this.subCategories = x.data['subCategory'];
+        if (this.subCategories.length) {
+          this.productForm.controls['subCategory'].addValidators(
+            Validators.required
+          );
+        } else {
+          this.productForm.controls['subCategory'].removeValidators(
+            Validators.required
+          );
+        }
       }
     });
   }

@@ -71,6 +71,28 @@
         <mat-label>Enter Description</mat-label>
         <textarea matInput formControlName="description" placeholder="Product Description" rows="4"></textarea>
       </mat-form-field>
+      <h4 layout="m-b-10" *ngIf="productForm.controls['category'].value != ''">Filters(If any):</h4>
+      <div fxWidth="100%" fxAlign="start center" fxGap="2" *ngIf="productForm.controls['category'].value != ''">
+        <mat-form-field class="example-chip-list" fxWidth="100%">
+          <mat-label>Product Keywords</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Fruit selection">
+            <mat-chip-row *ngFor="let filter of selectedFilters; index as i" (removed)="removeKeyword(i)">
+              {{filter}}
+              <button matChipRemove [attr.aria-label]="'remove ' + filter">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input placeholder="New Filter Keyword..." #filterInput [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [(ngModel)]="keyWordInput"
+            (input)="onFilterInputChange(keyWordInput)" [ngModelOptions]="{standalone: true}" />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let item of filteredKeyFilters; " [value]="item">
+              {{item.value}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
     </div>
     <div class="divider"></div>
     <div layout="p-l-20 p-b-10 p-t-10 p-r-10" fxHeight="100% - 20px" fxWidth="40%" class="right-container"

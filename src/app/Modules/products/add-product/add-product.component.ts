@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -9,6 +9,10 @@ import { ProductsService } from '../products.service';
 import { GatewayService } from 'src/app/Utils/gateway.service';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/Utils/utility.service';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { A, COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Observable, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-add-product',
@@ -17,20 +21,26 @@ import { UtilityService } from 'src/app/Utils/utility.service';
 })
 export class AddProductComponent {
   public mrp: number = 0;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
   genders: string[] = ['Male', 'Female'];
   brands: string[] = ['WonderChef', 'Borosil', 'Nike', 'Puma', 'Adidas'];
-
+  filterCtrl: any;
   sizes: string[] = ['28', '30', '32', '34', '38'];
-
+  filteredKeyFilters!: any[];
   categories: string[] = [];
   prdCategory: string = '';
   categoryData: any;
   subCategories: string[] = [];
+  selectedFilters: any[] = [];
+  keyWordInput: string = '';
   public productForm: FormGroup;
   public prdouctId: string = '';
   public brandList: string[] = [];
   public productImages: any[] = [];
   public previewLocalImgs: any[] = [];
+  public filters: any[] = [];
+
+  @ViewChild('filterInput') filterInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private productService: ProductsService,
@@ -245,7 +255,7 @@ export class AddProductComponent {
   onSelectCategory(event: any) {
     this.prdCategory = event.value;
     this.categoryData.map((x: any) => {
-      if (x.id === this.prdCategory) {
+      if (x.id.toUpperCase() === this.prdCategory) {
         this.subCategories = x.data['subCategory'];
         if (this.subCategories.length) {
           this.productForm.controls['subCategory'].addValidators(
@@ -256,14 +266,55 @@ export class AddProductComponent {
             Validators.required
           );
         }
+        this.getFiltersInArray(x.data.filters);
       }
     });
   }
 
-  onSelectSubCategory(event: any) {
-    this.categoryData.map((x: any) => {
-      if (x.id === this.prdCategory) {
+  getFiltersInArray(filter: any) {
+    Object.keys(filter).forEach((x) => {
+      filter[x].forEach((item: string) => {
+        this.filters.push({ type: x, value: item });
+      });
+    });
+    this.filteredKeyFilters = this.filters;
+  }
+
+  onFilterInputChange(event: any) {
+    console.log(event);
+    this.filteredKeyFilters = this.filters.filter((x: any) =>
+      x.value.toLowerCase().includes(event.toLowerCase())
+    );
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.selectedFilters.push(event.option.viewValue);
+    this.filterInput.nativeElement.value = '';
+    this.filteredKeyFilters = [];
+    this.filters.forEach((x: any) => {
+      if (!this.returnLowerCaseCheck(x.value.toLowerCase())) {
+        this.filteredKeyFilters.push(x);
       }
     });
+  }
+
+  returnLowerCaseCheck(word: string) {
+    let selectedKeyword: string[] = [];
+    this.selectedFilters.forEach((x) => {
+      selectedKeyword.push(x.toLowerCase());
+    });
+    return selectedKeyword.includes(word);
+  }
+
+  onSelectSubCategory(event: any) {
+    this.categoryData.map((x: any) => {
+      if (x.id.toUpperCase() === this.prdCategory) {
+      }
+    });
+  }
+
+  removeKeyword(i: number) {
+    this.selectedFilters.splice(i, 1);
+    // this.filteredKeyFilters =
   }
 }

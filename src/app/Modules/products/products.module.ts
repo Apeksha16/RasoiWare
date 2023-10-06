@@ -11,7 +11,6 @@ import { NgFor } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -20,7 +19,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
@@ -44,6 +44,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     MatBadgeModule,
     MatTooltipModule,
     MatRadioModule,
+    MatAutocompleteModule,
   ],
 })
 export class ProductsModule {}
