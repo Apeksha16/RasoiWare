@@ -76,20 +76,25 @@
         <mat-form-field class="example-chip-list" fxWidth="100%">
           <mat-label>Product Keywords</mat-label>
           <mat-chip-grid #chipGrid aria-label="Fruit selection">
-            <mat-chip-row *ngFor="let filter of selectedFilters; index as i" (removed)="removeKeyword(i)">
-              {{filter}}
-              <button matChipRemove [attr.aria-label]="'remove ' + filter">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip-row>
+            <ng-container *ngFor="let filter of filteredKeyFilters; index as i">
+              <mat-chip-row *ngIf="filter.selected" (removed)="removeKeyword(i)">
+                {{filter.value}}
+                <button matChipRemove [attr.aria-label]="'remove ' + filter">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </ng-container>
           </mat-chip-grid>
           <input placeholder="New Filter Keyword..." #filterInput [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [(ngModel)]="keyWordInput"
             (input)="onFilterInputChange(keyWordInput)" [ngModelOptions]="{standalone: true}" />
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let item of filteredKeyFilters; " [value]="item">
-              {{item.value}}
-            </mat-option>
+            <ng-container *ngFor="let item of filteredKeyFilters; ">
+              <mat-option *ngIf="!item.selected" [value]="item">
+                {{item.value}}
+              </mat-option>
+
+            </ng-container>
           </mat-autocomplete>
         </mat-form-field>
       </div>

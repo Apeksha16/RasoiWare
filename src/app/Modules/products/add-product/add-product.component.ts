@@ -159,6 +159,11 @@ export class AddProductComponent {
     } else if (!this.productForm.controls['coverImage'].valid) {
       this.utils.showMessage('Please choose cover image.');
     } else if (this.productForm.valid) {
+      this.productForm.addControl('filters', new FormControl([]));
+      if (this.filters.length) {
+        let selectedFilters = this.filteredKeyFilters.filter((x) => x.selected);
+        this.productForm.controls['filters'].setValue(selectedFilters);
+      }
       this.prdouctId = this.generatePrdId().message;
       let coverImgIndex = this.productForm.controls['coverImage'].value;
       let coverImage = this.productImages[coverImgIndex];
@@ -171,6 +176,7 @@ export class AddProductComponent {
         [coverImage]
       );
       this.productForm.get('coverImage')?.patchValue(coverImgLink[0]);
+      console.log(this.productForm);
       this.productService
         .addProduct(this.prdouctId, this.productForm)
         .then((_res) => {
@@ -254,6 +260,9 @@ export class AddProductComponent {
 
   onSelectCategory(event: any) {
     this.prdCategory = event.value;
+    this.selectedFilters = [];
+    this.filteredKeyFilters = [];
+    this.filters = [];
     this.categoryData.map((x: any) => {
       if (x.id.toUpperCase() === this.prdCategory) {
         this.subCategories = x.data['subCategory'];
@@ -272,11 +281,13 @@ export class AddProductComponent {
   }
 
   getFiltersInArray(filter: any) {
-    Object.keys(filter).forEach((x) => {
-      filter[x].forEach((item: string) => {
-        this.filters.push({ type: x, value: item });
+    if (filter != undefined) {
+      Object.keys(filter).forEach((x) => {
+        filter[x].forEach((item: string) => {
+          this.filters.push({ type: x, value: item, selected: false });
+        });
       });
-    });
+    }
     this.filteredKeyFilters = this.filters;
   }
 
@@ -288,22 +299,13 @@ export class AddProductComponent {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.selectedFilters.push(event.option.viewValue);
     this.filterInput.nativeElement.value = '';
-    this.filteredKeyFilters = [];
-    this.filters.forEach((x: any) => {
-      if (!this.returnLowerCaseCheck(x.value.toLowerCase())) {
-        this.filteredKeyFilters.push(x);
+    this.filteredKeyFilters.find((x) => {
+      if (x.value.toLowerCase() == event.option.viewValue.toLowerCase()) {
+        x.selected = true;
+        return;
       }
     });
-  }
-
-  returnLowerCaseCheck(word: string) {
-    let selectedKeyword: string[] = [];
-    this.selectedFilters.forEach((x) => {
-      selectedKeyword.push(x.toLowerCase());
-    });
-    return selectedKeyword.includes(word);
   }
 
   onSelectSubCategory(event: any) {
@@ -314,7 +316,6 @@ export class AddProductComponent {
   }
 
   removeKeyword(i: number) {
-    this.selectedFilters.splice(i, 1);
-    // this.filteredKeyFilters =
+    this.filteredKeyFilters[i].selected = false;
   }
 }
