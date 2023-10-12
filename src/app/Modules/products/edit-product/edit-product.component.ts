@@ -1,11 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GatewayService } from 'src/app/Utils/gateway.service';
 import { UtilityService } from 'src/app/Utils/utility.service';
-
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { A, COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Observable, map, startWith } from 'rxjs';
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
@@ -24,6 +33,14 @@ export class EditProductComponent implements OnDestroy, OnInit {
   public productImagesOnLocal: any[] = [];
   public previewLocalImgs: any[] = [];
   private prevCoverImg: string = '';
+  public filters: any[] = [];
+  private isOnInit: boolean = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  selectedFilters: any[] = [];
+  keyWordInput: string = '';
+  filteredKeyFilters!: any[];
+
+  @ViewChild('filterInput') filterInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private actvRouter: ActivatedRoute,
@@ -47,11 +64,15 @@ export class EditProductComponent implements OnDestroy, OnInit {
           Validators.max(1000),
         ]),
       ],
+      isMostSelling: [false],
+      isPopular: [false],
+      isLatest: [false],
       brand: ['', Validators.required],
       stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       description: ['', Validators.required],
       specifications: ['', Validators.required],
       coverImage: ['', Validators.required],
+      filters: [],
     });
     this.subscription = actvRouter.url.subscribe((x) => {
       this.productId = decodeURI(x[1].path);
@@ -93,7 +114,7 @@ export class EditProductComponent implements OnDestroy, OnInit {
         const categories: string[] = [];
         if (res.length) {
           res.forEach((res, i) => {
-            categories.push(res.id);
+            categories.push(res.id.toUpperCase());
           });
           this.categories = categories;
         }
@@ -122,6 +143,7 @@ export class EditProductComponent implements OnDestroy, OnInit {
             Validators.required
           );
         }
+        this.getFiltersInArray(x.data.filters);
       }
     });
   }
@@ -133,17 +155,20 @@ export class EditProductComponent implements OnDestroy, OnInit {
         let productInfo = x.data;
         this.productForm.setValue({
           name: productInfo.name,
-          category: productInfo.category,
-          subCategory: productInfo.subCategory,
+          category: productInfo.category.toUpperCase(),
+          subCategory: productInfo.subCategory.toUpperCase(),
           mrp: productInfo.mrp,
           isDiscount: productInfo.isDiscount,
-          discount:
-            productInfo.discount != undefined ? productInfo.discount : '',
+          discount: productInfo.discount || '',
+          isMostSelling: productInfo.isMostSelling || false,
+          isPopular: productInfo.isPopular || false,
+          isLatest: productInfo.isLatest || false,
           brand: productInfo.brand,
           description: productInfo.description,
           stock: productInfo.stock,
           specifications: productInfo.specifications,
           coverImage: productInfo.coverImage,
+          filters: productInfo.filters || [],
         });
         this.productForm.controls['discount'].enable();
         this.prevCoverImg = this.productForm.controls['coverImage'].value;
@@ -259,8 +284,12 @@ export class EditProductComponent implements OnDestroy, OnInit {
         ]);
         this.productForm.get('coverImage')?.patchValue(coverImgLink[0]);
       }
+      if (this.filters.length) {
+        let selectedFilters = this.filteredKeyFilters.filter((x) => x.selected);
+        this.productForm.controls['filters'].setValue(selectedFilters);
+      }
       this.prodService
-        .addProduct(this.productId, this.productForm)
+        .onUpdateProduct(this.productId, this.productForm)
         .then((_res) => {
           this.router.navigate(['/products']);
           this.productImagesOnLocal = [];
@@ -294,6 +323,51 @@ export class EditProductComponent implements OnDestroy, OnInit {
       });
   }
 
+  getFiltersInArray(filter: any) {
+    if (filter != undefined) {
+      Object.keys(filter).forEach((x) => {
+        filter[x].forEach((item: string) => {
+          this.filters.push({ type: x, value: item, selected: false });
+        });
+      });
+    }
+    this.filteredKeyFilters = this.filters;
+    if (this.isOnInit) {
+      this.isOnInit = false;
+      this.productForm.controls['filters']?.value.forEach((x: any) => {
+        this.filteredKeyFilters.map((fil) => {
+          if (x.value?.toLowerCase() == fil.value.toLowerCase()) {
+            fil.selected = true;
+          }
+        });
+      });
+    }
+  }
+
+  // delhi gate se peeche mudd jana gate no 3 se dariyaganj ki taraf
+
+  // vaha se poochna hai golcha cinema kaha hai
+
+  onFilterInputChange(event: any) {
+    console.log(event);
+    this.filteredKeyFilters = this.filters.filter((x: any) =>
+      x.value.toLowerCase().includes(event.toLowerCase())
+    );
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.filterInput.nativeElement.value = '';
+    this.filteredKeyFilters.find((x) => {
+      if (x.value.toLowerCase() == event.option.viewValue.toLowerCase()) {
+        x.selected = true;
+        return;
+      }
+    });
+  }
+
+  removeKeyword(i: number) {
+    this.filteredKeyFilters[i].selected = false;
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

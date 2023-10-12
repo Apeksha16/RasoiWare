@@ -43,6 +43,7 @@
           <input matInput readonly="true" [value]="getFinalAmt()">
         </mat-form-field>
       </div>
+
       <div fxWidth="100%" fxAlign="start center" fxGap="2">
 
         <mat-form-field appearance="outline">
@@ -57,12 +58,46 @@
           <mat-label>Stock</mat-label>
           <input matInput placeholder="Stock" formControlName="stock">
         </mat-form-field>
+        <div layout="m-b-22" fxAlign="center center">
+          <mat-checkbox color="primary" layout="m-r-20" formControlName="isMostSelling">Is Most Selling
+            Product</mat-checkbox>
+          <mat-checkbox color="primary" formControlName="isPopular">Is Popular</mat-checkbox>
+        </div>
       </div>
-
+      <div fxWidth="100%" layout="m-b-10" fxAlign="start center">
+        <mat-checkbox color="primary" formControlName="isLatest">Is Latest Product</mat-checkbox>
+      </div>
       <mat-form-field fxWidth="100%" appearance="outline">
         <mat-label>Enter Description</mat-label>
         <textarea matInput formControlName="description" placeholder="Product Description" rows="4"></textarea>
       </mat-form-field>
+      <h4 layout="m-b-10" *ngIf="productForm.controls['category'].value != ''">Filters(If any):</h4>
+      <div fxWidth="100%" fxAlign="start center" fxGap="2" *ngIf="productForm.controls['category'].value != ''">
+        <mat-form-field class="example-chip-list" fxWidth="100%">
+          <mat-label>Product Keywords</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Fruit selection">
+            <ng-container *ngFor="let filter of filteredKeyFilters; index as i">
+              <mat-chip-row *ngIf="filter.selected" (removed)="removeKeyword(i)">
+                {{filter.value}}
+                <button matChipRemove [attr.aria-label]="'remove ' + filter">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </ng-container>
+          </mat-chip-grid>
+          <input placeholder="New Filter Keyword..." #filterInput [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [(ngModel)]="keyWordInput"
+            (input)="onFilterInputChange(keyWordInput)" [ngModelOptions]="{standalone: true}" />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <ng-container *ngFor="let item of filteredKeyFilters; ">
+              <mat-option *ngIf="!item.selected" [value]="item">
+                {{item.value}}
+              </mat-option>
+
+            </ng-container>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
     </div>
     <div class="divider"></div>
     <div layout="p-l-20 p-t-10 p-r-10" fxHeight="100% - 20px" fxWidth="40%" class="right-container" fxLayout="column"
