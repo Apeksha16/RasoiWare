@@ -234,7 +234,8 @@ export class ProductsService {
     this.gateway.setLoading(true);
     try {
       const documentRef = doc(this.fireStore, 'products', documentId);
-      await updateDoc(documentRef, updateData);
+      const docd = await updateDoc(documentRef, updateData.value);
+      console.log(docd);
       this.gateway.setLoading(false);
       this.utils.showMessage('Product Updated Successfully');
     } catch (error) {
