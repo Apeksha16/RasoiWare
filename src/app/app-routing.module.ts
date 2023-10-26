@@ -57,7 +57,7 @@ const routes: Routes = [
     component: ManageAddressesComponent,
   },
   {
-    path: 'popular-products',
+    path: ':category',
     component: PopularProductsComponent,
   },
   {

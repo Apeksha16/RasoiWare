@@ -1,0 +1,26 @@
+<span class="card">
+  <div class="column center">
+    <div class="center img mt-3 mt-lg-4">
+      <img class="" [alt]="prdInfo.name" [src]="prdInfo.coverImage"
+        *ngIf="prdInfo.coverImage != undefined && prdInfo.coverImage != ''">
+      <div *ngIf="prdInfo.coverImage == undefined || prdInfo.coverImage == ''"></div>
+    </div>
+    <div class="ctgry-blck pointer my-2 my-sm-3">
+      <span>{{prdInfo.category | uppercase}}</span>
+    </div>
+    <div class="px-2 px-sm-3">
+      <p class="prd-name mt-2 mb-2">
+        {{prdInfo.name}}
+      </p>
+    </div>
+    <div class="price-txt my-sm-3">
+      <p class="price bold-x">₹ {{getFinalPrice(prdInfo.discount,prdInfo.mrp)}}</p>
+      <p class="cut-txt ms-2 ms-md-3">₹ {{prdInfo.mrp}}</p>
+    </div>
+    <div class="buy-btn mb-3 mb-lg-4">
+      <button class="btn btn-primary">
+        <span>Buy Now</span>
+      </button>
+    </div>
+  </div>
+</span>

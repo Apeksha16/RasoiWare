@@ -1,63 +1,134 @@
+.product-card {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
 
-        .product-card {
-            border: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-            transition: transform 0.2s ease-in-out;
-        }
+.product-card:hover {
+  transform: scale(1.02);
+}
 
-        .product-card:hover {
-            transform: scale(1.02);
-        }
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
 
-        .product-image img {
-            max-width: 100%;
-            height: auto;
-        }
+.product-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-        .product-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+.category-name {
+  font-weight: bold;
 
-        .category-name {
-            font-weight: bold;
- 
-        }
+}
 
-        .product-name {
-            font-size: 18px;
-        }
+.product-name {
+  font-size: 18px;
+}
 
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: black;
-        }
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
 
-        .original-price {
-            font-size: 16px;
-            color: #888888;
-            text-decoration: line-through;
-        }
+.original-price {
+  font-size: 16px;
+  color: #888888;
+  text-decoration: line-through;
+}
 
-        .counter {
-            display: flex;
-            align-items: center;
-        }
+.counter {
+  display: flex;
+  align-items: center;
+}
 
-        .count-button {
-            font-size: 24px;
-            cursor: pointer;
-        }
+.count-button {
+  font-size: 24px;
+  cursor: pointer;
+}
 
-        .count-text {
-            font-size: 20px;
-            font-weight: bold;
-            margin: 0 10px;
-        }
+.count-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 10px;
+}
 
-        .add-to-cart-btn {
-            font-size: 18px;
-        }
+.add-to-cart-btn {
+  font-size: 18px;
+}
 
+.form-check .form-check-input,
+.form-check .form-check-label {
+  cursor: pointer;
+}
+
+.form-check-input:focus {
+  --bs-border-color: #e5f9f8 !important;
+  box-shadow: 0 0 0 0.25rem #2ec4b650;
+}
+
+.form-check-input:checked {
+  background-color: #2ec4b6;
+  border-color: #2ec4b6;
+}
+
+.accordion {
+  --bs-accordion-active-bg: #2ec4b6;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem #2ec4b550;
+  --bs-accordion-active-color: #fff;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.ellipsis {
+  display: inline-block;
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width:575.98px) {
+
+  h1 {
+    font-size: 32px;
+  }
+
+  p,
+  label {
+    font-size: 12px;
+  }
+
+  .btn {
+    font-size: 12px;
+  }
+
+}
+
+@media (min-width:767.98px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  p,
+  label {
+    font-size: 14px;
+  }
+
+  .btn,
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+@media (min-width:991.98px) {
+
+  p,
+  label,
+  .nav-link {
+    font-size: 16px;
+  }
+
+}

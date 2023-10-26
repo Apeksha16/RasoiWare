@@ -59,7 +59,7 @@ export class NavbarComponent {
   }
 
   onHomeNavigation() {
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
   orderDetails(item: any) {
     if (item.itemName == 'Orders') {

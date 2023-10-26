@@ -19,6 +19,6 @@ export class LoginComponent {
   }
 
   sendOtp() {
-    // this.auth.sendOtp('+918009225514');
+    this.auth.sendOtp('+918009225514');
   }
 }

@@ -34,6 +34,7 @@ import { PopularProductsComponent } from './Components/popular-products/popular-
 import { PrivacyPolicyComponent } from './Components/privacy-policy/privacy-policy.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 import { CheckoutJourneyComponent } from './Components/checkout-journey/checkout-journey.component';
+import { PrdCardComponent } from './Components/prd-card/prd-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { CheckoutJourneyComponent } from './Components/checkout-journey/checkout
     PrivacyPolicyComponent,
     MyOrdersComponent,
     CheckoutJourneyComponent,
+    PrdCardComponent,
   ],
   imports: [
     BrowserModule,

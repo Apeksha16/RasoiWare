@@ -2,15 +2,17 @@
   width: 60px;
   height: 60px;
 }
-.logo .txt{
+
+.logo .txt {
   color: #fff;
 }
-.logo :hover{
+
+.logo :hover {
   cursor: pointer;
   color: #2ec4b6;
 }
 
-.input-group{
+.input-group {
   width: 90%;
   transition: width 0.3s ease;
 }
@@ -22,7 +24,7 @@
   border-color: #2ec4b6;
 }
 
-.form-control:focus{
+.form-control:focus {
   box-shadow: 0 0 0 0.25rem #2ec4b550
 }
 
@@ -38,61 +40,68 @@
   font-size: 20px;
   color: #fff;
 }
-.log-cart .txt{
+
+.log-cart .txt {
   color: #fff;
 }
 
-.log-cart .login:hover, .log-cart .cart:hover{
+.log-cart .login:hover,
+.log-cart .cart:hover {
   cursor: pointer;
 }
+
 .icn i,
 .txt {
   transition: color 0.3s;
 }
 
 .login:hover .icn i,
-.login:hover .txt, .cart:hover .icn i, .cart:hover .txt {
+.login:hover .txt,
+.cart:hover .icn i,
+.cart:hover .txt {
   color: #2ec4b6;
 }
 
-.nav-links .link{
+.nav-links .link {
   color: #fff;
 }
 
-.nav-links i{
+.nav-links i {
   font-size: 20px;
   cursor: pointer;
   transition: color 0.2s ease-out;
 }
-.nav-links i:hover{
-color: #2ec4b6;
+
+.nav-links i:hover {
+  color: #2ec4b6;
 }
- .link:hover{
+
+.link:hover {
   text-decoration: underline;
 }
 
-.main-nav{
+.main-nav {
   background-color: #011627;
   height: 80px;
   position: sticky;
-  top: 0;
+  top: -1px;
   width: 100%;
   z-index: 999;
 }
 
 .login.modal {
-  --bs-modal-width:40%;
-  top:6%;
+  --bs-modal-width: 40%;
+  top: 6%;
 }
 
-.config-list{
+.config-list {
   display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
 }
 
-.config-item{
+.config-item {
   color: #fff;
   border: 1px solid white;
   font-size: 14px;
@@ -102,32 +111,34 @@ color: #2ec4b6;
   transition: background-color 0.2s ease-in-out;
 }
 
-.config-item:hover{
+.config-item:hover {
   background-color: #2ec4b6;
 }
 
-.logout{
+.logout {
   font-size: 16px;
 }
-.logout:hover{
+
+.logout:hover {
   color: #2ec4b6;
 }
-.login-modal .modal-lg{
-  max-width:200px;
+
+.login-modal .modal-lg {
+  max-width: 200px;
   margin-right: 1.5%;
   margin-top: 50px;
   margin-left: auto;
 }
 
-.login-modal .modal-content{
+.login-modal .modal-content {
   background-color: #011627;
 }
 
-.custom.show{
+.custom.show {
   opacity: 0;
 }
 
-.cart-modal{
+.cart-modal {
   margin-right: 15%;
   margin-top: 50px;
   margin-left: auto;
@@ -137,6 +148,7 @@ color: #2ec4b6;
   .home-container {
     font-size: 16px;
   }
+
   .nav-links {
     font-size: 16px;
   }
@@ -144,16 +156,17 @@ color: #2ec4b6;
 
 @media (max-width: 991.98px) {
 
-  .logo .img{
+  .logo .img {
     width: 50px;
     height: 50px;
   }
-  .logo .txt{
+
+  .logo .txt {
     font-size: 14px;
   }
 
-  .gap3{
-    gap:2rem;
+  .gap3 {
+    gap: 2rem;
   }
 
   .cart .txt,
@@ -164,7 +177,8 @@ color: #2ec4b6;
   .log-cart i {
     font-size: 22px;
   }
-  .cart-modal{
+
+  .cart-modal {
     margin-right: 10%;
   }
 }
@@ -173,22 +187,22 @@ color: #2ec4b6;
 
 @media (max-width: 767.98px) {
 
-  .gap3{
-    gap:1rem;
+  .gap3 {
+    gap: 1rem;
   }
 }
 
 @media (max-width: 575.98px) {
 
-  .main-nav{
+  .main-nav {
     height: 60px;
   }
 
-  .gap3{
+  .gap3 {
     gap: 0.6rem;
   }
 
-  .nav-search .form-control{
+  .nav-search .form-control {
     font-size: 14px;
     height: 35px;
     border-radius: 30px;
@@ -199,7 +213,7 @@ color: #2ec4b6;
     height: auto;
   }
 
-  .hmbrgr i:hover{
+  .hmbrgr i:hover {
     cursor: pointer;
     transform: scale(1.2);
     transition: 0.3s ease-in-out;
@@ -209,24 +223,27 @@ color: #2ec4b6;
   .nav-search .btn i {
     padding: 0 0.3rem 0 0.3rem;
   }
-  .log-cart .icn i{
+
+  .log-cart .icn i {
     font-size: 18px;
   }
 
-  .fs-16{
+  .fs-16 {
     font-size: 12px;
   }
 
-  .login-modal .modal-lg{
-    max-width:160px !important;
+  .login-modal .modal-lg {
+    max-width: 160px !important;
     margin-right: 1.5%;
     margin-top: 50px;
     margin-left: auto;
   }
-  .config-item span{
+
+  .config-item span {
     font-size: 12px;
   }
-  .logout{
+
+  .logout {
     font-size: 14px;
   }
 }
@@ -235,14 +252,12 @@ color: #2ec4b6;
 
 @media (max-width: 449.98px) {
 
-  .input-group .btn span{
+  .input-group .btn span {
     display: none;
   }
 
-  .input-group{
+  .input-group {
     width: 100%;
   }
 
 }
-
-
