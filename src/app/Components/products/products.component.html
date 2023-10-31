@@ -1,4 +1,4 @@
-<section class="container">
+<!-- <section class="container">
   <div class="bread-crumb">
     <div class="bread-items">
       <span class="txt bold">Home</span>
@@ -12,45 +12,38 @@
       <span>New Products</span>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="container-fluid">
   <img class="head-img" src="assets/images/products.jpeg" alt="">
 </section>
-<section class="container top-deals">
-  <div class="head my-4 ms-4">
+
+<section class="container">
+  <div class="">
     <h1>Most Selling Products</h1>
   </div>
+  <div class="most-selling row">
+    <div class="col col-sm-6 col-md-4 col-lg-3" *ngFor="let i of mostSellingProducts">
+      <div class="">
+        <app-prd-card [prdInfo]="i"></app-prd-card>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="d-flex gap-4 p-4 top-deals-products">
-    <div class="prd p-2 p-sm-3" *ngFor="let i of ['A','B','C','D','E','F','G','H']">
-      <div class="center">
-        <img class="img-hght" src="assets/prd.jpeg">
-      </div>
-      <div class="prd-txt column">
-        <div class="column center">
-          <div class="category-block pointer mb-2">
-            <span>Category Name</span>
-          </div>
-          <span class="name mx-2">Product Name is here. it can be long</span>
-        </div>
-        <div class="mt-3">
-          <span class="ms-2 price bold-x">₹ 2500</span>
-          <span class="cut-txt bold ms-2">₹ 3200</span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-7 col-sm-6 counter start">
-          <span class="cnt-btn center">-</span>
-          <span class="cnt-txt mx-1">2</span>
-          <span class="cnt-btn center">+</span>
-        </div>
-        <div class="col-5 col-sm-6 end cart-wrap">
-          <button class="cart-btn btn btn-primary">
-            <i class="fas fa-shopping-cart"></i>
-            <span> Cart</span>
-          </button>
-        </div>
+<section class="container">
+  <div class="">
+    <h1>Choose by Brand</h1>
+  </div>
+  <div class="overflow-scroll ps-4">
+    <div class="brand-container">
+      <div class="brand me-3 mb-3" *ngFor="let brand of brandList;">
+        <span class="icn ms-2">
+          <p>
+            {{brand.charAt(0).toUpperCase()}}
+          </p>
+        </span>
+        <span class="txt">{{brand}}</span>
       </div>
     </div>
   </div>
@@ -58,37 +51,56 @@
 
 <section class="container">
 
-  <div class="head row">
-    <div class="col-6 m-4 start">
-      <h1>Choose by Brand</h1>
-    </div>
-  </div>
-
-  <div class="brand-list mb-5 d-flex">
-    <div class="brand-container" *ngFor="let brand of brandList;">
-      <span class="icn">{{brand.charAt(0).toUpperCase()}}</span>
-      <span class="txt">{{brand}}</span>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="container">
-
-  <div class="head row">
-    <div class="col-6 m-4 start">
-      <h1>Best in Kitchen & Appliances</h1>
-    </div>
-  </div>
-
-</section>
-
-<section class="container">
-
-  <div class="head row">
-    <div class="col-6 m-4 start">
+  <div class="row">
+    <div class="col-6">
       <h1>Hand-picked Home Decor</h1>
+      <div class="bgnd-light">
+        <div class="row">
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-1.png" alt="">
+            <span class="mt-2 sub-head">Contemporary Decor | Up to 70% off</span>
+          </div>
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-3.png" alt="">
+            <span class="mt-2 sub-head">Decorations and Many more</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-2.png" alt="">
+            <span class="mt-2 sub-head">Freshly Launched Precious Gifting</span>
+          </div>
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-1.png" alt="">
+            <span class="mt-2 sub-head">Simplify and Style your Home | Up to 60% off</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <h1>Home and Appliances</h1>
+      <div class="bgnd-light">
+        <div class="row">
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-1.png" alt="">
+            <span class="mt-2 sub-head">Shopping for Dining room</span>
+          </div>
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-2.png" alt="">
+            <span class="mt-2 sub-head">Top Picks for you</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-3.png" alt="">
+            <span class="mt-2 sub-head">Trending Deals</span>
+          </div>
+          <div class="col-6">
+            <img src="../../../assets/images/carousel-1.png" alt="">
+            <span class="mt-2 sub-head">Shop for Home & Kitchen Upgrade</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -96,8 +108,8 @@
 
 <section class="container">
 
-  <div class="head row">
-    <div class="col-6 m-4 start">
+  <div class="row">
+    <div class="col-6">
       <h1>Special in Gifts & More</h1>
     </div>
   </div>

@@ -107,4 +107,22 @@ export class FireService {
     }
   }
 
+  async getAllBrands() {
+    try {
+      const collectionRef = collection(this.fireStore, 'brands');
+      const documentId = 'brandList';
+      const documentRef = doc(collectionRef, documentId);
+      const docSnapshot = await getDoc(documentRef);
+
+      if (docSnapshot.exists()) {
+        const data = docSnapshot.data()['name'];
+        return data;
+      } else {
+        return { message: 'Document does not exist' };
+      }
+    } catch (error) {
+      return { message: 'Error fetching document: ' + error };
+    }
+  }
+
 }

@@ -197,12 +197,6 @@ img {
   width: 100%;
 }
 
-.cut-txt {
-  color: #ff6b6b;
-  font-size: 14px;
-  text-decoration: line-through;
-}
-
 .white {
   color: #fff;
 }
@@ -564,10 +558,6 @@ img {
     margin-left: 1rem;
     margin-right: 1rem;
   } */
-
-  .cut-txt {
-    font-size: 12px;
-  }
 
   .cart-btn {
     /* font-size: 14px; */
