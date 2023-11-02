@@ -52,52 +52,68 @@
 <section class="container">
 
   <div class="row">
-    <div class="col-6">
+    <div class="col-md-6">
       <h1>Hand-picked Home Decor</h1>
-      <div class="bgnd-light">
+      <div class="bgnd-light p-2 p-md-3">
         <div class="row">
           <div class="col-6">
             <img src="../../../assets/images/carousel-1.png" alt="">
-            <span class="mt-2 sub-head">Contemporary Decor | Up to 70% off</span>
+            <span class="">
+              <p class="mt-2 sub-head">Contemporary Decor | Up to 70% off</p>
+            </span>
           </div>
           <div class="col-6">
             <img src="../../../assets/images/carousel-3.png" alt="">
-            <span class="mt-2 sub-head">Decorations and Many more</span>
+            <span class="">
+              <p class="mt-2 sub-head">Decorations and Many more</p>
+            </span>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <img src="../../../assets/images/carousel-2.png" alt="">
-            <span class="mt-2 sub-head">Freshly Launched Precious Gifting</span>
+            <span class="">
+              <p class="mt-2 sub-head">Freshly Launched Precious Gifting</p>
+            </span>
           </div>
           <div class="col-6">
             <img src="../../../assets/images/carousel-1.png" alt="">
-            <span class="mt-2 sub-head">Simplify and Style your Home | Up to 60% off</span>
+            <span class="">
+              <p class="mt-2 sub-head">Simplify and Style your Home | Up to 60% off</p>
+            </span>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
       <h1>Home and Appliances</h1>
-      <div class="bgnd-light">
+      <div class="bgnd-light p-2 p-md-3">
         <div class="row">
           <div class="col-6">
             <img src="../../../assets/images/carousel-1.png" alt="">
-            <span class="mt-2 sub-head">Shopping for Dining room</span>
+            <span>
+              <p class="mt-2 sub-head">Shopping for Dining room</p>
+            </span>
           </div>
           <div class="col-6">
             <img src="../../../assets/images/carousel-2.png" alt="">
-            <span class="mt-2 sub-head">Top Picks for you</span>
+            <span>
+              <p class="mt-2 sub-head">Top Picks for you</p>
+            </span>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <img src="../../../assets/images/carousel-3.png" alt="">
-            <span class="mt-2 sub-head">Trending Deals</span>
+            <span>
+              <p class="mt-2 sub-head"> Trending Deals</p>
+            </span>
           </div>
           <div class="col-6">
             <img src="../../../assets/images/carousel-1.png" alt="">
-            <span class="mt-2 sub-head">Shop for Home & Kitchen Upgrade</span>
+            <span>
+              <p class="mt-2 sub-head">Shop for Home & Kitchen Upgrade</p>
+            </span>
           </div>
         </div>
       </div>
@@ -108,10 +124,27 @@
 
 <section class="container">
 
-  <div class="row">
-    <div class="col-6">
-      <h1>Special in Gifts & More</h1>
+  <div class="">
+    <h1>Special in Gifts & More</h1>
+    <div class="gift-container">
+      <ngb-carousel class="" [showNavigationIndicators]="false">
+        <ng-template ngbSlide *ngFor="let x of [1,2,3]; let i = index;">
+          <div class="special-gift row">
+            <div class="col-4">
+              <div class="card"></div>
+            </div>
+            <div class="col-4">
+              <div class="card"></div>
+            </div>
+            <div class="col-4">
+              <div class="card"></div>
+            </div>
+            <!-- <img src="assets/images/carousel-{{x}}.png" alt="Carousel {{i}} Image" /> -->
+          </div>
+        </ng-template>
+      </ngb-carousel>
     </div>
   </div>
+  <!-- cheeni bhi daalo thodi si gud hi use krna  -->
 
 </section>
