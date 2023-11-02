@@ -244,8 +244,8 @@ export class ProductsService {
     }
   }
 
-  async onUpdateDashboardData(productForm: FormGroup, type: string) {
-    const prdVals = productForm.value;
+  async onUpdateDashboardData(productForm:any, type: string) {
+    const prdVals = productForm;
     this.gateway.setLoading(true);
     try {
       const documentRef = doc(this.fireStore, 'dashboard', 'cards');

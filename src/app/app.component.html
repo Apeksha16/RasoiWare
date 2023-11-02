@@ -2,17 +2,22 @@
   <app-loader></app-loader>
 </div>
 <ng-container *ngIf="checkIsLogin; else loginTemplate">
-  <mat-toolbar [ngStyle]="{'background-color':'#4285F4','color':'#fff'}" fxGap="1">
-    <button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>RasoiWare</span>
-    <button mat-icon-button>
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button (click)="logout()">
-      <mat-icon>share</mat-icon>
-    </button>
+  <mat-toolbar [ngStyle]="{'background-color':'#4285F4','color':'#fff'}" fxAlign="space-between center">
+    <div class="center" fxAlign="center center" fxGap="1">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>RasoiWare</span>
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>share</mat-icon>
+      </button>
+    </div>
+    <div>
+      <span>v 0.0.1</span>
+    </div>
   </mat-toolbar>
   <mat-drawer-container fxHeight="100% - 64px" fxWidth="100%" autosize>
     <mat-drawer #drawer mode="side" [opened]="true" [ngStyle]="{'background-color':'#f3f3f3'}">
