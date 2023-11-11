@@ -1,28 +1,21 @@
-<div layout="m-10" fxLayout="row" fxHeight="100% - 20px" fxWidth="100% - 20px" fxAlign="space-between start">
-
-  <div class="left" fxHeight="100%" fxLayout="column" fxGap="10">
-    <h3 layout="m-l-30">Dashboard</h3>
-    <div class="grph" fxHeight="300px" fxWidth="400px">
-    </div>
-  </div>
-
-  <div class="rght" layout="p-10" fxWrap="wrap" fxGap="2">
-    <div class="card" *ngFor="let card of dashboardCards; let i =index;" fxWidth="249px">
-      <mat-card>
-        <div layout="p-8" fxLayout="row" fxAlign="start start">
-          <span class="icon-act-prd" [ngStyle]="{'background-color': '#'+card.iconColor+'40'}" fxWidth="40px"
-            fxAlign="center center">
-            <mat-icon [ngStyle]="{'color': '#'+card.iconColor}">{{card.icon}}</mat-icon>
-          </span>
-          <div layout="m-l-10" fxHeight="120px" fxWidth="160px" fxLayout="column" fxAlign="space-between end">
-            <h4 class="crd-titl">{{card.heading}}</h4>
-            <span class="txt-cnt">{{card.value}}</span>
-            <!-- <button mat-button (click)="onClick()">Click</button> -->
-          </div>
+<div>
+  <h1 layout="m-l-30 m-t-20">Dashboard</h1>
+</div>
+<div layout="m-10" fxLayout="row" fxWidth="100% - 20px" fxAlign="space-evenly start">
+  <div class="card" *ngFor="let card of dashboardCards; let i =index;" fxWidth="249px">
+    <mat-card>
+      <div layout="p-8" fxLayout="row" fxAlign="start start">
+        <span class="icon-act-prd" [ngStyle]="{'background-color': '#'+card.iconColor+'30'}" fxWidth="40px"
+          fxAlign="center center">
+          <mat-icon [ngStyle]="{'color': '#'+card.iconColor}">{{card.icon}}</mat-icon>
+        </span>
+        <div layout="m-l-10" fxHeight="120px" fxWidth="160px" fxLayout="column" fxAlign="space-between end">
+          <h4 class="crd-titl">{{card.heading}}</h4>
+          <span class="txt-cnt">{{card.value}}</span>
         </div>
-        <div>
-        </div>
-      </mat-card>
-    </div>
+      </div>
+      <div>
+      </div>
+    </mat-card>
   </div>
 </div>

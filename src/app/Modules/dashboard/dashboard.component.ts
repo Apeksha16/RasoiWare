@@ -9,6 +9,7 @@ import {
   collection,
 } from 'firebase/firestore';
 import { DashboardService } from './dashboard.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,8 +21,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private dashService: DashboardService
-  ) {}
+    private dashService: DashboardService,
+    private title:Title
+  ) {
+    this.title.setTitle('Rasoiware | Dashboard');
+  }
 
   ngOnInit() {
     this.dashboardCards = [

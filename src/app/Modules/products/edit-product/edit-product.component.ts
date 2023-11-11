@@ -15,6 +15,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { A, COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable, map, startWith } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
@@ -48,8 +49,10 @@ export class EditProductComponent implements OnDestroy, OnInit {
     private fb: FormBuilder,
     private prodService: ProductsService,
     private loading: GatewayService,
-    private utilService: UtilityService
+    private utilService: UtilityService,
+    private title:Title
   ) {
+    this.title.setTitle('Rasoiware | Add Product');
     this.productForm = fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
@@ -204,8 +207,8 @@ export class EditProductComponent implements OnDestroy, OnInit {
   onAddImages(event: any): void {
     const files: any[] = Array.from(event.files).slice(0, 10);
     const allowedTypes = ['image/jpeg', 'image/png'];
-    const maxSizeInBytes = 300 * 1024; // 300KB
-    this.productImagesOnLocal = [];
+    const maxSizeInBytes = 600 * 1024; // 600KB
+    // this.productImagesOnLocal = [];
     for (let i = 0; i < files.length; i++) {
       if (
         allowedTypes.includes(files[i].type) &&

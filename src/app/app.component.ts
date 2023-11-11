@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  title = 'DummyProject';
+  title = 'Rasoiware';
   checkIsLogin: any = false;
   loading: Observable<boolean> = this.gatewayService.loading$;
 

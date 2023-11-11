@@ -13,6 +13,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { A, COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable, map, startWith } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-product',
@@ -48,11 +49,12 @@ export class AddProductComponent {
     private router: Router,
     private elementRef: ElementRef,
     private loading: GatewayService,
-    private utils: UtilityService
+    private utils: UtilityService,
+    private title:Title
   ) {
+    this.title.setTitle('Rasoiware | Add Product');
     this.fetchAllCategory();
     this.fetchAllBrands();
-
     this.productForm = fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
@@ -124,8 +126,8 @@ export class AddProductComponent {
   onFileChange(event: any): void {
     const files: any[] = Array.from(event.files).slice(0, 10);
     const allowedTypes = ['image/jpeg', 'image/png'];
-    const maxSizeInBytes = 300 * 1024; // 300KB
-    this.productImages = [];
+    const maxSizeInBytes = 600 * 1024; // 600KB
+    // this.productImages = [];
     for (let i = 0; i < files.length; i++) {
       if (
         allowedTypes.includes(files[i].type) &&
@@ -215,13 +217,8 @@ export class AddProductComponent {
         message: 'Please enter valid Product Name.',
       };
     } else {
-      const timeStamp = Date.now().toString().padStart(12, '0').slice(0, 12);
-      const prdName = this.productForm
-        .get('name')
-        ?.value.replace(/\s/g, '')
-        .padEnd(8, 'X')
-        .slice(0, 8)
-        .toUpperCase();
+      const timeStamp = Date.now().toString().slice(-12);
+      const prdName = (this.productForm.get('name')?.value || '').replace(/[^\w\s]/gi, '').replace(/\s/g, '').padEnd(8, 'X').slice(0, 8).toUpperCase();
       return {
         status: true,
         message: prdName + timeStamp,

@@ -89,6 +89,12 @@ export class FlexDirective implements OnInit {
         'justify-content',
         'space-between'
       );
+    } else if (horizontalAlign === 'space-evenly') {
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'justify-content',
+        'space-evenly'
+      );
     } else if (horizontalAlign === 'around') {
       this.renderer.setStyle(
         this.elementRef.nativeElement,
