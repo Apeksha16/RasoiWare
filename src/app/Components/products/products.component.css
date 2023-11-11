@@ -41,9 +41,10 @@ p {
 .sub-head {
   font-size: 12px;
   cursor: pointer;
+  display: flex;
 }
 
-.sub-head:hover {
+.sub-head :hover {
   color: #3a86ff;
   text-decoration: underline;
 }
